@@ -3,9 +3,11 @@ from pathlib import Path
 
 class Lipidmetabolism():
 
+    def __init__(self, db_path:Path):
+        self.path:Path = db_path
+
     def rsid_lookup(self, rsid:str):
-        path: Path = Path("data", "lipid_metabolism.sqlite")
-        with sqlite3.connect(path) as conn:
+        with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
             query:str = f"SELECT rsid, gene, rsid_conclusion, population, p_value FROM rsids WHERE rsid = '{rsid}'"
             cursor.execute(query)

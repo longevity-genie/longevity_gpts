@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from lipidmetabolism import Lipidmetabolism
+from pathlib import Path
 
-modules = [Lipidmetabolism()]
+modules = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite"))]
 
 app = FastAPI(title="Lomgevitymap REST",
     version="0.1",
