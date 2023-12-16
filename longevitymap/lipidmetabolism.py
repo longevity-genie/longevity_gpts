@@ -25,7 +25,7 @@ class Lipidmetabolism():
             cursor.execute(query)
             rows = cursor.fetchall()
             result += "lipid metabolism studies:\n"
-            result += "descriptions; pvalue\n"
+            result += "description; pvalue\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
                 result += "; ".join(row)+"\n"

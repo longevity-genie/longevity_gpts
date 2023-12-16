@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from lipidmetabolism import Lipidmetabolism
 from pathlib import Path
+from longevitymap import Longevitymap
 
-modules = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite"))]
+modules = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")), Longevitymap(Path("data", "longevitymap.sqlite"))]
 
 app = FastAPI(title="Lomgevitymap REST",
     version="0.1",
@@ -36,10 +37,6 @@ def custom_openapi():
     )
 
     openapi_schema["servers"] = [{"url": "https://longevitymap.agingkills.eu"}, {"url": "http://localhost:8084"}]
-    # openapi_schema["externalDocs"] = ExternalDocumentation(
-    #     description="Privacy Policy",
-    #     url="https://agingkills.eu/privacy-policy"
-    # ).dict()
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 
