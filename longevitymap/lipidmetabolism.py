@@ -1,12 +1,15 @@
 import sqlite3
 from pathlib import Path
 
-class Lipidmetabolism():
+from module_intefrace import ModuleInterface
+
+
+class Lipidmetabolism(ModuleInterface):
 
     def __init__(self, db_path:Path):
         self.path:Path = db_path
 
-    def rsid_lookup(self, rsid:str):
+    def rsid_lookup(self, rsid:str) -> str:
         with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
             query:str = f"SELECT rsid, gene, rsid_conclusion, population, p_value FROM rsids WHERE rsid = '{rsid}'"
@@ -14,7 +17,7 @@ class Lipidmetabolism():
             row = cursor.fetchone()
 
             if row is None:
-                return "No results found."
+                return "lipid metabolism: No results found."
 
             result: str = "lipid metabolism:\n"
             result += "rsid; gene; conclusion; population; pvalue\n"
@@ -45,7 +48,11 @@ class Lipidmetabolism():
 
         return result
 
-# print(Lipidmetabolism().rsid_lookup("rs328"))
+
+    def gene_lookup(self, gene: str) -> str:
+        return ""
+
+
 
 
 

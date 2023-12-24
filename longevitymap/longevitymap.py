@@ -1,12 +1,15 @@
 import sqlite3
 from pathlib import Path
 
-class Longevitymap():
+from module_intefrace import ModuleInterface
+
+
+class Longevitymap(ModuleInterface):
 
     def __init__(self, db_path:Path):
         self.path:Path = db_path
 
-    def rsid_lookup(self, rsid:str):
+    def rsid_lookup(self, rsid:str) -> str:
         with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
             query:str = f"SELECT identifier, study_design, conclusions, association, population.name as population, gene_id " \
@@ -15,7 +18,7 @@ class Longevitymap():
             rows = cursor.fetchall()
 
             if rows is None or len(rows) == 0:
-                return "No results found."
+                return "longevity map: No results found."
 
             gene_ids = set([r[5] for r in rows])
 
@@ -51,7 +54,10 @@ class Longevitymap():
 
         return result
 
-# print(Longevitymap(Path("data", "longevitymap.sqlite")).rsid_lookup("rs7412"))
+
+    def gene_lookup(self, gene: str) -> str:
+        return ""
+
 
 
 

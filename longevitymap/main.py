@@ -3,12 +3,18 @@ from fastapi.openapi.utils import get_openapi
 from lipidmetabolism import Lipidmetabolism
 from pathlib import Path
 from longevitymap import Longevitymap
+from coronary import Coronary
+from thrombophilia import Thrombophilia
+from module_intefrace import ModuleInterface
 
-modules = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")), Longevitymap(Path("data", "longevitymap.sqlite"))]
+modules:list[ModuleInterface] = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")),
+           Longevitymap(Path("data", "longevitymap.sqlite")),
+           Coronary(Path("data", "coronary.sqlite")),
+           Thrombophilia(Path("data", "thrombophilia.sqlite"))]
 
-app = FastAPI(title="Lomgevitymap REST",
+app = FastAPI(title="Longevitymap REST",
     version="0.1",
-    description="API server to handle queries to lomgevitymap REST.",
+    description="API server to handle queries to longevitymap REST.",
     debug=True)
 
 
@@ -22,6 +28,14 @@ def rsid_lookup(rsid:str):
     result = ""
     for module in modules:
         result += module.rsid_lookup(rsid)+"\n"
+    return result
+
+
+@app.get("/gene_lookup/{gene}")
+def gene_lookup(gene:str):
+    result = ""
+    for module in modules:
+        result += module.gene_lookup(gene)+"\n"
     return result
 
 
