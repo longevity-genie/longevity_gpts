@@ -64,7 +64,51 @@ class Thrombophilia(ModuleInterface):
 
 
     def gene_lookup(self, gene: str) -> str:
-        return ""
+        with sqlite3.connect(self.path) as conn:
+            cursor = conn.cursor()
+            query: str = f"SELECT rsid, gene, rsid_conclusion, population FROM rsids WHERE gene = '{gene}'"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+
+            if rows is None or len(rows) == 0:
+                return "thrombophilia: No results found."
+
+            rsids = set([row[0] for row in rows])
+
+            result: str = "thrombophilia:\n"
+            result += "rsid; gene; conclusion; population\n"
+            for row in rows:
+                row = [str(i).replace(";", ",") for i in row]
+                result += "; ".join(row) + "\n"
+            result += "\n"
+
+            pmids: set = set()
+            result += "thrombophilia weights:\n"
+            result += "PMID with p-pvalue; genotype; weight; genotype_specific_conclusion\n"
+            for rsid in rsids:
+                query = f"SELECT p_value, genotype, weight, genotype_specific_conclusion FROM weight WHERE rsid = '{rsid}'"
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                for row in rows:
+                    pmids = pmids.union(self.parse_PMID(row[0]))
+                    row = [str(i).replace(";", ",") for i in row]
+                    result += "; ".join(row) + "\n"
+            result += "\n"
+
+            text_pmids = ", ".join(pmids)
+            query = f"SELECT pubmed_id, populations, p_value FROM studies WHERE pubmed_id IN ({text_pmids}) "
+            cursor.execute(query)
+            rows = cursor.fetchall()
+            result += "thrombophilia studies:\n"
+            result += "PMID; description; pvalue\n"
+            for row in rows:
+                row = [str(i).replace(";", ",") for i in row]
+                result += "; ".join(row) + "\n"
+            result += "\n"
+            cursor.close()
+
+        return result
+
 
 
 

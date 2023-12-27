@@ -50,7 +50,48 @@ class Lipidmetabolism(ModuleInterface):
 
 
     def gene_lookup(self, gene: str) -> str:
-        return ""
+        with sqlite3.connect(self.path) as conn:
+            cursor = conn.cursor()
+            query: str = f"SELECT rsid, gene, rsid_conclusion, population, p_value FROM rsids WHERE gene = '{gene}'"
+            cursor.execute(query)
+            rows = cursor.fetchall()
+
+            if rows is None or len(rows) == 0:
+                return "lipid metabolism: No results found."
+
+            result: str = "lipid metabolism:\n"
+            result += "rsid; gene; conclusion; population; pvalue\n"
+            for row in rows:
+                row = [str(i).replace(";", ",") for i in row]
+                result += "; ".join(row) + "\n"
+            result += "\n"
+
+            rsids = set([row[0] for row in rows])
+
+            result += "lipid metabolism studies:\n"
+            result += "rsid; description; pvalue\n"
+            for rsid in rsids:
+                query = f"SELECT snp, populations, p_value FROM studies WHERE snp = '{rsid}'"
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                for row in rows:
+                    row = [str(i).replace(";", ",") for i in row]
+                    result += "; ".join(row) + "\n"
+            result += "\n"
+
+            result += "lipid metabolism weights:\n"
+            result += "rsid; genotype; weight; genotype_specific_conclusion\n"
+            for rsid in rsids:
+                query = f"SELECT rsid, genotype, weight, genotype_specific_conclusion FROM weight WHERE rsid = '{rsid}'"
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                for row in rows:
+                    row = [str(i).replace(";", ",") for i in row]
+                    result += "; ".join(row) + "\n"
+            result += "\n"
+            cursor.close()
+
+        return result
 
 
 
