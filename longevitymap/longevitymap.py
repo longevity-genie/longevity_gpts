@@ -70,7 +70,7 @@ class Longevitymap(ModuleInterface):
             rsids = set([r[0] for r in rows])
 
             result: str = "longevity map:\n"
-            result += "identifier; study design; conclusions; association; population\n"
+            result += "rsid; study design; conclusions; association; population\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row[:5]]
                 result += "; ".join(row) + "\n"
