@@ -6,11 +6,16 @@ from longevitymap import Longevitymap
 from coronary import Coronary
 from thrombophilia import Thrombophilia
 from module_intefrace import ModuleInterface
+from disgenet import DiseaseGenNet
+
+# disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
+diseaseGenNet = DiseaseGenNet(Path("data", "disgenet_2020.sqlite"))
 
 modules:list[ModuleInterface] = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")),
            Longevitymap(Path("data", "longevitymap.sqlite")),
            Coronary(Path("data", "coronary.sqlite")),
-           Thrombophilia(Path("data", "thrombophilia.sqlite"))]
+           Thrombophilia(Path("data", "thrombophilia.sqlite")),
+           diseaseGenNet]
 
 app = FastAPI(title="Longevitymap REST",
     version="0.1",
