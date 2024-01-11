@@ -43,6 +43,12 @@ def gene_lookup(gene:str):
         result += module.gene_lookup(gene)+"\n"
     return result
 
+@app.get("/pathway_lookup/{pathway}")
+def pathway_lookup(pathway:str):
+    result = ""
+    for module in modules:
+        result += module.pathway_lookup(pathway)+"\n"
+    return result
 
 def custom_openapi():
     if app.openapi_schema:
