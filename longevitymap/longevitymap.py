@@ -115,6 +115,7 @@ class Longevitymap(ModuleInterface):
             if rows is None or len(rows) == 0:
                 return "pathway: No results found."
 
+            result = ""
             result += "name; description; recommendation\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]

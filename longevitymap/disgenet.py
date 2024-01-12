@@ -54,3 +54,35 @@ class DiseaseGenNet(ModuleInterface):
             text += "\n"
 
             return text
+
+
+    def disease_lookup(self, disease: str) -> str:
+        if not self.path.exists():
+            return ""
+        with sqlite3.connect(self.path) as conn:
+            cursor = conn.cursor()
+            query: str = f"SELECT genat.geneName, varat.variantId, varat.most_severe_consequence " \
+                        f"FROM variantDiseaseNetwork as vardis, variantAttributes as varat, " \
+                        f"diseaseAttributes as disat, variantGene as vargen, geneAttributes as genat " \
+                        f"WHERE disat.diseaseName = '{disease}' AND " \
+                        f"disat.diseaseNID = vardis.diseaseNID AND vardis.variantNID = varat.variantNID AND " \
+                        f"vargen.variantNID = vardis.variantNID AND genat.geneNID = vargen.geneNID " \
+                        f"ORDER BY genat.geneNID "
+            cursor.execute(query)
+            rows = cursor.fetchall()
+
+            if rows is None or len(rows) == 0:
+                return ""
+
+            text = f"Variants associate with disease '{disease}' grouped by gene:\n"
+            gene = ""
+            for row in rows:
+                if gene != row[0]:
+                    text += row[0]+":\n"
+                    gene = row[0]
+                text += "  " + row[1] + ", " + row[2] + "\n"
+            text += "\n"
+
+            return text
+
+# TODO: Add disease group info to all requests

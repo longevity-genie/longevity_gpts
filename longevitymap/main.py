@@ -11,8 +11,10 @@ from disgenet import DiseaseGenNet
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
 diseaseGenNet = DiseaseGenNet(Path("data", "disgenet_2020.sqlite"))
 
+longevitymap = Longevitymap(Path("data", "longevitymap.sqlite"))
+
 modules:list[ModuleInterface] = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")),
-           Longevitymap(Path("data", "longevitymap.sqlite")),
+           longevitymap,
            Coronary(Path("data", "coronary.sqlite")),
            Thrombophilia(Path("data", "thrombophilia.sqlite")),
            diseaseGenNet]
@@ -43,12 +45,11 @@ def gene_lookup(gene:str):
         result += module.gene_lookup(gene)+"\n"
     return result
 
+
 @app.get("/pathway_lookup/{pathway}")
 def pathway_lookup(pathway:str):
-    result = ""
-    for module in modules:
-        result += module.pathway_lookup(pathway)+"\n"
-    return result
+    return longevitymap.pathway_lookup(pathway)
+
 
 def custom_openapi():
     if app.openapi_schema:
