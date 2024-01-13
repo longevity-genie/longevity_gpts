@@ -9,27 +9,49 @@ class DiseaseGenNet(ModuleInterface):
     def __init__(self, db_path:Path):
         self.path:Path = db_path
 
+    def _agragate_last_field(self, rows):
+        current = list(rows[0])
+        res:list = []
+        for row in rows[1:]:
+            row = list(row)
+            if current[:-1] != row[:-1]:
+                res.append(current)
+                current = row
+            else:
+                current[-1] += ", " + str(row[-1]).strip()
+
+        res.append(current)
+
+        return res
+
+
     def rsid_lookup(self, rsid:str) -> str:
         if not self.path.exists():
             return ""
         with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
-            query:str = f"SELECT varat.most_severe_consequence, vardis.sentence, disat.diseaseName, disat.type " \
-                        f"FROM variantAttributes as varat, variantDiseaseNetwork as vardis, diseaseAttributes as disat " \
-                        f"WHERE variantId = '{rsid}' AND varat.variantNID = vardis.variantNID AND vardis.diseaseNID = disat.diseaseNID"
+            query:str = f"SELECT vdnet.pmid, varat.most_severe_consequence, vdnet.sentence, disat.diseaseName, disat.type, dclass.diseaseClassName " \
+                        f"FROM variantAttributes AS varat " \
+                        f"JOIN variantDiseaseNetwork AS vdnet ON varat.variantNID = vdnet.variantNID " \
+                        f"JOIN diseaseAttributes AS disat ON vdnet.diseaseNID = disat.diseaseNID " \
+                        f"LEFT JOIN disease2class AS d2c ON disat.diseaseNID = d2c.diseaseNID " \
+                        f"LEFT JOIN diseaseClass AS dclass ON d2c.diseaseClassNID = dclass.diseaseClassNID " \
+                        f"WHERE varat.variantId = '{rsid}' ORDER BY disat.diseaseName"
             cursor.execute(query)
             rows = cursor.fetchall()
             if rows is None or len(rows) == 0:
                 return ""
 
             text = f"Diseases asociate with {rsid}:\n"
-            text += "most severe consequence; description; disease name; type\n"
+            text += "Pub Med ID; most severe consequence; description; disease name; type; disease class\n"
+
+            rows = self._agragate_last_field(rows)
+
             for row in rows:
-                text += "; ".join(row)+"\n"
+                text += "; ".join([str(i) for i in row])+"\n"
             text += "\n"
 
             return text
-
 
 
     def gene_lookup(self, gene: str) -> str:
@@ -37,9 +59,13 @@ class DiseaseGenNet(ModuleInterface):
             return ""
         with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
-            query: str = f"SELECT gendis.sentence, disat.diseaseName, disat.type " \
-                         f"FROM geneAttributes as genat, geneDiseaseNetwork as gendis, diseaseAttributes as disat " \
-                         f"WHERE geneName = '{gene}' AND genat.geneNID = gendis.geneNID AND gendis.diseaseNID = disat.diseaseNID"
+            query: str = f"SELECT gendis.pmid, gendis.sentence, disat.diseaseName, disat.type, dclass.diseaseClassName " \
+                        f"FROM geneAttributes AS genat " \
+                        f"JOIN geneDiseaseNetwork AS gendis ON genat.geneNID = gendis.geneNID " \
+                        f"JOIN diseaseAttributes AS disat ON gendis.diseaseNID = disat.diseaseNID " \
+                        f"LEFT JOIN disease2class AS d2c ON disat.diseaseNID = d2c.diseaseNID " \
+                        f"LEFT JOIN diseaseClass AS dclass ON d2c.diseaseClassNID = dclass.diseaseClassNID " \
+                        f"WHERE genat.geneName = '{gene}' ORDER BY disat.diseaseName"
             cursor.execute(query)
             rows = cursor.fetchall()
 
@@ -47,10 +73,12 @@ class DiseaseGenNet(ModuleInterface):
                 return ""
 
             text = f"Diseases asociate with {gene}:\n"
-            text += "description; disease name; type\n"
+            text += "Pub Med ID; description; disease name; type; disease class\n"
+
+            rows = self._agragate_last_field(rows)
 
             for row in rows:
-                text += "; ".join(row)+"\n"
+                text += "; ".join([str(i) for i in row])+"\n"
             text += "\n"
 
             return text
@@ -84,5 +112,3 @@ class DiseaseGenNet(ModuleInterface):
             text += "\n"
 
             return text
-
-# TODO: Add disease group info to all requests
