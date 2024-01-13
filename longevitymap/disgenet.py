@@ -11,12 +11,14 @@ class DiseaseGenNet(ModuleInterface):
 
     def _agragate_last_field(self, rows):
         current = list(rows[0])
+        current[-1] = str(current[-1])
         res:list = []
         for row in rows[1:]:
             row = list(row)
             if current[:-1] != row[:-1]:
                 res.append(current)
                 current = row
+                current[-1] = str(current[-1])
             else:
                 current[-1] += ", " + str(row[-1]).strip()
 
@@ -112,3 +114,6 @@ class DiseaseGenNet(ModuleInterface):
             text += "\n"
 
             return text
+
+
+print(DiseaseGenNet(Path("data", "disgenet_2020.sqlite")).gene_lookup("APOE"))
