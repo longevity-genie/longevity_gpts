@@ -114,6 +114,3 @@ class DiseaseGenNet(ModuleInterface):
             text += "\n"
 
             return text
-
-
-print(DiseaseGenNet(Path("data", "disgenet_2020.sqlite")).gene_lookup("APOE"))
