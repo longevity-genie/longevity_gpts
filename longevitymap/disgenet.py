@@ -49,6 +49,9 @@ class DiseaseGenNet(ModuleInterface):
 
             rows = self._agragate_last_field(rows)
 
+            if len(rows) > 1000:
+                rows = rows[:1000]
+
             for row in rows:
                 text += "; ".join([str(i) for i in row])+"\n"
             text += "\n"
@@ -79,6 +82,9 @@ class DiseaseGenNet(ModuleInterface):
 
             rows = self._agragate_last_field(rows)
 
+            if len(rows) > 1000:
+                rows = rows[:1000]
+
             for row in rows:
                 text += "; ".join([str(i) for i in row])+"\n"
             text += "\n"
@@ -103,6 +109,9 @@ class DiseaseGenNet(ModuleInterface):
 
             if rows is None or len(rows) == 0:
                 return ""
+
+            if len(rows) > 1000:
+                rows = rows[:1000]
 
             text = f"Variants associate with disease '{disease}' grouped by gene:\n"
             gene = ""
