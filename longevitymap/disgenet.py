@@ -1,5 +1,7 @@
 import sqlite3
 from pathlib import Path
+import polars as pl
+from thefuzz import fuzz
 
 from module_intefrace import ModuleInterface
 
@@ -25,6 +27,20 @@ class DiseaseGenNet(ModuleInterface):
         res.append(current)
 
         return res
+
+
+    def _get_similar_names(self, name):
+        name = " " + name.strip() + " "
+
+        def levenshtein_dist(struct: dict) -> int:
+            return fuzz.partial_ratio(struct["name"], name)
+
+        frame = pl.read_csv("disease_names.csv")
+        frame = frame.select(
+            [pl.struct(["name"]).apply(levenshtein_dist).alias("dist"), "name"])
+        frame = frame.sort(by="dist", descending=True).select(["name"])
+        names = frame.head(10).get_column("name").to_list()
+        return "\n".join(names)
 
 
     def rsid_lookup(self, rsid:str) -> str:
@@ -108,7 +124,10 @@ class DiseaseGenNet(ModuleInterface):
             rows = cursor.fetchall()
 
             if rows is None or len(rows) == 0:
-                return ""
+                disease_names = self._get_similar_names(disease)
+                return f"There are no such disease ({disease}) in database. " \
+                       f"The database is case-sensitive, make sure you use strictly the same name as in the database. " \
+                       f"Please use folowing disease names if they apply:\n{disease_names}"
 
             if len(rows) > 100:
                 rows = rows[:100]
