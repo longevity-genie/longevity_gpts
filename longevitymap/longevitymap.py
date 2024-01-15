@@ -44,8 +44,16 @@ class Longevitymap(ModuleInterface):
                     f"WHERE categories.id = category_id AND rsid = '{rsid}'"
             cursor.execute(query)
             rows = cursor.fetchall()
-            result += "longevity map weights:\n"
-            result += "rsid; allele; state; zygosity; weight; category_description; cetagory_recommendation; category\n"
+
+            query = f"SELECT categories.description, categories.recommendation, categories.name as category FROM allele_weights, categories " \
+                    f"WHERE categories.id = category_id AND rsid = '{rsid}'"
+            cursor.execute(query)
+            category = cursor.fetchall()
+            for item in category[0]:
+                item = [str(i).replace(";", ",") for i in item]
+
+            result += f"longevity map weights:\n rdID's pathway description: {category[0]}\n"
+            result += "rsid; allele; state; zygosity; weight; category_description; category_recommendation; category\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
                 result += "; ".join(row) + "\n"
@@ -122,11 +130,14 @@ class Longevitymap(ModuleInterface):
                 result += "; ".join(row)+"\n"
             result += "\n"
 
-            query: str = f"SELECT rsid, allele, state, zygosity, weight, priority " \
-                         f"FROM allele_weights WHERE category_id IN (SELECT id FROM categories WHERE name = '{pathway}')"
+            query: str = f"SELECT rsid, allele, state, zygosity, weight, priority, gene.symbol " \
+                         f"FROM allele_weights " \
+                         f"JOIN variant ON allele_weights.rsid = variant.identifier " \
+                         f"JOIN gene ON variant.gene_id = gene.id " \
+                         f"WHERE allele_weights.category_id IN (SELECT id FROM categories WHERE name = '{pathway}');"
+
             cursor.execute(query)
             rows = cursor.fetchall()
-
             rsids = set([r[0] for r in rows])
 
             positive_rsid = 0
