@@ -45,17 +45,14 @@ class Longevitymap(ModuleInterface):
             cursor.execute(query)
             rows = cursor.fetchall()
 
-            query = f"SELECT categories.description, categories.recommendation, categories.name as category FROM allele_weights, categories " \
-                    f"WHERE categories.id = category_id AND rsid = '{rsid}'"
-            cursor.execute(query)
-            category = cursor.fetchall()
-            for item in category[0]:
+            category = rows[0][5:]
+            for item in category:
                 item = [str(i).replace(";", ",") for i in item]
 
-            result += f"longevity map weights:\n rdID's pathway description: {category[0]}\n"
-            result += "rsid; allele; state; zygosity; weight; category_description; category_recommendation; category\n"
+            result += f"rdID's pathway is {category[2]}, its description: {category[:-1]}\n longevity map weights:\n"
+            result += "rsid; allele; state; zygosity; weight\n"
             for row in rows:
-                row = [str(i).replace(";", ",") for i in row]
+                row = [str(i).replace(";", ",") for i in row[:-3]]
                 result += "; ".join(row) + "\n"
             result += "\n"
             cursor.close()
