@@ -16,4 +16,10 @@ python index.py
 ```
 You should fill in .env file to parametrize your host, port and other configuration
 
+## Installing packages locally
+
+```
+pip install -e .
+```
+
 
