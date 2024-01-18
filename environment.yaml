@@ -14,3 +14,6 @@ dependencies:
     - hybrid_search>=0.0.7 #for Future hybrid search API
     - psutil #compartibility
     - pydantic==1.10.12 #compartibility
+    - loguru
+    - torch
+    - httpx
