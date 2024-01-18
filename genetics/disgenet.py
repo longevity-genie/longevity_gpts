@@ -3,7 +3,7 @@ from pathlib import Path
 import polars as pl
 from thefuzz import fuzz
 
-from module_intefrace import ModuleInterface
+from genetics.module_intefrace import ModuleInterface
 
 
 class DiseaseGenNet(ModuleInterface):

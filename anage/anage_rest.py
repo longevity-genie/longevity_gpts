@@ -1,20 +1,12 @@
-from pathlib import Path
-
-from fastapi import FastAPI
-from typing import Union
-import thefuzz.fuzz as fuzz
 import polars as pl
-from fastapi.openapi.models import ExternalDocumentation
-from fastapi.openapi.utils import get_openapi
+import thefuzz.fuzz as fuzz
+from fastapi import APIRouter
 from polars import DataFrame
 
-app = FastAPI(title="Anage rest",
-    version="0.1",
-    description="API server to handle queries to restful_anage",
-    debug=True)
+an_age_router = APIRouter() #FastAPI(title="Anage rest", version="0.1", description="API server to handle queries to restful_anage", debug=True)
 
 
-@app.get("/")
+@an_age_router.get("/")
 def read_root():
     return {
     "Avalible commands:":[
@@ -50,7 +42,7 @@ def get_column(col_name):
     return arry[0][1]
 
 
-@app.get("/animal_information/{column}/{animal}", description="""You should use this tool for getting information about animals.""")
+@an_age_router.get("/animal_information/{column}/{animal}", description="""You should use this tool for getting information about animals.""")
 def animal_information(column: str, animal: str):
     column_name = get_column(column.strip())
     animal_name = " " + animal.strip() + " "
@@ -69,7 +61,7 @@ def animal_information(column: str, animal: str):
     return write_data(frame)
 
 
-@app.get("/animals_min_max_information/{column}/{operation}", description="""You should use this tool for getting minimum and maximum value of animal features among all the animals.""")
+@an_age_router.get("/animals_min_max_information/{column}/{operation}", description="""You should use this tool for getting minimum and maximum value of animal features among all the animals.""")
 def animals_min_max_information(column: str, operation: str):
     column_name = get_column(column.strip())
     operation = operation.strip()
@@ -87,34 +79,3 @@ def animals_min_max_information(column: str, operation: str):
 
     raise ValueError(
         f"Error wrong operation ({operation}) specified in input to animal_min_max_avg_information() tool.")
-
-def custom_openapi():
-    if app.openapi_schema:
-        return app.openapi_schema
-    openapi_schema = get_openapi(
-        title="Longevity Genie and restful_anage REST API",
-        version="0.1",
-        description="",
-        terms_of_service="https://agingkills.eu/terms/",
-        routes=app.routes,
-    )
-
-    openapi_schema["servers"] = [{"url": "https://anage.agingkills.eu"}, {"url": "http://localhost:8083"}]
-    # openapi_schema["externalDocs"] = ExternalDocumentation(
-    #     description="Privacy Policy",
-    #     url="https://agingkills.eu/privacy-policy"
-    # ).dict()
-    app.openapi_schema = openapi_schema
-    return app.openapi_schema
-
-app.openapi = custom_openapi
-
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app,
-                host="0.0.0.0",
-                # host = "192.168.0.249",
-                port = 8083
-                )

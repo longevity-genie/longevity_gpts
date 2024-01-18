@@ -11,6 +11,9 @@ from hybrid_search.opensearch_hybrid_search import *
 from pycomfort.config import load_environment_keys
 from starlette.middleware.cors import CORSMiddleware
 
+import blood.routes
+import genetics.main
+import gpt.routes
 import literature.routes
 from core.routes import core_router
 
@@ -43,8 +46,11 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-app.include_router(core_router)
-app.include_router(literature.routes.literature_router)
+app.include_router(core_router) # basic stuff
+app.include_router(literature.routes.literature_router) # literature hybrid search API
+app.include_router(gpt.routes.gpt_router) # longevity GPT API
+app.include_router(blood.routes.bloody_router) # blood API
+app.include_router(genetics.main.genetics_router)
 
 hosts_str = os.getenv('HOSTS')
 port = int(os.getenv("PORT", 8000))
