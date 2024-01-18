@@ -16,4 +16,14 @@ python index.py
 ```
 You should fill in .env file to parametrize your host, port and other configuration
 
+## Installing packages locally
+
+If it complains on non-finding local packages do:
+
+```
+pip install -e .
+```
+
+It will also dynamically react to all your code updates in submodules.
+
 

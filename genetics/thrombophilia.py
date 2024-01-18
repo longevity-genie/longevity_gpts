@@ -1,7 +1,7 @@
 import sqlite3
 from pathlib import Path
 
-from module_intefrace import ModuleInterface
+from genetics.module_intefrace import ModuleInterface
 
 
 class Thrombophilia(ModuleInterface):

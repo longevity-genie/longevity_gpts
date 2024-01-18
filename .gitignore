@@ -158,5 +158,5 @@ dmypy.json
 
 data/output/test
 local_cache
-longevitymap/test.py
-longevitymap/data/_disgenet_2020.sqlite
+genetics/test.py
+genetics/data/_disgenet_2020.sqlite
