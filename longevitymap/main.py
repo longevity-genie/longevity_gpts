@@ -51,6 +51,11 @@ def pathway_lookup(pathway:str):
     return longevitymap.pathway_lookup(pathway)
 
 
+@app.get("/disease_lookup/{disease}")
+def pathway_lookup(disease:str):
+    return diseaseGenNet.disease_lookup(disease)
+
+
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
