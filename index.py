@@ -84,7 +84,7 @@ app.openapi = custom_openapi
 
 @app.get("/")
 def read_root():
-    return "This is REST API is for Longevity Genie, please use /docs subpath to see swagger documentation"
+    return {"message": "This is REST API is for Longevity Genie, please use /docs subpath to see swagger documentation"}
 
 
 @app.get("/version", description="return the version of the current restful_genie project", response_model=str)

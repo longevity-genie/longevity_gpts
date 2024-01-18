@@ -11,14 +11,14 @@ from genetics.module_intefrace import ModuleInterface
 from genetics.thrombophilia import Thrombophilia
 
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
-diseaseGenNet = DiseaseGenNet(Path("data", "disgenet_2020.sqlite"))
+diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"))
 
-longevitymap = Longevitymap(Path("data", "genetics.sqlite"))
+longevitymap = Longevitymap(Path("genetics","data", "longevitymap.sqlite"))
 
-modules: list[ModuleInterface] = [Lipidmetabolism(Path("data", "lipid_metabolism.sqlite")),
+modules: list[ModuleInterface] = [Lipidmetabolism(Path("genetics", "data", "lipid_metabolism.sqlite")),
            longevitymap,
-           Coronary(Path("data", "coronary.sqlite")),
-           Thrombophilia(Path("data", "thrombophilia.sqlite")),
+           Coronary(Path("genetics", "data", "coronary.sqlite")),
+           Thrombophilia(Path("genetics", "data", "thrombophilia.sqlite")),
            diseaseGenNet]
 
 genetics_router = APIRouter()
