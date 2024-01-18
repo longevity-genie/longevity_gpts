@@ -24,7 +24,7 @@ async def biologicalage_ocr(request_data: OCRRequest):
 
         return response.json()
 
-
+"""
 @bloody_router.get("/blood_age_15")
 async def blood_age_15(
         Platelet: float,
@@ -49,6 +49,31 @@ async def blood_age_15(
         cancer: int,
         arthritis: int
 ):
+"""
+
+@bloody_router.get("/blood_age_15")
+async def blood_age_15(
+    Platelet: float = 300.0,
+    Redcell: float = 13.0,
+    Mean_cell_volume: float = 80.0,
+    Lymphocyte: float = 30.0,
+    Monocyte: float = 8.0,
+    Red_blood_cell_count: float = 4.9,
+    Lymphocyte_number: float = 2.0,
+    Creatine_Phosphokinase: float = 300.0,
+    Potassium: float = 4.5,
+    Creatinine_refrigerated_serum: float = 0.75,
+    Blood_Urea_Nitrogen: float = 10.0,
+    Alanine_Aminotransferase_ALT: float = 20.5,
+    Alkaline_Phosphatase_ALP: float = 71.0,
+    Glycohemoglobin: float = 5.0,
+    Glucose: float = 100.0,
+    Lactate_Dehydrogenase: float = 200.0,
+    angina: int = 2,
+    gallstones: int = 2,
+    liver: int = 2,
+    cancer: int = 2,
+    arthritis: int = 2):
     query_params = {
         "Platelet": Platelet,
         "Redcell": Redcell,

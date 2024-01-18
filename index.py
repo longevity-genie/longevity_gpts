@@ -29,6 +29,7 @@ env_embed_model= os.getenv("EMBED_MODEL", "BAAI/bge-base-en-v1.5")
 
 device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
+
 app = FastAPI(
     # Initialize FastAPI cache with in-memory backend
     title="Restful longevity genie server",
@@ -80,6 +81,11 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
+
+@app.get("/")
+def read_root():
+    return "This is REST API is for Longevity Genie, please use /docs subpath to see swagger documentation"
+
 
 @app.get("/version", description="return the version of the current restful_genie project", response_model=str)
 async def version():
