@@ -11,6 +11,7 @@ from hybrid_search.opensearch_hybrid_search import *
 from pycomfort.config import load_environment_keys
 from starlette.middleware.cors import CORSMiddleware
 
+import literature.routes
 from core.routes import core_router
 
 load_environment_keys(usecwd=True)
@@ -32,7 +33,18 @@ app = FastAPI(
     description="API server to handle queries to restful_genie",
     debug=True
 )
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
+
 app.include_router(core_router)
+app.include_router(literature.routes.literature_router)
 
 hosts_str = os.getenv('HOSTS')
 port = int(os.getenv("PORT", 8000))
@@ -49,30 +61,23 @@ def custom_openapi():
         title="Longevity Genie and restful_genie REST API",
         version="0.0.13",
         description="This REST service provides means for semantic search in scientific literature and downloading papers",
-        terms_of_service=f"{main_host}{port_part}/terms/",
+        terms_of_service=f"{main_host}/terms/",
         routes=app.routes,
     )
     openapi_schema["servers"] = servers
     openapi_schema["externalDocs"] = ExternalDocumentation(
         description="Privacy Policy",
-        url=f"{main_host}{port_part}/privacy-policy"
+        url=f"{main_host}/privacy-policy"
     ).dict()
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
-    allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
-)
+
 app.openapi = custom_openapi
 
 @app.get("/version", description="return the version of the current restful_genie project", response_model=str)
 async def version():
-    return '0.0.13'
+    return '0.0.14'
 
 
 if __name__ == "__main__":

@@ -8,10 +8,7 @@ from pydantic import BaseModel
 
 class QueryPaper(BaseModel):
     text: Optional[str] = None
-    collection_name: str = "bge_base_en_v1.5_aging_5"
+    collections: list[str] = ["aging_papers_paragraphs_bge_base_en_v1.5", "aging_papers_paragraphs_specter2"]
     limit: int = 10
-
-    db: Optional[str] = None #for opensearch should be URL
-    #doi: Optional[str] = None
-    #with_vectors: bool = False
-    #with_payload: bool = True
+    db: Optional[str] = "https://agingkills.eu:9200"
+    verbose: bool = False
