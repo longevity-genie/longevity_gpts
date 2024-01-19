@@ -128,7 +128,7 @@ class DiseaseGenNet(ModuleInterface):
                 disease_names = self._get_similar_names(disease)
                 return f"There are no such disease ({disease}) in database. " \
                        f"The database is case-sensitive, make sure you use strictly the same name as in the database. " \
-                       f"Please use folowing disease names if they apply:\n{disease_names}"
+                       f"Please use following disease names if they apply:\n{disease_names}"
 
             if len(rows) > 100:
                 rows = rows[:100]
