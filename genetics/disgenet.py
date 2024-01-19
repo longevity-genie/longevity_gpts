@@ -8,8 +8,9 @@ from genetics.module_intefrace import ModuleInterface
 
 class DiseaseGenNet(ModuleInterface):
 
-    def __init__(self, db_path:Path):
+    def __init__(self, db_path:Path, disease_names_path:Path):
         self.path:Path = db_path
+        self.disease_names_path = disease_names_path
 
     def _agragate_last_field(self, rows):
         current = list(rows[0])
@@ -35,7 +36,7 @@ class DiseaseGenNet(ModuleInterface):
         def levenshtein_dist(struct: dict) -> int:
             return fuzz.partial_ratio(struct["name"], name)
 
-        frame = pl.read_csv("disease_names.csv")
+        frame = pl.read_csv(self.disease_names_path)
         frame = frame.select(
             [pl.struct(["name"]).apply(levenshtein_dist).alias("dist"), "name"])
         frame = frame.sort(by="dist", descending=True).select(["name"])

@@ -11,7 +11,7 @@ from genetics.module_intefrace import ModuleInterface
 from genetics.thrombophilia import Thrombophilia
 
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
-diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"))
+diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"), Path("genetics","data", "disease_names.csv"))
 
 longevitymap = Longevitymap(Path("genetics","data", "longevitymap.sqlite"))
 
