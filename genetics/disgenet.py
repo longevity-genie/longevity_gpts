@@ -139,7 +139,7 @@ class DiseaseGenNet(ModuleInterface):
                 if gene != row[0]:
                     text += row[0]+":\n"
                     gene = row[0]
-                text += "  " + row[1] + ", " + row[2] + "\n"
+                text += f"  <a href='https://pubmed.ncbi.nlm.nih.gov/{row[1]}'>" + row[1] + "</a>, " + row[2] + "\n"
             text += "\n"
 
             return text
