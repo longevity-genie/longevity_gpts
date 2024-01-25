@@ -2,6 +2,7 @@ import sqlite3
 from pathlib import Path
 
 from genetics.module_intefrace import ModuleInterface
+from genetics.links import link_rsID, link_gene, link_PubMed
 
 
 class Thrombophilia(ModuleInterface):
@@ -34,7 +35,7 @@ class Thrombophilia(ModuleInterface):
             result: str = "thrombophilia:\n"
             result += "rsid; gene; conclusion; population\n"
             row = [str(i).replace(";", ",") for i in row]
-            result += "; ".join(row)+"\n\n"
+            result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + "; ".join(row[2:])+"\n\n"
 
             query = f"SELECT p_value, genotype, weight, genotype_specific_conclusion FROM weight WHERE rsid = '{rsid}'"
             cursor.execute(query)
@@ -56,7 +57,7 @@ class Thrombophilia(ModuleInterface):
             result += "PMID; description; pvalue\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row)+"\n"
+                result += link_PubMed(row[0]) + "; " + "; ".join(row[1:])+"\n"
             result += "\n"
             cursor.close()
 
@@ -103,11 +104,13 @@ class Thrombophilia(ModuleInterface):
             result += "PMID; description; pvalue\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_PubMed(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
             cursor.close()
 
         return result
+
+# TODO: Pars pub med ids in "PMID with p-pvalue"
 
 
 

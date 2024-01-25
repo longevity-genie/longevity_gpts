@@ -1,5 +1,6 @@
 import sqlite3
 from pathlib import Path
+from genetics.links import link_rsID, link_gene
 
 from genetics.module_intefrace import ModuleInterface
 
@@ -25,7 +26,7 @@ class Coronary(ModuleInterface):
                         f" Population; GWAS study design; Pvalue\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0])+ "; " + link_gene(row[1]) + "; " + "; ".join(row[2:]) + "\n"
             result += "\n"
             cursor.close()
 
@@ -38,3 +39,5 @@ class Coronary(ModuleInterface):
 
     def gene_lookup(self, gene: str) -> str:
         return self._field_lookup("Gene", gene)
+
+# TODO: implement BubMed parsing

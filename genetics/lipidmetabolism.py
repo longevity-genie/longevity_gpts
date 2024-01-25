@@ -2,6 +2,7 @@ import sqlite3
 from pathlib import Path
 
 from genetics.module_intefrace import ModuleInterface
+from genetics.links import link_rsID, link_gene
 
 
 class Lipidmetabolism(ModuleInterface):
@@ -22,7 +23,7 @@ class Lipidmetabolism(ModuleInterface):
             result: str = "lipid metabolism:\n"
             result += "rsid; gene; conclusion; population; pvalue\n"
             row = [str(i).replace(";", ",") for i in row]
-            result += "; ".join(row)+"\n\n"
+            result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + "; ".join(row[2:])+"\n\n"
 
             query = f"SELECT populations, p_value FROM studies WHERE snp = '{rsid}'"
             cursor.execute(query)
@@ -63,7 +64,7 @@ class Lipidmetabolism(ModuleInterface):
             result += "rsid; gene; conclusion; population; pvalue\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + "; ".join(row[2:])+"\n"
             result += "\n"
 
             rsids = set([row[0] for row in rows])
@@ -76,7 +77,7 @@ class Lipidmetabolism(ModuleInterface):
                 rows = cursor.fetchall()
                 for row in rows:
                     row = [str(i).replace(";", ",") for i in row]
-                    result += "; ".join(row) + "\n"
+                    result += link_rsID(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
 
             result += "lipid metabolism weights:\n"
@@ -87,7 +88,7 @@ class Lipidmetabolism(ModuleInterface):
                 rows = cursor.fetchall()
                 for row in rows:
                     row = [str(i).replace(";", ",") for i in row]
-                    result += "; ".join(row) + "\n"
+                    result += link_rsID(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
             cursor.close()
 

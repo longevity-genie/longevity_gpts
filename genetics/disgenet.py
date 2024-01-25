@@ -2,6 +2,7 @@ import sqlite3
 from pathlib import Path
 import polars as pl
 from thefuzz import fuzz
+from genetics.links import link_rsID, link_gene, link_PubMed
 
 from genetics.module_intefrace import ModuleInterface
 
@@ -70,7 +71,7 @@ class DiseaseGenNet(ModuleInterface):
                 rows = rows[:100]
 
             for row in rows:
-                text += "; ".join([str(i) for i in row])+"\n"
+                text += link_PubMed(str(row[0])) + "; " + "; ".join([str(i) for i in row[1:]]) + "\n"
             text += "\n"
 
             return text
@@ -103,7 +104,7 @@ class DiseaseGenNet(ModuleInterface):
                 rows = rows[:100]
 
             for row in rows:
-                text += "; ".join([str(i) for i in row])+"\n"
+                text += link_PubMed(str(row[0]))+"; " + "; ".join([str(i) for i in row[1:]])+"\n"
             text += "\n"
 
             return text
@@ -137,9 +138,9 @@ class DiseaseGenNet(ModuleInterface):
             gene = ""
             for row in rows:
                 if gene != row[0]:
-                    text += row[0]+":\n"
+                    text += link_gene(row[0])+":\n"
                     gene = row[0]
-                text += f"  <a href='https://pubmed.ncbi.nlm.nih.gov/{row[1]}'>" + row[1] + "</a>, " + row[2] + "\n"
+                text += f"  " + link_rsID(row[1]) + ", " + row[2] + "\n"
             text += "\n"
 
             return text
