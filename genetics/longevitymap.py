@@ -46,11 +46,10 @@ class Longevitymap(ModuleInterface):
             cursor.execute(query)
             rows = cursor.fetchall()
 
-            category = rows[0][5:]
-            for item in category:
-                item = [str(i).replace(";", ",") for i in item]
+            if rows is not None and len(rows) > 0:
+                category = rows[0][5:]
+                result += f"rdID's pathway is {category[2]}, its description: {category[:-1]}\n longevity map weights:\n"
 
-            result += f"rdID's pathway is {category[2]}, its description: {category[:-1]}\n longevity map weights:\n"
             result += "rsid; allele; state; zygosity; weight\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row[:-3]]
