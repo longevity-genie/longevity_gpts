@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 
 from genetics.module_intefrace import ModuleInterface
-from genetics.links import link_rsID, link_gene, link_PubMed
+from genetics.links import link_rsID, link_gene, link_PubMed, replace_pmid, replace_rsid
 
 
 class Thrombophilia(ModuleInterface):
@@ -35,7 +35,7 @@ class Thrombophilia(ModuleInterface):
             result: str = "thrombophilia:\n"
             result += "rsid; gene; conclusion; population\n"
             row = [str(i).replace(";", ",") for i in row]
-            result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + "; ".join(row[2:])+"\n\n"
+            result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + replace_pmid(replace_rsid(row[2])) + "; " + row[3]+"\n\n"
 
             query = f"SELECT p_value, genotype, weight, genotype_specific_conclusion FROM weight WHERE rsid = '{rsid}'"
             cursor.execute(query)
@@ -46,7 +46,7 @@ class Thrombophilia(ModuleInterface):
             for row in rows:
                 pmids = pmids.union(self.parse_PMID(row[0]))
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += replace_pmid(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
 
             text_pmids = ", ".join(pmids)
@@ -80,20 +80,20 @@ class Thrombophilia(ModuleInterface):
             result += "rsid; gene; conclusion; population\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + replace_pmid(replace_rsid(row[2])) + "; " + row[3] + "\n"
             result += "\n"
 
             pmids: set = set()
             result += "thrombophilia weights:\n"
             result += "PMID with p-pvalue; genotype; weight; genotype_specific_conclusion\n"
             for rsid in rsids:
-                query = f"SELECT p_value, genotype, weight, genotype_specific_conclusion FROM weight WHERE rsid = '{rsid}'"
+                query = f"SELECT p_value, genotype_specific_conclusion, genotype, weight FROM weight WHERE rsid = '{rsid}'"
                 cursor.execute(query)
                 rows = cursor.fetchall()
                 for row in rows:
                     pmids = pmids.union(self.parse_PMID(row[0]))
                     row = [str(i).replace(";", ",") for i in row]
-                    result += "; ".join(row) + "\n"
+                    result += replace_pmid(row[0]) + "; " + replace_pmid(row[1]) + "; " + "; ".join(row[2:]) + "\n"
             result += "\n"
 
             text_pmids = ", ".join(pmids)

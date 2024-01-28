@@ -1,7 +1,6 @@
 import sqlite3
 from pathlib import Path
-from genetics.links import link_rsID, link_gene
-
+from genetics.links import link_rsID, link_gene, replace_rsid, replace_pmid
 from genetics.module_intefrace import ModuleInterface
 
 
@@ -13,8 +12,8 @@ class Coronary(ModuleInterface):
     def _field_lookup(self, field:str, val:str):
         with sqlite3.connect(self.path) as conn:
             cursor = conn.cursor()
-            query:str = f"SELECT rsID, Gene, Risk_allele, Genotype, Conclusion, Weight, " \
-                        f"Population, GWAS_study_design, P_value FROM coronary_disease WHERE {field} = '{val}'"
+            query:str = f"SELECT rsID, Gene, Conclusion, GWAS_study_design, P_value, Risk_allele, Genotype, Weight, " \
+                        f"Population FROM coronary_disease WHERE {field} = '{val}'"
             cursor.execute(query)
             rows = cursor.fetchall()
 
@@ -22,11 +21,12 @@ class Coronary(ModuleInterface):
                 return "coronary disease: No results found."
 
             result = "coronary disease:\n"
-            result += "rsid; Gene; Risk allele; Genotype; Conclusion; Weight; " \
-                        f" Population; GWAS study design; Pvalue\n"
+            result += "rsid; Gene; Conclusion; GWAS study design; Pvalue; Risk allele; Genotype; Weight; " \
+                        f" Population\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += link_rsID(row[0])+ "; " + link_gene(row[1]) + "; " + "; ".join(row[2:]) + "\n"
+                result += link_rsID(row[0])+ "; " + link_gene(row[1]) + "; " + replace_pmid(replace_rsid(row[2])) +\
+                          "; " + replace_pmid(row[3]) + "; " + replace_pmid(row[4]) + "; " + "; ".join(row[5:]) + "\n"
             result += "\n"
             cursor.close()
 
