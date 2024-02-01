@@ -9,16 +9,20 @@ from genetics.lipidmetabolism import Lipidmetabolism
 from genetics.longevitymap import Longevitymap
 from genetics.module_intefrace import ModuleInterface
 from genetics.thrombophilia import Thrombophilia
+from genetics.dna_sequencing import DnaSequencing
 
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
 diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"))
 
 longevitymap = Longevitymap(Path("genetics","data", "longevitymap.sqlite"))
 
+dna_sequencing = DnaSequencing(Path("genetics","data", "dna_sequencing.txt"))
+
 modules: list[ModuleInterface] = [Lipidmetabolism(Path("genetics", "data", "lipid_metabolism.sqlite")),
            longevitymap,
            Coronary(Path("genetics", "data", "coronary.sqlite")),
            Thrombophilia(Path("genetics", "data", "thrombophilia.sqlite")),
+           dna_sequencing,
            diseaseGenNet]
 
 genetics_router = APIRouter()
@@ -54,6 +58,9 @@ def pathway_lookup(pathway:str):
 def pathway_lookup(disease:str):
     return diseaseGenNet.disease_lookup(disease)
 
+@genetics_router.get("/sequencing_info/")
+def  sequencing_info():
+    return  dna_sequencing.sequencing_info()
 
 def custom_openapi():
     if genetics_router.openapi_schema:
