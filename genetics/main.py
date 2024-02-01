@@ -58,7 +58,7 @@ def pathway_lookup(pathway:str):
 def disease_lookup(disease:str):
     return diseaseGenNet.disease_lookup(disease)
 
-@genetics_router.get("/sequencing_info/")
+@genetics_router.get("/sequencing_info/", description="Returns information about DNA sequencing.")
 def  sequencing_info():
     return  dna_sequencing.sequencing_info()
 
