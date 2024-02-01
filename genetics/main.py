@@ -12,7 +12,7 @@ from genetics.thrombophilia import Thrombophilia
 from genetics.dna_sequencing import DnaSequencing
 
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
-diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"))
+diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"), Path("genetics","data", "disease_names.csv"))
 
 longevitymap = Longevitymap(Path("genetics","data", "longevitymap.sqlite"))
 
@@ -33,7 +33,7 @@ def read_root():
     return "This is REST API for longavity map."
 
 
-@genetics_router.get("/rsid_lookup/{rsid}")
+@genetics_router.get("/rsid_lookup/{rsid}", description="Returns information about varinat by its rsId.")
 def rsid_lookup(rsid:str):
     result = ""
     for module in modules:
@@ -41,7 +41,7 @@ def rsid_lookup(rsid:str):
     return result
 
 
-@genetics_router.get("/gene_lookup/{gene}")
+@genetics_router.get("/gene_lookup/{gene}", description="Returns information about gene by its symbol.")
 def gene_lookup(gene:str):
     result = ""
     for module in modules:
@@ -49,13 +49,13 @@ def gene_lookup(gene:str):
     return result
 
 
-@genetics_router.get("/pathway_lookup/{pathway}")
+@genetics_router.get("/pathway_lookup/{pathway}", description="Returns information about genetic pathway.")
 def pathway_lookup(pathway:str):
     return longevitymap.pathway_lookup(pathway)
 
 
-@genetics_router.get("/disease_lookup/{disease}")
-def pathway_lookup(disease:str):
+@genetics_router.get("/disease_lookup/{disease}", description="Returns information about disease by its name.")
+def disease_lookup(disease:str):
     return diseaseGenNet.disease_lookup(disease)
 
 @genetics_router.get("/sequencing_info/")

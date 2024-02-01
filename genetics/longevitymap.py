@@ -2,6 +2,7 @@ import sqlite3
 from pathlib import Path
 
 from genetics.module_intefrace import ModuleInterface
+from genetics.links import link_rsID, link_gene
 
 
 class Longevitymap(ModuleInterface):
@@ -26,7 +27,7 @@ class Longevitymap(ModuleInterface):
             result += "identifier; study design; conclusions; association; population\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row[:5]]
-                result += "; ".join(row)+"\n"
+                result += link_rsID(row[0]) + "; " + "; ".join(row[1:])+"\n"
             result += "\n"
 
             result += "longevity map genes:\n"
@@ -37,7 +38,7 @@ class Longevitymap(ModuleInterface):
                 row = cursor.fetchone()
 
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row)+"\n"
+                result += link_gene(row[0]) + "; " + "; ".join(row[1:])+"\n"
             result += "\n"
 
             query = f"SELECT rsid, allele, state, zygosity, weight, categories.description, categories.recommendation, categories.name as category FROM allele_weights, categories " \
@@ -45,15 +46,14 @@ class Longevitymap(ModuleInterface):
             cursor.execute(query)
             rows = cursor.fetchall()
 
-            category = rows[0][5:]
-            for item in category:
-                item = [str(i).replace(";", ",") for i in item]
+            if rows is not None and len(rows) > 0:
+                category = rows[0][5:]
+                result += f"rdID's pathway is {category[2]}, its description: {category[:-1]}\n longevity map weights:\n"
 
-            result += f"rdID's pathway is {category[2]}, its description: {category[:-1]}\n longevity map weights:\n"
             result += "rsid; allele; state; zygosity; weight\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row[:-3]]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
             cursor.close()
 
@@ -78,7 +78,7 @@ class Longevitymap(ModuleInterface):
             result += "rsid; study design; conclusions; association; population\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row[:5]]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
 
             result += "longevity map genes:\n"
@@ -89,7 +89,7 @@ class Longevitymap(ModuleInterface):
                 row = cursor.fetchone()
 
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_gene(row[0]) + "; " + "; ".join(row[1:]) + "\n"
             result += "\n"
 
             result += "longevity map weights:\n"
@@ -102,7 +102,7 @@ class Longevitymap(ModuleInterface):
 
                 for row in rows:
                     row = [str(i).replace(";", ",") for i in row]
-                    result += "; ".join(row) + "\n"
+                    result += link_rsID(row[0]) + "; " +  "; ".join(row[1:]) + "\n"
             result += "\n"
             cursor.close()
 
@@ -127,7 +127,7 @@ class Longevitymap(ModuleInterface):
                 result += "; ".join(row)+"\n"
             result += "\n"
 
-            query: str = f"SELECT rsid, allele, state, zygosity, weight, priority, gene.symbol " \
+            query: str = f"SELECT rsid, gene.symbol, allele, state, zygosity, weight, priority " \
                          f"FROM allele_weights " \
                          f"JOIN variant ON allele_weights.rsid = variant.identifier " \
                          f"JOIN gene ON variant.gene_id = gene.id " \
@@ -141,17 +141,17 @@ class Longevitymap(ModuleInterface):
             negative_rsid = 0
 
             for row in rows:
-                if row[4] > 0:
+                if row[5] > 0:
                     positive_rsid += 1
                 else:
                     negative_rsid += 1
 
             result: str = f"Amount of rsIDs in the pathways: {len(rsids)}, pro-longevity: {positive_rsid},"
             f" anti-longevity: {negative_rsid}), the list of rsids: {rsids}. rsID table:\n"
-            result += "rsid; allele; state; zygosity; weight, priority\n"
+            result += "rsid; gene; allele; state; zygosity; weight, priority\n"
             for row in rows:
                 row = [str(i).replace(";", ",") for i in row]
-                result += "; ".join(row) + "\n"
+                result += link_rsID(row[0]) + "; " + link_gene(row[1]) + "; " + "; ".join(row[2:]) + "\n"
             result += "\n"
 
             cursor.close()

@@ -27,3 +27,8 @@ pip install -e .
 It will also dynamically react to all your code updates in submodules.
 
 
+## Database download
+
+gene_lookup will not work without disgenet_2020.sqlite database. You should download it from https://www.disgenet.org/downloads and put it in genetics/data folder.
+
+

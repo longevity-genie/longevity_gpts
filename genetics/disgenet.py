@@ -2,14 +2,16 @@ import sqlite3
 from pathlib import Path
 import polars as pl
 from thefuzz import fuzz
+from genetics.links import link_rsID, link_gene, link_PubMed
 
 from genetics.module_intefrace import ModuleInterface
 
 
 class DiseaseGenNet(ModuleInterface):
 
-    def __init__(self, db_path:Path):
+    def __init__(self, db_path:Path, disease_names_path:Path):
         self.path:Path = db_path
+        self.disease_names_path = disease_names_path
 
     def _agragate_last_field(self, rows):
         current = list(rows[0])
@@ -35,7 +37,7 @@ class DiseaseGenNet(ModuleInterface):
         def levenshtein_dist(struct: dict) -> int:
             return fuzz.partial_ratio(struct["name"], name)
 
-        frame = pl.read_csv("disease_names.csv")
+        frame = pl.read_csv(self.disease_names_path)
         frame = frame.select(
             [pl.struct(["name"]).apply(levenshtein_dist).alias("dist"), "name"])
         frame = frame.sort(by="dist", descending=True).select(["name"])
@@ -69,7 +71,7 @@ class DiseaseGenNet(ModuleInterface):
                 rows = rows[:100]
 
             for row in rows:
-                text += "; ".join([str(i) for i in row])+"\n"
+                text += link_PubMed(str(row[0])) + "; " + "; ".join([str(i) for i in row[1:]]) + "\n"
             text += "\n"
 
             return text
@@ -102,7 +104,7 @@ class DiseaseGenNet(ModuleInterface):
                 rows = rows[:100]
 
             for row in rows:
-                text += "; ".join([str(i) for i in row])+"\n"
+                text += link_PubMed(str(row[0]))+"; " + "; ".join([str(i) for i in row[1:]])+"\n"
             text += "\n"
 
             return text
@@ -127,7 +129,7 @@ class DiseaseGenNet(ModuleInterface):
                 disease_names = self._get_similar_names(disease)
                 return f"There are no such disease ({disease}) in database. " \
                        f"The database is case-sensitive, make sure you use strictly the same name as in the database. " \
-                       f"Please use folowing disease names if they apply:\n{disease_names}"
+                       f"Please use following disease names if they apply:\n{disease_names}"
 
             if len(rows) > 100:
                 rows = rows[:100]
@@ -136,9 +138,9 @@ class DiseaseGenNet(ModuleInterface):
             gene = ""
             for row in rows:
                 if gene != row[0]:
-                    text += row[0]+":\n"
+                    text += link_gene(row[0])+":\n"
                     gene = row[0]
-                text += "  " + row[1] + ", " + row[2] + "\n"
+                text += f"  " + link_rsID(row[1]) + ", " + row[2] + "\n"
             text += "\n"
 
             return text
