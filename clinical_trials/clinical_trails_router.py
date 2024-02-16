@@ -22,7 +22,6 @@ clinical_trails_router = APIRouter()
 sql_path = "data/studies_db.sqlite"
 
 def api_key_auth(api_key: str = Depends(APIKeyHeader(name=API_KEY_NAME))):
-    print("api_key:",api_key)
     if api_key != API_KEY:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
