@@ -1,3 +1,5 @@
+import os
+
 import loguru
 from fastapi import APIRouter
 from fastapi.openapi.utils import get_openapi
@@ -5,24 +7,16 @@ import sqlite3
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import APIKeyHeader
-from starlette.middleware.cors import CORSMiddleware
+
 from typing_extensions import Annotated
+from pycomfort.config import load_environment_keys
+
+load_environment_keys(usecwd=True)
 
 loguru.logger.add("clinical_trials.log", rotation="10 MB")
 
 API_KEY_NAME = "x-api-key"
-API_KEY = "4fl72ncy8wnmj57jkc7829hf794jyhlks013j"
-
-app = FastAPI(debug=True)
-
-# Configure CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
-    allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
-)
+API_KEY = os.getenv("API_KEY", "")
 
 clinical_trails_router = APIRouter()
 sql_path = "data/studies_db.sqlite"
@@ -75,12 +69,3 @@ def custom_openapi():
     return clinical_trails_router.openapi_schema
 
 clinical_trails_router.openapi = custom_openapi
-
-app.include_router(clinical_trails_router)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app,
-                host="0.0.0.0",
-                port=8085
-                )
