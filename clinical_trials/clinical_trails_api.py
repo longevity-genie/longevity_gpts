@@ -76,9 +76,11 @@ def custom_openapi():
 
 clinical_trails_router.openapi = custom_openapi
 
+app.include_router(clinical_trails_router)
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(clinical_trails_router,
+    uvicorn.run(app,
                 host="0.0.0.0",
                 port=8085
                 )
