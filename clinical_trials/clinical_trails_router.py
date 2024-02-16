@@ -2,7 +2,7 @@ import os
 
 import loguru
 from fastapi import APIRouter
-from fastapi.openapi.utils import get_openapi
+
 import sqlite3
 
 from fastapi import FastAPI, Depends, HTTPException, status
@@ -53,19 +53,5 @@ def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
     return text
 
 
-def custom_openapi():
-    if clinical_trails_router.openapi_schema:
-        return clinical_trails_router.openapi_schema
-    openapi_schema = get_openapi(
-        title="Clinical trails REST API",
-        version="0.1",
-        description="",
-        terms_of_service="https://agingkills.eu/terms/",
-        routes=clinical_trails_router.routes,
-    )
 
-    openapi_schema["servers"] = [{"url": "https://clinical-trials.longevity-genie.info"}, {"url": "https://localhost:8085"}]
-    clinical_trails_router.openapi_schema = openapi_schema
-    return clinical_trails_router.openapi_schema
 
-clinical_trails_router.openapi = custom_openapi
