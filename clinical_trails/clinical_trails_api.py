@@ -58,7 +58,7 @@ def custom_openapi():
         routes=clinical_trails_router.routes,
     )
 
-    openapi_schema["servers"] = [{"url": "https://clinical-trials.longevity-genie.info"}, {"url": "http://localhost:8085"}]
+    openapi_schema["servers"] = [{"url": "https://clinical-trials.longevity-genie.info"}, {"url": "https://localhost:8085"}]
     clinical_trails_router.openapi_schema = openapi_schema
     return clinical_trails_router.openapi_schema
 
