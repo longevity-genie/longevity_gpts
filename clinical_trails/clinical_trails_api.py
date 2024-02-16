@@ -22,6 +22,10 @@ def api_key_auth(api_key: str = Depends(APIKeyHeader(name=API_KEY_NAME))):
             detail="Invalid API Key",
         )
 
+@clinical_trails_router.get("/")
+def clinical_trails_root():
+    return "This is REST API for clinical trails gpt."
+
 @clinical_trails_router.get("/process_sql/{sql}", description="Executes sql query and returns results for clinical tails database.")
 def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
     conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
