@@ -1,16 +1,28 @@
+import loguru
 from fastapi import APIRouter
 from fastapi.openapi.utils import get_openapi
 import sqlite3
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import APIKeyHeader
+from starlette.middleware.cors import CORSMiddleware
 from typing_extensions import Annotated
 
+loguru.logger.add("clinical_trials.log", rotation="10 MB")
 
 API_KEY_NAME = "x-api-key"
 API_KEY = "4fl72ncy8wnmj57jkc7829hf794jyhlks013j"
 
-app = FastAPI()
+app = FastAPI(debug=True)
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 clinical_trails_router = APIRouter()
 sql_path = "data/studies_db.sqlite"
