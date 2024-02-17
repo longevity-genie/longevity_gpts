@@ -45,6 +45,7 @@ def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
             conn.close()
             return ""
         names = [description[0] for description in cursor.description]
+        logger.debug("names" + str(names))
         text = "; ".join(names)+"\n"
         for row in rows:
             row = [str(i) for i in row]
