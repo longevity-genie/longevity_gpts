@@ -38,7 +38,6 @@ def clinical_trails_root():
 
 @clinical_trails_router.post("/process_sql/", description="Executes sql query and returns results for clinical tails database.")
 def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], item:Item):
-    logger.debug(item.sql)
     conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
     cursor = conn.cursor()
     cursor.execute(item.sql)
@@ -48,7 +47,6 @@ def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], item:Item):
             conn.close()
             return ""
         names = [description[0] for description in cursor.description]
-        logger.debug("names" + str(names))
         text = "; ".join(names)+"\n"
         for row in rows:
             row = [str(i) for i in row]
@@ -56,7 +54,6 @@ def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], item:Item):
     finally:
         conn.close()
 
-    logger.debug(text)
     return text
 
 
