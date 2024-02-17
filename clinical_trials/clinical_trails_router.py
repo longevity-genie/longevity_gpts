@@ -5,12 +5,15 @@ from loguru import logger
 from fastapi import APIRouter
 
 import sqlite3
-
+from pydantic import BaseModel
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import APIKeyHeader
 
 from typing_extensions import Annotated
 from pycomfort.config import load_environment_keys
+
+class Item(BaseModel):
+    sql: str
 
 load_environment_keys(usecwd=True)
 
@@ -33,12 +36,12 @@ def api_key_auth(api_key: str = Depends(APIKeyHeader(name=API_KEY_NAME))):
 def clinical_trails_root():
     return "This is REST API for clinical trails gpt."
 
-@clinical_trails_router.get("/process_sql/{sql}", description="Executes sql query and returns results for clinical tails database.")
-def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
-    logger.debug(sql)
+@clinical_trails_router.post("/process_sql/", description="Executes sql query and returns results for clinical tails database.")
+def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], item:Item):
+    logger.debug(item.sql)
     conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
     cursor = conn.cursor()
-    cursor.execute(sql)
+    cursor.execute(item.sql)
     try:
         rows = cursor.fetchall()
         if rows is None or len(rows) == 0:
