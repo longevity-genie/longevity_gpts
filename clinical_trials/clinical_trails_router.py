@@ -1,6 +1,7 @@
 import os
 
 import loguru
+from loguru import logger
 from fastapi import APIRouter
 
 import sqlite3
@@ -34,6 +35,7 @@ def clinical_trails_root():
 
 @clinical_trails_router.get("/process_sql/{sql}", description="Executes sql query and returns results for clinical tails database.")
 def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
+    logger.debug(sql)
     conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
     cursor = conn.cursor()
     cursor.execute(sql)
@@ -50,6 +52,7 @@ def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], sql:str):
     finally:
         conn.close()
 
+    logger.debug(text)
     return text
 
 
