@@ -12,8 +12,6 @@ def create_database(db_name):
     # Connect to the SQLite database
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
-
-    # Create table
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS studies (
         id INTEGER PRIMARY KEY,
@@ -23,9 +21,17 @@ def create_database(db_name):
         status TEXT,
         study_type TEXT,
         condition TEXT,
-        phase TEXT
+        phase TEXT,
+        country TEXT,
+        sponsor TEXT,
+        sponsor_class TEXT,
+        summary TEXT,
+        gender TEXT,
+        minimum_age INTEGER,
+        maximum_age INTEGER
     )
     ''')
+
     conn.commit()
 
     cursor.execute('''
@@ -50,8 +56,6 @@ def insert_data_into_database(conn, data):
     Insert data into the SQLite database.
     """
     cursor = conn.cursor()
-
-    # Inserting data
     cursor.execute('''
     INSERT INTO studies (
         study_id,
@@ -60,8 +64,15 @@ def insert_data_into_database(conn, data):
         status,
         study_type,
         condition,
-        phase
-    ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        phase,
+        country,
+        sponsor,
+        sponsor_class,
+        summary,
+        gender,
+        minimum_age,
+        maximum_age
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', data)
 
     # conn.commit()
@@ -108,11 +119,19 @@ def parse_xml_and_insert(file_path, conn):
     status = root.find('.//overall_status').text if root.find('.//overall_status') is not None else ''
     study_type = root.find('.//study_type').text if root.find('.//study_type') is not None else ''
     condition = root.find('.//condition').text if root.find('.//condition') is not None else ''
-
-
     phase = root.find('.//phase').text if root.find('.//phase') is not None else ''
 
-    data = (study_id, title, start_date, status, study_type, condition, phase)
+    # new fields
+    country = root.find('.//location_countries/country').text if root.find('.//location_countries/country') is not None else ''
+    sponsor = root.find('.//lead_sponsor/agency').text if root.find('.//lead_sponsor/agency') is not None else ''
+    sponsor_class = root.find('.//lead_sponsor/agency_class').text if root.find('.//lead_sponsor/agency_class') is not None else ''
+    summary = root.find('.//brief_summary/textblock').text if root.find('.//brief_summary/textblock') is not None else ''
+    gender = root.find('.//eligibility/gender').text if root.find('.//eligibility/gender') is not None else ''
+    minimum_age = root.find('.//eligibility/minimum_age').text if root.find('.//eligibility/minimum_age') is not None else ''
+    maximum_age = root.find('.//eligibility/maximum_age').text if root.find('.//eligibility/maximum_age') is not None else ''
+
+    data = (study_id, title, start_date, status, study_type, condition, phase, country,
+            sponsor, sponsor_class, summary, gender, minimum_age, maximum_age)
 
     # Insert data into database
     id = insert_data_into_database(conn, data)
