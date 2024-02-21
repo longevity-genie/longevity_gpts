@@ -27,8 +27,9 @@ def create_database(db_name):
         sponsor_class TEXT,
         summary TEXT,
         gender TEXT,
-        minimum_age INTEGER,
-        maximum_age INTEGER
+        minimum_age REAL,
+        maximum_age REAL,
+        enrollment INTEGER
     )
     ''')
 
@@ -71,8 +72,9 @@ def insert_data_into_database(conn, data):
         summary,
         gender,
         minimum_age,
-        maximum_age
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        maximum_age,
+        enrollment
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', data)
 
     # conn.commit()
@@ -92,6 +94,36 @@ def insert_into_interventions(conn, type:str, name:str, id:int):
     # conn.commit()
 
 
+def time_to_float(date_text:str):
+    if (date_text is None) or (date_text == "N/A") or (date_text.strip() == ''):
+        return None
+    value, period = date_text.split(" ")
+    value = int(value)
+    # Define the number of days in a year to account for leap years
+    days_in_year = 365.25
+    # Conversion rates from each time unit to years
+    conversion_rates = {
+        'Year': 1,
+        'Years': 1,
+        'Months': 1 / 12,
+        'Month': 1 / 12,
+        'Weeks': 7 / days_in_year,
+        'Week': 7 / days_in_year,
+        'Days': 1 / days_in_year,
+        'Day': 1 / days_in_year,
+        'Hours': 1 / (24 * days_in_year),
+        'Hour': 1 / (24 * days_in_year),
+        'Minutes': 1 / (24 * 60 * days_in_year),
+        'Minute': 1 / (24 * 60 * days_in_year),
+    }
+    # Ensure the period is correctly specified
+    if period not in conversion_rates:
+        raise ValueError(f"Invalid period '{period}'. Must be one of: {list(conversion_rates.keys())}.")
+    # Convert the given value and period to years
+    years = value * conversion_rates[period]
+    return years
+
+
 def convert_date_format(date_str):
     from datetime import datetime
     # Parse the input string to a datetime object assuming the first day of the month
@@ -104,6 +136,7 @@ def convert_date_format(date_str):
     new_date_str = date_obj.strftime('%Y-%m-%d')
 
     return new_date_str
+
 
 def parse_xml_and_insert(file_path, conn):
     """
@@ -128,10 +161,13 @@ def parse_xml_and_insert(file_path, conn):
     summary = root.find('.//brief_summary/textblock').text if root.find('.//brief_summary/textblock') is not None else ''
     gender = root.find('.//eligibility/gender').text if root.find('.//eligibility/gender') is not None else ''
     minimum_age = root.find('.//eligibility/minimum_age').text if root.find('.//eligibility/minimum_age') is not None else ''
+    minimum_age = time_to_float(minimum_age)
     maximum_age = root.find('.//eligibility/maximum_age').text if root.find('.//eligibility/maximum_age') is not None else ''
+    maximum_age = time_to_float(maximum_age)
+    enrollment = root.find('.//enrollment').text if root.find('.//enrollment') is not None else ''
 
     data = (study_id, title, start_date, status, study_type, condition, phase, country,
-            sponsor, sponsor_class, summary, gender, minimum_age, maximum_age)
+            sponsor, sponsor_class, summary, gender, minimum_age, maximum_age, enrollment)
 
     # Insert data into database
     id = insert_data_into_database(conn, data)
