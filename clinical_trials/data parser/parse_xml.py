@@ -29,7 +29,8 @@ def create_database(db_name):
         gender TEXT,
         minimum_age REAL,
         maximum_age REAL,
-        enrollment INTEGER
+        enrollment INTEGER,
+        path TEXT
     )
     ''')
 
@@ -73,8 +74,9 @@ def insert_data_into_database(conn, data):
         gender,
         minimum_age,
         maximum_age,
-        enrollment
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        enrollment,
+        path
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', data)
 
     # conn.commit()
@@ -167,7 +169,7 @@ def parse_xml_and_insert(file_path, conn):
     enrollment = root.find('.//enrollment').text if root.find('.//enrollment') is not None else ''
 
     data = (study_id, title, start_date, status, study_type, condition, phase, country,
-            sponsor, sponsor_class, summary, gender, minimum_age, maximum_age, enrollment)
+            sponsor, sponsor_class, summary, gender, minimum_age, maximum_age, enrollment, file_path)
 
     # Insert data into database
     id = insert_data_into_database(conn, data)
@@ -204,7 +206,7 @@ def estimate_files(folder_path):
     return sum
 
 @click.command()
-@click.option('--data_path', default="data",  help='path to the folder with folders with xml files')
+@click.option('--data_path', default="xml",  help='path to the folder with folders with xml files')
 @click.option('--database_name', default="studies_db.sqlite", help='database name')
 def parse(data_path:str, database_name:str):
     conn = create_database(database_name)
