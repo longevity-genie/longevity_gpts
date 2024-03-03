@@ -57,7 +57,8 @@ def clinical_trails_full_trial(study_id:str):
     conn.close()
     if path is None or len(path) == 0:
         return "No data"
-    with open(data_path+path[0]) as f:
+    path = path[0].replace('\\', '/')
+    with open(data_path+path) as f:
         return f.read()
 
 
