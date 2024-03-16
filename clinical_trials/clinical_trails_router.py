@@ -25,8 +25,16 @@ API_KEY_NAME = "x-api-key"
 API_KEY = os.getenv("API_KEY", "")
 
 clinical_trails_router = APIRouter()
-sql_path = "data/studies_db.sqlite"
-data_path = "data/"
+clinical_trials_sql_path = "data/studies_db.sqlite"
+clinical_trials_data_path = "data/"
+
+def set_prefix_clinical_trials_sql_path(prefix:str):
+    global clinical_trials_sql_path
+    clinical_trials_sql_path = prefix + clinical_trials_sql_path
+
+def set_prefix_clinical_trials_data_path(prefix:str):
+    global clinical_trials_data_path
+    clinical_trials_data_path = prefix + clinical_trials_data_path
 
 def api_key_auth(api_key: str = Depends(APIKeyHeader(name=API_KEY_NAME))):
     if api_key != API_KEY:
@@ -42,15 +50,15 @@ def clinical_trails_root():
 
 @clinical_trails_router.get("/info/", description="Return information about database and its date.")
 def clinical_trails_info():
-    path:Path = Path(data_path +"xml/Contents.txt")
+    path:Path = Path(clinical_trials_data_path + "xml/Contents.txt")
     if path.exists():
         with open(path) as f:
             return f.read()
 
 
-@clinical_trails_router.get("/full_trial/{study_id}", description="Return full rial text in xml.")
+@clinical_trails_router.get("/full_trial/{study_id}", description="Return full trial text in xml.")
 def clinical_trails_full_trial(study_id:str):
-    conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
+    conn = sqlite3.connect(clinical_trials_sql_path, isolation_level='DEFERRED')
     cursor = conn.cursor()
     cursor.execute(f"SELECT path FROM studies WHERE study_id = '{study_id}'")
     path = cursor.fetchone()
@@ -58,13 +66,13 @@ def clinical_trails_full_trial(study_id:str):
     if path is None or len(path) == 0:
         return "No data"
     path = path[0].replace('\\', '/')
-    with open(data_path+path) as f:
+    with open(clinical_trials_data_path + path) as f:
         return f.read()
 
 
-@clinical_trails_router.post("/process_sql/", description="Executes sql query and returns results for clinical tails database.")
+@clinical_trails_router.post("/process_sql/", description="Executes sql query and returns results for clinical trials database.")
 def process_sql(dependencies: Annotated[str, Depends(api_key_auth)], item:Item):
-    conn = sqlite3.connect(sql_path, isolation_level='DEFERRED')
+    conn = sqlite3.connect(clinical_trials_sql_path, isolation_level='DEFERRED')
     cursor = conn.cursor()
     cursor.execute(item.sql)
     try:
