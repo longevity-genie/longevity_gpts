@@ -54,6 +54,7 @@ app.include_router(genetics.main.genetics_router)
 app.include_router(clinical_trials.clinical_trails_router.clinical_trails_router)
 
 hosts_str = os.getenv('HOSTS')
+print("HOSTS:", hosts_str)
 port = int(os.getenv("PORT", 8000))
 port_part = ':' + str(port) if port is not None else ''
 
