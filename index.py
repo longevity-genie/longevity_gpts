@@ -16,6 +16,14 @@ import genetics.main
 import gpt.routes
 import literature.routes
 from core.routes import core_router
+from dotenv import load_dotenv
+load_dotenv("clinical_trials/.env")
+import clinical_trials.clinical_trails_router
+
+from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_sql_path
+set_prefix_clinical_trials_sql_path("clinical_trials/")
+from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_data_path
+set_prefix_clinical_trials_data_path("clinical_trials/")
 
 load_environment_keys(usecwd=True)
 
@@ -52,6 +60,7 @@ app.include_router(literature.routes.literature_router) # literature hybrid sear
 app.include_router(gpt.routes.gpt_router) # longevity GPT API
 app.include_router(blood.routes.bloody_router) # blood API
 app.include_router(genetics.main.genetics_router)
+app.include_router(clinical_trials.clinical_trails_router.clinical_trails_router)
 
 hosts_str = os.getenv('HOSTS')
 port = int(os.getenv("PORT", 8000))
@@ -89,7 +98,7 @@ def read_root():
 
 @app.get("/version", description="return the version of the current restful_genie project", response_model=str)
 async def version():
-    return '0.0.14'
+    return '0.0.15'
 
 
 if __name__ == "__main__":
