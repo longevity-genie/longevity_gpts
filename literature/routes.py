@@ -100,7 +100,8 @@ def search_collection(collection_name: str, text: str, k: int, url: str) -> list
     embeddings = resolve_embeddings(collection_name)
     timeout = 50
     docsearch = OpenSearchHybridSearch.create(url, collection_name, embeddings, request_timeout=timeout) #TODO call resolve embeddings
-    results: list[(Document, float)] = docsearch.similarity_search_with_score(text, k=k, search_type = HYBRID_SEARCH, search_pipeline = "norm-pipeline", timeout=timeout)
+    # results: list[(Document, float)] = docsearch.similarity_search_with_score(text, k=k, search_type = HYBRID_SEARCH, search_pipeline = "norm-pipeline", timeout=timeout)
+    results: list[(Document, float)] = docsearch.hybrid_search(text, k=k, search_pipeline = "norm-pipeline", timeout=timeout)
     for r in results:
         r[0].metadata["search_score"] = r[1]
         r[0].metadata["collection_name"] = collection_name
