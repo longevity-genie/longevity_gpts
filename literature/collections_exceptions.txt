@@ -1,0 +1,1 @@
+papers_5_bge-large BAAI/bge-large-en-v1.5

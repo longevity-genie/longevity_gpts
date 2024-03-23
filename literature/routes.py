@@ -40,6 +40,18 @@ def resolve_environment():
 env_path = resolve_environment()
 default_embedding = os.getenv("DEFAULT_EMBEDDING", "BAAI/bge-large-en-v1.5")
 
+def get_collection_exceptions():
+    path = Path(Path(__file__).parent, "collections_exceptions.txt")
+    exceptions = dict()
+    with open(path) as f:
+        lines = f.readlines()
+        for line in lines:
+            collection, model = line.split(" ")
+            exceptions[collection] = model
+    return exceptions
+
+collections_models_map = get_collection_exceptions()
+
 def extract_from_collection(collection: str, default: str = "BAAI/bge-large-en-v1.5") -> Optional[str]:
     """
     Extracts a portion of a string based on specific patterns.
@@ -77,8 +89,12 @@ def extract_from_collection(collection: str, default: str = "BAAI/bge-large-en-v
 
     # Return default if no pattern matched
     return default
-
+# "aging_papers_paragraphs_bge_base_en_v1.5", "aging_papers_paragraphs_specter2", "papers_5_bge-large"
 def resolve_embeddings(collection_name: str):
+    model_name = collections_models_map.get(collection_name)
+    if model_name:
+        return init_embeddings(model_name)
+
     model_name = extract_from_collection(collection_name, default_embedding)
     if "bge" in model_name and "BAAI" not in model_name:
         model_name = f"BAAI/{model_name}"
@@ -98,7 +114,7 @@ def search_collection(collection_name: str, text: str, k: int, url: str) -> list
     :return:
     """
     embeddings = resolve_embeddings(collection_name)
-    timeout = 50
+    timeout = 60
     docsearch = OpenSearchHybridSearch.create(url, collection_name, embeddings, request_timeout=timeout) #TODO call resolve embeddings
     # results: list[(Document, float)] = docsearch.similarity_search_with_score(text, k=k, search_type = HYBRID_SEARCH, search_pipeline = "norm-pipeline", timeout=timeout)
     results: list[(Document, float)] = docsearch.hybrid_search(text, k=k, search_pipeline = "norm-pipeline", timeout=timeout)

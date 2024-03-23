@@ -10,5 +10,5 @@ class QueryPaper(BaseModel):
     text: Optional[str] = None
     collections: list[str] = ["aging_papers_paragraphs_bge_base_en_v1.5", "aging_papers_paragraphs_specter2"]
     limit: int = 10
-    db: Optional[str] = "https://localhost:9200"
+    db: Optional[str] = "https://localhost:9200" # "https://longevity-genie.info:9200"
     verbose: bool = False
