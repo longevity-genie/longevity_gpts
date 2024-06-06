@@ -31,8 +31,7 @@ async def chat_completions(request: dict):
         session.instruct(sys_prompt.read())
 
     if request["messages"]:
-        session.memory.add_messages(request["messages"], False)
-        resp_content = session.query()
+        resp_content = session.query_all(request["messages"], run_callbacks=False)
     else:
         resp_content = "Something goes wrong, request did not contain messages!!!"
 
