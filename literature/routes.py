@@ -126,6 +126,7 @@ def search_collection(collection_name: str, text: str, k: int, url: str) -> list
 
 @literature_router.post("/hybrid_search/", description="does hybrid search in the literature, provides sources together with answers", response_model=List[str])
 async def hybrid_search(query: QueryPaper):
+    """does hybrid search in the literature, provides sources together with answers"""
     collections: list[str] = query.collections
     text = query.text
     k = query.limit

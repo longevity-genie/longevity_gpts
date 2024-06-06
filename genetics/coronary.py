@@ -6,8 +6,11 @@ from genetics.module_intefrace import ModuleInterface
 
 class Coronary(ModuleInterface):
 
-    def __init__(self, db_path:Path):
-        self.path:Path = db_path
+    def __init__(self, db_path: Path = None):
+        if db_path is None:
+            self.path: Path = Path(Path(__file__).parent, "data", "coronary.sqlite")
+        else:
+            self.path: Path = db_path
 
     def _field_lookup(self, field:str, val:str):
         with sqlite3.connect(self.path) as conn:

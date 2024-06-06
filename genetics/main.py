@@ -12,16 +12,16 @@ from genetics.thrombophilia import Thrombophilia
 from genetics.dna_sequencing import DnaSequencing
 
 # disgenet_2020.sqlite could be downloaded here https://www.disgenet.org/downloads
-diseaseGenNet = DiseaseGenNet(Path("genetics","data", "disgenet_2020.sqlite"), Path("genetics","data", "disease_names.csv"))
+diseaseGenNet = DiseaseGenNet()
 
-longevitymap = Longevitymap(Path("genetics","data", "longevitymap.sqlite"))
+longevitymap = Longevitymap()
 
-dna_sequencing = DnaSequencing(Path("genetics","data", "dna_sequencing.txt"))
+dna_sequencing = DnaSequencing()
 
-modules: list[ModuleInterface] = [Lipidmetabolism(Path("genetics", "data", "lipid_metabolism.sqlite")),
+modules: list[ModuleInterface] = [Lipidmetabolism(),
            longevitymap,
-           Coronary(Path("genetics", "data", "coronary.sqlite")),
-           Thrombophilia(Path("genetics", "data", "thrombophilia.sqlite")),
+           Coronary(),
+           Thrombophilia(),
            dna_sequencing,
            diseaseGenNet]
 
@@ -35,6 +35,7 @@ def read_root():
 
 @genetics_router.get("/rsid_lookup/{rsid}", description="Returns information about varinat by its rsId.")
 def rsid_lookup(rsid:str):
+    """Returns information about varinat by its rsId."""
     result = ""
     for module in modules:
         result += module.rsid_lookup(rsid)+"\n"
@@ -43,6 +44,7 @@ def rsid_lookup(rsid:str):
 
 @genetics_router.get("/gene_lookup/{gene}", description="Returns information about gene by its symbol.")
 def gene_lookup(gene:str):
+    """Returns information about gene by its symbol."""
     result = ""
     for module in modules:
         result += module.gene_lookup(gene)+"\n"
@@ -51,15 +53,18 @@ def gene_lookup(gene:str):
 
 @genetics_router.get("/pathway_lookup/{pathway}", description="Returns information about genetic pathway.")
 def pathway_lookup(pathway:str):
+    """Returns information about genetic pathway."""
     return longevitymap.pathway_lookup(pathway)
 
 
 @genetics_router.get("/disease_lookup/{disease}", description="Returns information about disease by its name.")
 def disease_lookup(disease:str):
+    """Returns information about disease by its name."""
     return diseaseGenNet.disease_lookup(disease)
 
 @genetics_router.get("/sequencing_info/", description="Returns information about DNA sequencing.")
 def  sequencing_info():
+    """Returns information about DNA sequencing."""
     return  dna_sequencing.sequencing_info()
 
 def custom_openapi():

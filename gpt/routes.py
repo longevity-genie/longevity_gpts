@@ -19,6 +19,7 @@ gpt_router = APIRouter()
 # Define the API endpoint
 @gpt_router.post("/longevity_gpt", response_model=AnswerResponse, summary="Send a question to the LongevityGPT")
 async def longevity_gpt(request: AnswerRequest):
+    """Send a question to the LongevityGPT"""
     # Forwarding the request to the external API
     async with httpx.AsyncClient(timeout=90) as client:
         response = await client.post(

@@ -7,8 +7,11 @@ from genetics.links import link_rsID, link_gene, replace_pmid, replace_rsid
 
 class Lipidmetabolism(ModuleInterface):
 
-    def __init__(self, db_path:Path):
-        self.path:Path = db_path
+    def __init__(self, db_path:Path = None):
+        if db_path is None:
+            self.path:Path = Path(Path(__file__).parent, "data", "lipid_metabolism.sqlite")
+        else:
+            self.path: Path = db_path
 
     def rsid_lookup(self, rsid:str) -> str:
         with sqlite3.connect(self.path) as conn:

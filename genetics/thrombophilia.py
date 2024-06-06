@@ -7,8 +7,11 @@ from genetics.links import link_rsID, link_gene, link_PubMed, replace_pmid, repl
 
 class Thrombophilia(ModuleInterface):
 
-    def __init__(self, db_path:Path):
-        self.path:Path = db_path
+    def __init__(self, db_path: Path = None):
+        if db_path is None:
+            self.path: Path = Path(Path(__file__).parent, "data", "thrombophilia.sqlite")
+        else:
+            self.path: Path = db_path
 
     def parse_PMID(self, text:str):
         parts = text.split(";")
