@@ -9,9 +9,13 @@ from genetics.module_intefrace import ModuleInterface
 
 class DiseaseGenNet(ModuleInterface):
 
-    def __init__(self, db_path:Path, disease_names_path:Path):
-        self.path:Path = db_path
-        self.disease_names_path = disease_names_path
+    def __init__(self, db_path:Path = None, disease_names_path:Path = None):
+        if db_path is None:
+            curpath = Path(__file__)
+            self.path:Path = Path(curpath.parent, "data", "disgenet_2020.sqlite")
+            self.disease_names_path = Path(curpath.parent, "data", "disease_names.csv")
+        else:
+            self.path: Path = db_path
 
     def _agragate_last_field(self, rows):
         current = list(rows[0])
