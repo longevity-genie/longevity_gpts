@@ -5,6 +5,7 @@ from just_agents.llm_session import LLMSession
 from literature.routes import hybrid_search
 from gpt.routes import longevity_gpt
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
+from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 load_dotenv(override=True)
 # What is the influence of different alleles in  rs10937739?
@@ -29,11 +30,18 @@ async def chat_completions(request: dict):
     )
     with open(Path(Path(__file__).parent, "data", "system_prompt.txt")) as sys_prompt:
         session.instruct(sys_prompt.read())
+    try:
+        if request["messages"]:
+            if bool(request.get("stream")) == True:
+                return StreamingResponse(
+                    session.stream_all(request["messages"], run_callbacks=False), media_type="application/x-ndjson"
+                )
 
-    if request["messages"]:
-        resp_content = session.query_all(request["messages"], run_callbacks=False)
-    else:
-        resp_content = "Something goes wrong, request did not contain messages!!!"
+            resp_content = session.query_all(request["messages"], run_callbacks=False)
+        else:
+            resp_content = "Something goes wrong, request did not contain messages!!!"
+    except Exception as e:
+        resp_content = str(e)
 
     return {
         "id": "1",
