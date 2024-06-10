@@ -1,14 +1,15 @@
 import time
 from pathlib import Path
 from fastapi import FastAPI
-from just_agents.llm_session import LLMSession
+from just_agents.llm_session import LLMSession, LLMOptions
 from literature.routes import hybrid_search
 from gpt.routes import longevity_gpt
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
+import os
 load_dotenv(override=True)
-# What is the influence of different alleles in  rs10937739?
+# What is the influence of different alleles in rs10937739 and what is MTOR gene?
 app = FastAPI(title="Genetics Genie API endpoint.")
 
 
@@ -20,10 +21,15 @@ async def default():
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     print(request)
-    curent_llm = {
-        "model":request["model"],
-        "temperature":request["temperature"]
-    }
+    if request["model"].startswith("openrouter"):
+        api_base = "https://openrouter.ai/api/v1"
+        api_key = os.getenv('OPEN_ROUTER_KEY')
+    else:
+        api_base = None
+        api_key = None
+
+    curent_llm:LLMOptions = LLMOptions(request["model"], api_base=api_base, temperature=float(request["temperature"]), api_key=api_key)  #LLMOptions(model=request["model"], temperature=request["temperature"])
+
     session: LLMSession = LLMSession(
         llm_options=curent_llm,
         tools=[hybrid_search, longevity_gpt, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
