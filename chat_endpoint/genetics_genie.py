@@ -1,16 +1,33 @@
 import time
 from pathlib import Path
 from fastapi import FastAPI
-from just_agents.llm_session import LLMSession, LLMOptions
+from just_agents.llm_session import LLMSession
 from literature.routes import hybrid_search
 from gpt.routes import longevity_gpt
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 import os
+from fastapi.middleware.cors import CORSMiddleware
+
+
 load_dotenv(override=True)
 # What is the influence of different alleles in rs10937739 and what is MTOR gene?
 app = FastAPI(title="Genetics Genie API endpoint.")
+origins = [
+    "http://0.0.0.0:8088",
+    "http://localhost:8088",
+    "http://localhost:5173",
+    "http://0.0.0.0:5173",
+    "http://agingkills.eu:8088"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/", description="Defalt message", response_model=str)
@@ -21,14 +38,18 @@ async def default():
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     print(request)
-    if request["model"].startswith("openrouter"):
-        api_base = "https://openrouter.ai/api/v1"
-        api_key = os.getenv('OPEN_ROUTER_KEY')
-    else:
-        api_base = None
-        api_key = None
+    # if request["model"].startswith("openrouter"):
+    #     api_base = "https://openrouter.ai/api/v1"
+    #     api_key = os.getenv('OPEN_ROUTER_KEY')
+    # elif request["model"].startswith("phi3"):
+    #     api_base = "http://localhost:11434/"
+    #     api_key = "no key"
+    # else:
+    api_base = None
+    api_key = None
 
-    curent_llm:LLMOptions = LLMOptions(request["model"], api_base=api_base, temperature=float(request["temperature"]), api_key=api_key)  #LLMOptions(model=request["model"], temperature=request["temperature"])
+    curent_llm: dict = {"model": request["model"], "api_base": api_base, "temperature": 0,
+                        "api_key": api_key}
 
     session: LLMSession = LLMSession(
         llm_options=curent_llm,
