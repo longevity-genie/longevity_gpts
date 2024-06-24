@@ -19,7 +19,8 @@ origins = [
     "http://localhost:8088",
     "http://localhost:5173",
     "http://0.0.0.0:5173",
-    "http://agingkills.eu:8088"
+    "http://agingkills.eu:8088",
+    "http://agingkills.eu:5173"
 ]
 app.add_middleware(
     CORSMiddleware,
