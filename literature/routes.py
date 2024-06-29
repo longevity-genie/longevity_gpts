@@ -149,3 +149,35 @@ async def hybrid_search(query: QueryPaper):
                 COLLECTION_NAME: {collection_name}
                 """
     return [document_to_string(d) for d in results]
+
+
+def _hybrid_search(text: str):
+    """does hybrid search in the literature, provides sources together with answers"""
+    query:QueryPaper = QueryPaper()
+    collections: list[str] = query.collections
+    k = query.limit
+    url = query.db if query.db is not None else os.getenv("OPENSEARCH_URL", "https://localhost:9200")
+    loguru.logger.info(
+        f"HYBRID SEARCH ON: '{query.text}' \n in collections {query.collections} with limit = {k} and url = {url}")
+    results = seq(
+        [search_collection(collection_name, text, k, url) for collection_name in collections]).flatten().order_by(
+        lambda d: d.metadata["search_score"]).reverse()
+    loguru.logger.info(f"RESULTS RECEIVED:\n {results}")
+
+    def document_to_string(d: Document) -> str:
+        source = 'http://doi.org/' + d.metadata['doi'] if 'doi' in d.metadata and d.metadata['doi'] is not None else \
+        d.metadata['source']
+        score = d.metadata["search_score"]
+        collection_name = d.metadata["collection_name"]
+        result: str = f"""
+            {d.page_content}
+            SOURCE: {source}"""
+        if not query.verbose:
+            return result
+        else:
+            return f"""{result}
+                    SEARCH_SCORE: {score}
+                    COLLECTION_NAME: {collection_name}
+                    """
+
+    return "\n".join([document_to_string(d) for d in results])
