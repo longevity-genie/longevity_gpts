@@ -69,6 +69,7 @@ async def chat_completions(request: dict):
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
     except Exception as e:
+        loguru.logger.error(str(e))
         resp_content = str(e)
 
     return {
