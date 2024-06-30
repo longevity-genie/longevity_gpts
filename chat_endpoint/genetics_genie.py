@@ -54,7 +54,7 @@ async def chat_completions(request: dict):
 
     session: LLMSession = LLMSession(
         llm_options=curent_llm,
-        tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info, longevity_gpt]
+        tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
     )
     with open(Path(Path(__file__).parent, "data", "system_prompt.txt")) as sys_prompt:
         session.instruct(sys_prompt.read())
