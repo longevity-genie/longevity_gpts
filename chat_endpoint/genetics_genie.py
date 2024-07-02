@@ -38,16 +38,6 @@ async def default():
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     loguru.logger.debug(request)
-    # if request["model"].startswith("openrouter"):
-    #     api_base = "https://openrouter.ai/api/v1"
-    #     api_key = os.getenv('OPEN_ROUTER_KEY')
-    # elif request["model"].startswith("phi3"):
-    #     api_base = "http://localhost:11434/"
-    #     api_key = "no key"
-    # else:
-    api_base = None
-    api_key = None
-
     curent_llm: dict = {"model": request["model"], "api_base": request.get("api_base", None), "temperature": request.get("temperature", 0)}
     if request["model"].startswith("groq/"):
         curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
@@ -56,8 +46,6 @@ async def chat_completions(request: dict):
         llm_options=curent_llm,
         tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
     )
-    # with open(Path(Path(__file__).parent, "data", "system_prompt.txt")) as sys_prompt:
-    #     session.instruct(sys_prompt.read())
     try:
         if request["messages"]:
             if bool(request.get("stream")) == True:
@@ -65,7 +53,7 @@ async def chat_completions(request: dict):
                     session.stream_all(request["messages"], run_callbacks=False), media_type="application/x-ndjson"
                 )
 
-            resp_content = session.query_all_messages(request["messages"], run_callbacks=False)
+            resp_content = session.query_add_all(request["messages"], run_callbacks=False)
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
     except Exception as e:
