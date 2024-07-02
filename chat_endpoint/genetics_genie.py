@@ -56,8 +56,8 @@ async def chat_completions(request: dict):
         llm_options=curent_llm,
         tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
     )
-    with open(Path(Path(__file__).parent, "data", "system_prompt.txt")) as sys_prompt:
-        session.instruct(sys_prompt.read())
+    # with open(Path(Path(__file__).parent, "data", "system_prompt.txt")) as sys_prompt:
+    #     session.instruct(sys_prompt.read())
     try:
         if request["messages"]:
             if bool(request.get("stream")) == True:
@@ -65,7 +65,7 @@ async def chat_completions(request: dict):
                     session.stream_all(request["messages"], run_callbacks=False), media_type="application/x-ndjson"
                 )
 
-            resp_content = session.query_all(request["messages"], run_callbacks=False)
+            resp_content = session.query_all_messages(request["messages"], run_callbacks=False)
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
     except Exception as e:
