@@ -13,7 +13,8 @@ dependencies:
     - polars>=0.19.11
     - hybrid_search>=0.0.13 #for Future hybrid search API
     - psutil #compartibility
-    - pydantic==1.10.12 #compartibility
+#    - pydantic==1.10.12 #compartibility
+    - pydantic>=2.3.7
     - loguru
     - torch
     - httpx
