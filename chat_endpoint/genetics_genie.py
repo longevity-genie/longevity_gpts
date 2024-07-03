@@ -37,22 +37,20 @@ async def default():
 
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
-    loguru.logger.debug(request)
-    curent_llm: dict = {"model": request["model"], "api_base": request.get("api_base", None), "temperature": request.get("temperature", 0)}
-    if request["model"].startswith("groq/"):
-        curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
-
-    session: LLMSession = LLMSession(
-        llm_options=curent_llm,
-        tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
-    )
     try:
+        loguru.logger.debug(request)
+        curent_llm: dict = {"model": request["model"], "api_base": request.get("api_base", None), "temperature": request.get("temperature", 0)}
+        if request["model"].startswith("groq/"):
+            curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
+        session: LLMSession = LLMSession(
+            llm_options=curent_llm,
+            tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
+        )
         if request["messages"]:
             if bool(request.get("stream")) == True:
                 return StreamingResponse(
                     session.stream_all(request["messages"], run_callbacks=False), media_type="application/x-ndjson"
                 )
-
             resp_content = session.query_add_all(request["messages"], run_callbacks=False)
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
