@@ -42,6 +42,20 @@ async def chat_completions(request: dict):
         curent_llm: dict = {"model": request["model"], "api_base": request.get("api_base", None), "temperature": request.get("temperature", 0)}
         if request["model"].startswith("groq/"):
             curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
+
+        prompt_path = None
+        if request["model"].startswith("groq/llama3"):
+            prompt_path = "data/groq_lama3_prompt.txt"
+        if request["model"].startswith("gpt-4o"):
+            prompt_path = "data/gpt4o_prompt.txt"
+        if prompt_path:
+            with open(prompt_path) as f:
+                if (len(request["messages"]) > 0) and (request["messages"][0]["role"] == "system"):
+                    request["messages"][0]["content"] = f.read()
+                else:
+                    request["messages"].insert(0, {"role":"system", "content":f.read()})
+
+
         session: LLMSession = LLMSession(
             llm_options=curent_llm,
             tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
