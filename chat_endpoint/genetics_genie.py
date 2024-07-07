@@ -48,6 +48,8 @@ async def chat_completions(request: dict):
             prompt_path = "data/groq_lama3_prompt.txt"
         if request["model"].startswith("gpt-4o"):
             prompt_path = "data/gpt4o_prompt.txt"
+        if request["model"].startswith("ollama_chat/phi3"):
+            prompt_path = "data/phi3_prompt.txt"
         if prompt_path:
             with open(prompt_path) as f:
                 if (len(request["messages"]) > 0) and (request["messages"][0]["role"] == "system"):
