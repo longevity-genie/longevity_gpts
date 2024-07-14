@@ -35,6 +35,18 @@ async def default():
     return "This is default page for Genetics Genie API endpoint."
 
 
+def ollama_message_wraper(request: dict):
+    for message in request["messages"]:
+        if message["role"] == "user":
+            content = message["content"]
+            if type(content) is list:
+                if len(content) > 0:
+                    if type(content[0]) is dict:
+                        if content[0].get("type", "") == "text":
+                            if type(content[0].get("text", None)) is str:
+                                message["content"] = content[0]["text"]
+
+
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     try:
@@ -44,12 +56,23 @@ async def chat_completions(request: dict):
             curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
 
         prompt_path = None
+        tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
         if request["model"].startswith("groq/llama3"):
             prompt_path = "data/groq_lama3_prompt.txt"
         if request["model"].startswith("gpt-4o"):
             prompt_path = "data/gpt4o_prompt.txt"
-        if request["model"].startswith("ollama_chat/phi3"):
+        if request["model"].startswith("ollama/phi3"):
             prompt_path = "data/phi3_prompt.txt"
+            ollama_message_wraper(request)
+            tools = None
+        if "qwen2" in request["model"].lower():
+            prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
+            curent_llm["api_base"] = "http://agingkills.eu:11434"
+            curent_llm["keep_alive"] = -1
+            # request["stream"] = "False"
+            ollama_message_wraper(request)
+            # tools = None
+
         if prompt_path:
             with open(prompt_path) as f:
                 if (len(request["messages"]) > 0) and (request["messages"][0]["role"] == "system"):
@@ -60,10 +83,10 @@ async def chat_completions(request: dict):
 
         session: LLMSession = LLMSession(
             llm_options=curent_llm,
-            tools=[_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
+            tools=tools
         )
         if request["messages"]:
-            if bool(request.get("stream")) == True:
+            if request.get("stream") and str(request.get("stream")).lower() != "false":
                 return StreamingResponse(
                     session.stream_all(request["messages"], run_callbacks=False), media_type="application/x-ndjson"
                 )
