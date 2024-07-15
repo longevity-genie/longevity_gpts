@@ -51,7 +51,7 @@ def ollama_message_wraper(request: dict):
 async def chat_completions(request: dict):
     try:
         loguru.logger.debug(request)
-        curent_llm: dict = {"model": request["model"], "api_base": request.get("api_base", None), "temperature": request.get("temperature", 0)}
+        curent_llm: dict = {"model": request["model"], "temperature": request.get("temperature", 0)}
         if request["model"].startswith("groq/"):
             curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
 
@@ -67,8 +67,13 @@ async def chat_completions(request: dict):
             tools = None
         if "qwen2" in request["model"].lower():
             prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
-            curent_llm["api_base"] = "http://agingkills.eu:11434"
-            curent_llm["keep_alive"] = -1
+            # curent_llm["api_base"] = "http://agingkills.eu:11434/v1"
+            # curent_llm["api_key"] = "No_key"
+            # curent_llm["keep_alive"] = -1
+            curent_llm = {'model': 'Qwen2-72B-Instruct',
+                        'model_server': 'http://agingkills.eu:11434/v1',
+                        'api_key': "No_key",
+                        'keep_alive': -1}
             # request["stream"] = "False"
             ollama_message_wraper(request)
             # tools = None
