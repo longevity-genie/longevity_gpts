@@ -48,6 +48,7 @@ def ollama_message_wraper(request: dict):
 
 
 @app.post("/v1/chat/completions")
+@app.post("/v2/chat/completions")
 async def chat_completions(request: dict):
     try:
         loguru.logger.debug(request)
@@ -58,15 +59,27 @@ async def chat_completions(request: dict):
         prompt_path = None
         tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
         if request["model"].startswith("groq/llama3"):
-            prompt_path = "data/groq_lama3_prompt.txt"
+            if "/v1/chat/completions" in str(request.url):
+                prompt_path = "data/groq_lama3_prompt.txt"
+            if "/v2/chat/completions" in str(request.url):
+                prompt_path = "data/groq_lama3_symptomcheck_prompt.txt"
         if request["model"].startswith("gpt-4o"):
-            prompt_path = "data/gpt4o_prompt.txt"
+            if "/v1/chat/completions" in str(request.url):
+                prompt_path = "data/gpt4o_prompt.txt"
+            if "/v2/chat/completions" in str(request.url):
+                prompt_path = "data/gpt4o_symptomcheck_prompt.txt"
         if request["model"].startswith("ollama/phi3"):
-            prompt_path = "data/phi3_prompt.txt"
+            if "/v1/chat/completions" in str(request.url):
+                prompt_path = "data/phi3_prompt.txt"
+            if "/v2/chat/completions" in str(request.url):
+                prompt_path = "data/phi3_symptomcheck_prompt.txt"
             ollama_message_wraper(request)
             tools = None
         if "qwen2" in request["model"].lower():
-            prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
+            if "/v1/chat/completions" in str(request.url):
+                prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
+            if "/v2/chat/completions" in str(request.url):
+                prompt_path = "data/ollama_symptomcheck.txt"
             # curent_llm["api_base"] = "http://agingkills.eu:11434/v1"
             # curent_llm["api_key"] = "No_key"
             # curent_llm["keep_alive"] = -1
