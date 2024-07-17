@@ -1,6 +1,6 @@
 import time
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from just_agents.llm_session import LLMSession
 from literature.routes import _hybrid_search
 from gpt.routes import longevity_gpt
@@ -49,7 +49,9 @@ def ollama_message_wraper(request: dict):
 
 @app.post("/v1/chat/completions")
 @app.post("/v2/chat/completions")
-async def chat_completions(request: dict):
+async def chat_completions(request: dict, main_request: Request):
+    if "/v2/chat/completions" in str(main_request.url):
+        request["model"] = request["model"][:len(request["model"])-1]
     try:
         loguru.logger.debug(request)
         curent_llm: dict = {"model": request["model"], "temperature": request.get("temperature", 0)}
@@ -59,34 +61,35 @@ async def chat_completions(request: dict):
         prompt_path = None
         tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
         if request["model"].startswith("groq/llama3"):
-            if "/v1/chat/completions" in str(request.url):
+            if "/v1/chat/completions" in str(main_request.url):
                 prompt_path = "data/groq_lama3_prompt.txt"
-            if "/v2/chat/completions" in str(request.url):
+            if "/v2/chat/completions" in str(main_request.url):
                 prompt_path = "data/groq_lama3_symptomcheck_prompt.txt"
         if request["model"].startswith("gpt-4o"):
-            if "/v1/chat/completions" in str(request.url):
+            if "/v1/chat/completions" in str(main_request.url):
                 prompt_path = "data/gpt4o_prompt.txt"
-            if "/v2/chat/completions" in str(request.url):
+            if "/v2/chat/completions" in str(main_request.url):
                 prompt_path = "data/gpt4o_symptomcheck_prompt.txt"
         if request["model"].startswith("ollama/phi3"):
-            if "/v1/chat/completions" in str(request.url):
+            if "/v1/chat/completions" in str(main_request.url):
                 prompt_path = "data/phi3_prompt.txt"
-            if "/v2/chat/completions" in str(request.url):
+            if "/v2/chat/completions" in str(main_request.url):
                 prompt_path = "data/phi3_symptomcheck_prompt.txt"
             ollama_message_wraper(request)
             tools = None
         if "qwen2" in request["model"].lower():
-            if "/v1/chat/completions" in str(request.url):
+            if "/v1/chat/completions" in str(main_request.url):
                 prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
-            if "/v2/chat/completions" in str(request.url):
+            if "/v2/chat/completions" in str(main_request.url):
                 prompt_path = "data/ollama_symptomcheck.txt"
-            # curent_llm["api_base"] = "http://agingkills.eu:11434/v1"
+            # curent_llm["api_base"] = "http://0.0.0.0:11434/v1"
             # curent_llm["api_key"] = "No_key"
             # curent_llm["keep_alive"] = -1
             curent_llm = {'model': 'Qwen2-72B-Instruct',
-                        'model_server': 'http://agingkills.eu:11434/v1',
+                        'model_server': 'http://0.0.0.0:11434/v1',
                         'api_key': "No_key",
-                        'keep_alive': -1}
+                        'keep_alive': -1,
+                        'generate_cfg': {"max_input_tokens": 14000}}
             # request["stream"] = "False"
             ollama_message_wraper(request)
             # tools = None
