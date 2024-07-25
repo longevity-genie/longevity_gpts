@@ -60,7 +60,7 @@ async def chat_completions(request: dict, main_request: Request):
 
         prompt_path = None
         tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info, _process_sql, clinical_trails_full_trial]
-        if request["model"].startswith("groq/llama3"):
+        if request["model"].startswith("groq/llama-3.1"):
             if "/v1/chat/completions" in str(main_request.url):
                 prompt_path = "data/groq_lama3_prompt.txt"
             if "/v2/chat/completions" in str(main_request.url):
