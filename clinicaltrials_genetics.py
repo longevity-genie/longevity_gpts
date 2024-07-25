@@ -43,10 +43,10 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
-from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_sql_path
-set_prefix_clinical_trials_sql_path("clinical_trials/")
-from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_data_path
-set_prefix_clinical_trials_data_path("clinical_trials/")
+# from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_sql_path
+# set_prefix_clinical_trials_sql_path("clinical_trials/")
+# from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_data_path
+# set_prefix_clinical_trials_data_path("clinical_trials/")
 
 app.include_router(core_router) # basic stuff
 app.include_router(literature.routes.literature_router) # literature hybrid search API
