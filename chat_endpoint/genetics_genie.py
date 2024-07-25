@@ -5,6 +5,7 @@ from just_agents.llm_session import LLMSession
 from literature.routes import _hybrid_search
 from gpt.routes import longevity_gpt
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
+from clinical_trials.clinical_trails_router import _process_sql, clinical_trails_full_trial
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 from just_agents.utils import RotateKeys
@@ -46,7 +47,6 @@ def ollama_message_wraper(request: dict):
                             if type(content[0].get("text", None)) is str:
                                 message["content"] = content[0]["text"]
 
-
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     try:
@@ -56,9 +56,10 @@ async def chat_completions(request: dict):
             curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
 
         prompt_path = None
-        tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info]
+        tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info, _process_sql, clinical_trails_full_trial]
         if request["model"].startswith("groq/llama3"):
             prompt_path = "data/groq_lama3_prompt.txt"
+            # curent_llm["backup_options"] = {"model":"gpt-4o-mini", "temperature":0}
         if request["model"].startswith("gpt-4o"):
             prompt_path = "data/gpt4o_prompt.txt"
         if request["model"].startswith("ollama/phi3"):
