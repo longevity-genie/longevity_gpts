@@ -18,3 +18,4 @@ dependencies:
     - loguru
     - torch
     - httpx
+    - just-agents>=0.0.7
