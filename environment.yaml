@@ -9,7 +9,6 @@ dependencies:
     - uvicorn
     - thefuzz
     - pycomfort>=0.0.15
-    - pydantic==1.10.12
     - polars>=0.19.11
     - hybrid_search>=0.0.13 #for Future hybrid search API
     - psutil #compartibility
