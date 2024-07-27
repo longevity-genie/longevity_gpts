@@ -58,33 +58,24 @@ async def chat_completions(request: dict, main_request: Request):
         if request["model"].startswith("groq/"):
             curent_llm["key_getter"] = RotateKeys("../groq_keys.txt")
 
+        if "/v1/chat/completions" in str(main_request.url):
+            folder = "genetics"
+
+        if "/v2/chat/completions" in str(main_request.url):
+            folder = "symptomcheck"
+
         prompt_path = None
         tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info, _process_sql, clinical_trails_full_trial]
         if request["model"].startswith("groq/llama-3.1"):
-            if "/v1/chat/completions" in str(main_request.url):
-                prompt_path = "data/groq_lama3_prompt.txt"
-            if "/v2/chat/completions" in str(main_request.url):
-                prompt_path = "data/groq_lama3_symptomcheck_prompt.txt"
+            prompt_path = Path("data", folder, "groq_lama3_prompt.txt")
         if request["model"].startswith("gpt-4o"):
-            if "/v1/chat/completions" in str(main_request.url):
-                prompt_path = "data/gpt4o_prompt.txt"
-            if "/v2/chat/completions" in str(main_request.url):
-                prompt_path = "data/gpt4o_symptomcheck_prompt.txt"
+            prompt_path = Path("data", folder, "gpt4o_prompt.txt")
         if request["model"].startswith("ollama/phi3"):
-            if "/v1/chat/completions" in str(main_request.url):
-                prompt_path = "data/phi3_prompt.txt"
-            if "/v2/chat/completions" in str(main_request.url):
-                prompt_path = "data/phi3_symptomcheck_prompt.txt"
+            prompt_path = Path("data", folder, "phi3_prompt.txt")
             ollama_message_wraper(request)
             tools = None
         if "qwen2" in request["model"].lower():
-            if "/v1/chat/completions" in str(main_request.url):
-                prompt_path = "data/ollama_qwen2_72B_instruct_prompt.txt"
-            if "/v2/chat/completions" in str(main_request.url):
-                prompt_path = "data/ollama_symptomcheck.txt"
-            # curent_llm["api_base"] = "http://0.0.0.0:11434/v1"
-            # curent_llm["api_key"] = "No_key"
-            # curent_llm["keep_alive"] = -1
+            prompt_path = Path("data", folder, "ollama_qwen2_72B_instruct_prompt.txt")
             curent_llm = {'model': 'Qwen2-72B-Instruct',
                         'model_server': 'http://0.0.0.0:11434/v1',
                         'api_key': "No_key",
