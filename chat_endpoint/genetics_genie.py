@@ -11,8 +11,6 @@ from dotenv import load_dotenv
 from just_agents.utils import RotateKeys
 from fastapi.middleware.cors import CORSMiddleware
 import loguru
-# import litellm
-# litellm.set_verbose=True
 log_path = Path(__file__)
 log_path = Path(log_path.parent, "logs", "genetics_genie.log")
 loguru.logger.add(log_path.absolute(), rotation="10 MB")
@@ -46,6 +44,7 @@ def ollama_message_wraper(request: dict):
                         if content[0].get("type", "") == "text":
                             if type(content[0].get("text", None)) is str:
                                 message["content"] = content[0]["text"]
+
 
 @app.post("/v1/chat/completions")
 @app.post("/v2/chat/completions")
@@ -114,7 +113,7 @@ async def chat_completions(request: dict, main_request: Request):
         "object": "chat.completion",
         "created": time.time(),
         "model": curent_llm["model"],
-        "choices": [{"message": {"role":"assistant", "content":resp_content}}],
+        "choices": [{"message": {"role": "assistant", "content": resp_content}}],
     }
 
 

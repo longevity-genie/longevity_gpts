@@ -25,16 +25,6 @@ API_KEY_NAME = "x-api-key"
 API_KEY = os.getenv("API_KEY", "")
 
 clinical_trails_router = APIRouter()
-# clinical_trials_sql_path = "data/studies_db.sqlite"
-# clinical_trials_data_path = "data/"
-
-# def set_prefix_clinical_trials_sql_path(prefix:str):
-#     global clinical_trials_sql_path
-#     clinical_trials_sql_path = prefix + clinical_trials_sql_path
-#
-# def set_prefix_clinical_trials_data_path(prefix:str):
-#     global clinical_trials_data_path
-#     clinical_trials_data_path = prefix + clinical_trials_data_path
 
 def api_key_auth(api_key: str = Depends(APIKeyHeader(name=API_KEY_NAME))):
     if api_key != API_KEY:

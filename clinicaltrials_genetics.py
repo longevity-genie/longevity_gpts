@@ -24,9 +24,6 @@ loguru.logger.add("clinicaltrials_genetics.log", rotation="10 MB")
 
 env_embed_model= os.getenv("EMBED_MODEL", "BAAI/bge-base-en-v1.5")
 
-device: str = "cuda" if torch.cuda.is_available() else "cpu"
-
-
 app = FastAPI(
     # Initialize FastAPI cache with in-memory backend
     title="Restful combined longevity genie server",

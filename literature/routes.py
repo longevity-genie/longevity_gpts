@@ -151,7 +151,7 @@ async def hybrid_search(query: QueryPaper):
     return [document_to_string(d) for d in results]
 
 
-def _hybrid_search(text: str):
+def _hybrid_search(text: str) -> str:
     """does hybrid search in the literature, provides sources together with answers"""
     query:QueryPaper = QueryPaper()
     collections: list[str] = query.collections
