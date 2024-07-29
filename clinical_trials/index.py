@@ -3,7 +3,6 @@ from starlette.middleware.cors import CORSMiddleware
 import clinical_trails_router
 from fastapi.openapi.utils import get_openapi
 
-
 app = FastAPI(debug=True)
 
 # Configure CORS

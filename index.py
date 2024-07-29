@@ -2,7 +2,6 @@
 import re
 
 import loguru
-import torch
 import uvicorn
 from fastapi import FastAPI
 from fastapi.openapi.models import ExternalDocumentation
@@ -20,11 +19,6 @@ from dotenv import load_dotenv
 load_dotenv("clinical_trials/.env")
 import clinical_trials.clinical_trails_router
 
-from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_sql_path
-set_prefix_clinical_trials_sql_path("clinical_trials/")
-from clinical_trials.clinical_trails_router import set_prefix_clinical_trials_data_path
-set_prefix_clinical_trials_data_path("clinical_trials/")
-
 load_environment_keys(usecwd=True)
 
 
@@ -34,8 +28,6 @@ loguru.logger.add("logs/longevity_gpts.log", rotation="10 MB")
 
 
 env_embed_model= os.getenv("EMBED_MODEL", "BAAI/bge-base-en-v1.5")
-
-device: str = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 app = FastAPI(

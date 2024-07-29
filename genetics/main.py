@@ -34,7 +34,7 @@ def read_root():
 
 
 @genetics_router.get("/rsid_lookup/{rsid}", description="Returns information about varinat by its rsId.")
-def rsid_lookup(rsid:str):
+def rsid_lookup(rsid: str):
     """Returns information about varinat by its rsId."""
     result = ""
     for module in modules:
@@ -43,7 +43,7 @@ def rsid_lookup(rsid:str):
 
 
 @genetics_router.get("/gene_lookup/{gene}", description="Returns information about gene by its symbol.")
-def gene_lookup(gene:str):
+def gene_lookup(gene: str) -> str:
     """Returns information about gene by its symbol."""
     result = ""
     for module in modules:
@@ -52,18 +52,18 @@ def gene_lookup(gene:str):
 
 
 @genetics_router.get("/pathway_lookup/{pathway}", description="Returns information about genetic pathway.")
-def pathway_lookup(pathway:str):
+def pathway_lookup(pathway: str) -> str:
     """Returns information about genetic pathway."""
     return longevitymap.pathway_lookup(pathway)
 
 
 @genetics_router.get("/disease_lookup/{disease}", description="Returns information about disease by its name.")
-def disease_lookup(disease:str):
+def disease_lookup(disease: str) -> str:
     """Returns information about disease by its name."""
     return diseaseGenNet.disease_lookup(disease)
 
 @genetics_router.get("/sequencing_info/", description="Returns information about DNA sequencing.")
-def  sequencing_info():
+def  sequencing_info() -> str:
     """Returns information about DNA sequencing."""
     return  dna_sequencing.sequencing_info()
 
