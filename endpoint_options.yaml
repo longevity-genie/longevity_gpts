@@ -1,0 +1,23 @@
+Llama-3.1-70B-Instruct:
+  model: 'ollama/Llama-3.1-70B-Instruct'
+  temperature: 0
+  api_base: 'http://agingkills.eu:11434'
+  api_key: 'No_key'
+  keep_alive: -1
+  system_prompt: 'groq_lama3_prompt.txt'
+
+groq/llama-3.1-70b-versatile:
+  model: 'groq/llama-3.1-70b-versatile'
+  temperature: 0
+  key_getter: 'groq_keys.txt'
+  system_prompt: 'groq_lama3_prompt.txt'
+
+gpt-4o:
+  model: 'gpt-4o'
+  temperature: 0
+  system_prompt: 'gpt4o_prompt.txt'
+
+gpt-4o-mini:
+  model: 'gpt-4o-mini'
+  temperature: 0
+  system_prompt: 'gpt4o_prompt.txt'
