@@ -1,3 +1,9 @@
+mistral-large-latest:
+  model: 'mistral-large-latest'
+  api_base: 'https://api.mistral.ai/v1'
+  temperature: 0
+  system_prompt: 'mistral_large_prompt.txt'
+
 Llama-3.1-70B-Instruct:
   model: 'ollama/Llama-3.1-70B-Instruct'
   temperature: 0
