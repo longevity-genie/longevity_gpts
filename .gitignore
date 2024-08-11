@@ -161,3 +161,5 @@ local_cache
 genetics/test.py
 genetics/data/_disgenet_2020.sqlite
 clinical_trials/data/studies_db.sqlite
+genetics/data/disgenet_2020.sqlite
+groq_keys.txt
