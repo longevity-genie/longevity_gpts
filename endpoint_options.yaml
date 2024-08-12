@@ -26,4 +26,4 @@ gpt-4o:
 gpt-4o-mini:
   model: 'gpt-4o-mini'
   temperature: 0
-  system_prompt: 'gpt4o_prompt.txt'
+  system_prompt: 'gpt4o_mini_prompt.txt'
