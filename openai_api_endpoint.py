@@ -4,6 +4,7 @@ from fastapi import FastAPI, Request
 from just_agents.llm_session import LLMSession
 from literature.routes import _hybrid_search
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
+from open_genes.tools import lifespan_change_db_query
 from clinical_trials.clinical_trails_router import _process_sql, clinical_trails_full_trial
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
@@ -28,6 +29,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
+             _process_sql, clinical_trails_full_trial, lifespan_change_db_query]
 
 @app.get("/", description="Defalt message", response_model=str)
 async def default():
@@ -51,11 +54,14 @@ def get_options(request: dict):
 
 
 def get_session(options_llm: dict) -> LLMSession:
-    tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial]
+    tools_dict = {func.__name__: func for func in TOOLS}
+    tool_names = options_llm.pop("tools")
+    model_tools = None
+    if tool_names:
+        model_tools = [tools_dict[tool] for tool in tool_names]
     session: LLMSession = LLMSession(
         llm_options=options_llm,
-        tools=tools
+        tools=model_tools
     )
     return session
 
