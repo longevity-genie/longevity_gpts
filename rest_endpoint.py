@@ -8,6 +8,7 @@ from fastapi.openapi.models import ExternalDocumentation
 from fastapi.openapi.utils import get_openapi
 from hybrid_search.opensearch_hybrid_search import *
 from pycomfort.config import load_environment_keys
+from pydantic_core import Url
 from starlette.middleware.cors import CORSMiddleware
 
 import blood.routes
@@ -58,7 +59,7 @@ hosts_str = os.getenv('HOSTS')
 port = int(os.getenv("PORT", 8000))
 port_part = ':' + str(port) if port is not None else ''
 
-hosts = hosts_str.split(",") if hosts_str is not None else ["http://localhost"]
+hosts = hosts_str.split(",") if hosts_str is not None else ["http://0.0.0.0"]
 main_host = hosts[0]
 servers = [{"url": h} for h in hosts]
 
@@ -73,10 +74,12 @@ def custom_openapi():
         routes=app.routes,
     )
     openapi_schema["servers"] = servers
+    """
     openapi_schema["externalDocs"] = ExternalDocumentation(
         description="Privacy Policy",
-        url=f"{main_host}/privacy-policy"
-    ).dict()
+        url=f"{main_host}/privacy-policy"  # Use a string instead of Url object
+    ).model_dump()
+    """
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 

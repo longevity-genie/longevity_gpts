@@ -1,5 +1,6 @@
 # longevity_gpts
 restful backends for GPTs build with ChatGPTBuilder and also for huggingface UI
+This means that you can setup with REST API and then give it to [hugging face chat UI](https://github.com/huggingface/chat-ui) as endpoint.
 
 ## Setting up python backend and library
 
