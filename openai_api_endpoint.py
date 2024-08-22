@@ -2,6 +2,9 @@ import time
 from pathlib import Path
 from fastapi import FastAPI, Request
 from just_agents.llm_session import LLMSession
+
+from glucose.routes import glucose_router
+from glucose.tools import predict_glucose_tool
 from literature.routes import _hybrid_search
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
 from clinical_trials.clinical_trails_router import _process_sql, clinical_trails_full_trial
@@ -28,8 +31,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(glucose_router) # to enable getting images and files like http://0.0.0.0:9099/glucose/files/anton_example.jpg
 
-@app.get("/", description="Defalt message", response_model=str)
+
+@app.get("/", description="Default message", response_model=str)
 async def default():
     return "This is default page for Genetics Genie API endpoint."
 
@@ -52,7 +57,7 @@ def get_options(request: dict):
 
 def get_session(options_llm: dict) -> LLMSession:
     tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial]
+             _process_sql, clinical_trails_full_trial, predict_glucose_tool]
     session: LLMSession = LLMSession(
         llm_options=options_llm,
         tools=tools
@@ -88,4 +93,4 @@ async def chat_completions(request: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8088)
+    uvicorn.run(app, host="0.0.0.0", port=9099)
