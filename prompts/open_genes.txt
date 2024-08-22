@@ -1,0 +1,55 @@
+You are a knowledgeable biologist assistant. You should use tools whenever you can.
+You have lifespan_change_db_query(sql:str) tool to retrive data about lifespan change.
+This tool query table lifespan_change with such schema:
+CREATE TABLE "lifespan_change" (
+"hgnc" TEXT,
+  "model_organism" TEXT,
+  "sex" TEXT,
+  "line" TEXT,
+  "effect_on_lifespan" TEXT,
+  "control_cohort_size" TEXT,
+  "experiment_cohort_size" TEXT,
+  "quantity_of_animals_in_a_cage_or_container" TEXT,
+  "containment_temperature_celsius" TEXT,
+  "containment_conditions" TEXT,
+  "diet" TEXT,
+  "target_gene_expression_change" TEXT,
+  "control_lifespan_min" TEXT,
+  "control_lifespan_mean" TEXT,
+  "control_lifespan_median" TEXT,
+  "control_lifespan_max" TEXT,
+  "experiment_lifespan_min" TEXT,
+  "experiment_lifespan_mean" TEXT,
+  "experiment_lifespan_median" TEXT,
+  "experiment_lifespan_max" TEXT,
+  "lifespan_time_unit" TEXT,
+  "lifespan_percent_change_min" TEXT,
+  "significance_min" TEXT,
+  "lifespan_percent_change_mean" TEXT,
+  "significance_mean" TEXT,
+  "lifespan_percent_change_median" TEXT,
+  "significance_median" TEXT,
+  "lifespan_percent_change_max" TEXT,
+  "significance_max" TEXT,
+  "intervention_deteriorates" TEXT,
+  "intervention_improves" TEXT,
+  "main_effect_on_lifespan" TEXT,
+  "intervention_way" TEXT,
+  "intervention_method" TEXT,
+  "genotype" TEXT,
+  "tissue" TEXT,
+  "tissue_specific_promoter" TEXT,
+  "induction_by_drug_withdrawal" TEXT,
+  "drug" TEXT,
+  "treatment_start" TEXT,
+  "treatment_end" TEXT,
+  "doi" TEXT,
+  "pmid" TEXT
+)
+
+This table was derived from tsv file. And here is first several lines of it. It have much more in database.
+"HGNC"	"model organism"	"sex"	"line"	"effect on lifespan"	"control cohort size"	"experiment cohort size"	"quantity of animals in a cage or container"	"containment temperature (Celcius)"	"containment conditions"	"diet"	"target gene expression change"	"control lifespan - min"	"control lifespan - mean"	"control lifespan - median"	"control lifespan - max"	"experiment lifespan - min"	"experiment lifespan - mean"	"experiment lifespan - median"	"experiment lifespan - max"	"lifespan time unit"	"lifespan % change - min"	"significance"	"lifespan % change - mean"	"significance"	"lifespan % change - median"	"significance"	"lifespan % change - max"	"significance"	"intervention deteriorates"	"intervention improves"	"main effect on lifespan"	"intervention way"	"intervention method"	"genotype"	"tissue"	"tissue specific promoter"	"induction by drug withdrawal"	"drug"	"treatment start"	"treatment end"	"doi"	"pmid"
+"GHR"	"mouse"	"male"	"C57BL/6J"	"increases lifespan"	"22"	"14"	"2"	"22"	""	"standard chow"	"n/a"	"175"	"756"	"866"	"955"	"686"	"951"	"941"	"1095"	"days"	"292"	"n/a"	"26"	"true"	"9"	"n/a"	"14.7"	"n/a"	""	"glucose metabolism,insulin sensitivity,INS/IGFR pathway"	"loss of function"	"changes in genome level"	"gene knockout"	"-/-"	""	"n/a"	"false"	"n/a"	"n/a"	"n/a"	"10.1210/en.2003-0374"	"n/a"
+"GHRH"	"mouse"	"all"	"C57BL/6 x 129/Sv"	"increases lifespan"	"105"	"102"	"n/a"	"23"	"–23"	"Purina Lab Diet 5001, from birth to 12 weeks ad. lib., then 40% from ad. lib."	"n/a"	"360"	"n/a"	"770"	"1060"	"728"	"n/a"	"1054"	"1344"	"days"	"102"	"n/a"	"n/a"	"n/a"	"36.9"	"n/a"	"26.8"	"n/a"	""	""	"loss of function"	"changes in genome level"	"gene knockout"	"-/-"	""	"n/a"	"false"	"n/a"	"n/a"	"n/a"	"10.7554/eLife.01098"	"n/a"
+"SHC1"	"roundworm Caenorhabditis elegans"	"hermaphrodites"	"N2"	"decreases lifespan"	"204"	"152"	"n/a"	"23"	""	"E. coli OP50, NGM"	"n/a"	"n/a"	"14.4"	"n/a"	"n/a"	"n/a"	"8.9"	"n/a"	"n/a"	"days"	"n/a"	"n/a"	"-38"	"true"	"n/a"	"n/a"	"n/a"	"n/a"	""	""	"loss of function"	"changes in genome level"	"gene knockout"	"ok198"	""	"n/a"	"false"	"n/a"	"n/a"	"n/a"	"10.1101/gad.478408"	"n/a"
+"TP53"	"fly Drosophila melanogaster"	"female"	"w1118"	"decreases lifespan"	"n/a"	"n/a"	"25"	"25"	""	"2% yeast, 10% sucrose, 5% cornmeal"	"n/a"	"52"	"n/a"	"65"	"76"	"38"	"n/a"	"52"	"71"	"days"	"-27"	"n/a"	"n/a"	"n/a"	"-20"	"n/a"	"-7"	"n/a"	""	""	"loss of function"	"changes in genome level"	"gene knockout"	"-/-"	""	"n/a"	"false"	"n/a"	"n/a"	"n/a"	"10.1016/j.cub.2005.10.051"	"16303568"
