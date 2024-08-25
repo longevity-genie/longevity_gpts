@@ -2,6 +2,7 @@ from typing import List, Callable, Any, Tuple
 
 import numpy as np
 import torch
+from sympy import pprint
 from torch import nn, Tensor
 
 from .collate import default_collate
@@ -41,7 +42,8 @@ class ExpLikeliLoss(nn.Module):
 def modify_collate(num_samples: int) -> Callable[[List[Any]], Any]:
   def wrapper(batch: List[Any]) -> Any:
     batch_rep = [sample for sample in batch for _ in range(num_samples)]
-    return default_collate(batch_rep)
+    result = default_collate(batch_rep)
+    return result
   return wrapper
 
 def adjust_learning_rate(model_optim: torch.optim.Optimizer, epoch: int, lr: float) -> None:

@@ -4,8 +4,8 @@ import warnings
 import numpy as np
 import pandas as pd
 import sklearn.preprocessing
-import data_formatter.types as types
-import data_formatter.utils as utils
+import glucose.data_formatter.types as types
+import glucose.data_formatter.utils as utils
 
 DataTypes = types.DataTypes
 InputTypes = types.InputTypes
@@ -21,18 +21,14 @@ dict_input_type = {'target': InputTypes.TARGET,
                    'time': InputTypes.TIME}
 
 
-class DataFormatter():
+class DataFormatter:
   # Defines and formats data for the IGLU dataset.
 
-  def __init__(self, cnf, study_file = None):
+  def __init__(self, cnf):
     """Initialises formatter."""
     # load parameters from the config file
     self.params = cnf
     # write progress to file if specified
-    self.study_file = study_file
-    stdout = sys.stdout
-    f = open(study_file, 'a') if study_file is not None else sys.stdout
-    sys.stdout = f
 
     # load column definition
     print('-'*32)
@@ -90,9 +86,6 @@ class DataFormatter():
 
     print('Data formatting complete.')
     print('-'*32)
-    if study_file is not None:
-      f.close()
-      sys.stdout = stdout
 
 
   def __process_column_definition(self):

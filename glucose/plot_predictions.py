@@ -2,6 +2,9 @@ import sys
 import os
 import pickle
 import gzip
+from idlelib.pathbrowser import PathBrowser
+from pathlib import Path
+
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,9 +16,8 @@ from glucose.gluformer.model import Gluformer
 #from lib.gluformer.model import *
 from utils.darts_processing import *
 from utils.darts_dataset import *
-# can i just acces the files from git? https://github.com/GlucoseDAO/GlucoBench/tree/0f2c982acc774e5fab5ec8a7d8b9af3d15717df0/utils
 
-def plotting_graph (save_location_pdf, user_name, save_location_csv):
+def plotting_graph(save_location_pdf, user_name, save_location_csv):
     '''
     Just plots the csv- no prediction
     '''
@@ -58,7 +60,8 @@ def plotting_graph (save_location_pdf, user_name, save_location_csv):
 
 
 
-def plotting (save_location_pdf, user_name, model_path):
+def plotting(save_location_pdf: Path, model_path: Path, user_name: str):
+
 
     # Ensure directories for saving results exist
     os.makedirs(save_location_pdf, exist_ok=True)
@@ -69,7 +72,6 @@ def plotting (save_location_pdf, user_name, model_path):
     model_name = 'gluformer'
 
 
-
     # Load data and model parameters
     formatter, series, scalers = load_data(seed=0,
                                            study_file=None,
@@ -77,18 +79,6 @@ def plotting (save_location_pdf, user_name, model_path):
                                            use_covs=True,
                                            cov_type='dual',
                                            use_static_covs=True)
-
-
-    formatter.params['gluformer'] = {
-        'in_len': 96,  # example input length, adjust as necessary
-        'd_model': 512,  # model dimension
-        'n_heads': 10,  # number of attention heads##############################################################################
-        'd_fcn': 1024,  # fully connected layer dimension
-        'num_enc_layers': 2,  # number of encoder layers
-        'num_dec_layers': 2,  # number of decoder layers
-        'length_pred': 12  # prediction length, adjust as necessary
-    }
-
 
     # Define dataset for inference
     dataset_test_glufo = SamplingDatasetInferenceDual(
@@ -103,6 +93,7 @@ def plotting (save_location_pdf, user_name, model_path):
     # Load Gluformer model
     num_dynamic_features = series['train']['future'][-1].n_components
     num_static_features = series['train']['static'][-1].n_components
+
     glufo = Gluformer(
         d_model=formatter.params['gluformer']['d_model'],
         n_heads=formatter.params['gluformer']['n_heads'],
@@ -119,11 +110,6 @@ def plotting (save_location_pdf, user_name, model_path):
         num_static_features=num_static_features
     )
     
-    
-    glufo.to('cuda')
-
-    glufo.load_state_dict(torch.load(model_path, map_location=torch.device('cuda')))
-
 
     # Get predictions
     forecasts, _ = glufo.predict(
@@ -161,8 +147,7 @@ def plotting (save_location_pdf, user_name, model_path):
         scale=0.1,  # Standard deviation (spread) of the distribution
         size=(forecasts.shape[1], forecasts.shape[2])
      )
-    #samples = samples.reshape(samples.shape[0], samples.shape[1], -1)
-    
+
     # Plot predictive distribution
     for point in range(samples.shape[0]):
         kde = stats.gaussian_kde(samples[point,:])

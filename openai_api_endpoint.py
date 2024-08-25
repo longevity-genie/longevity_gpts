@@ -1,3 +1,4 @@
+import os
 import time
 from pathlib import Path
 from fastapi import FastAPI, Request
@@ -93,4 +94,5 @@ async def chat_completions(request: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=9099)
+    port = os.getenv("CHAT_PORT", 9099)
+    uvicorn.run(app, host="0.0.0.0", port=port)

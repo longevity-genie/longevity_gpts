@@ -1,0 +1,81 @@
+data_csv_path: ./raw_data/anton.csv
+drop: null
+ds_name: livia_mini
+index_col: -1
+observation_interval: 5min
+
+column_definition:
+  - data_type: categorical
+    input_type: id
+    name: id
+  - data_type: date
+    input_type: time
+    name: time
+  - data_type: real_valued
+    input_type: target
+    name: gl
+
+encoding_params:
+  date:
+    - day
+    - month
+    - year
+    - hour
+    - minute
+    - second
+
+# NA values abbreviation
+nan_vals: null
+
+# Interpolation parameters
+interpolation_params:
+  gap_threshold: 45 # in minutes
+  min_drop_length: 240 # in number of points (20 hrs)
+
+scaling_params:
+  scaler: None
+
+split_params:
+  length_segment: 13
+  random_state: 0
+  test_percent_subjects: 0.1
+
+
+# Splitting parameters
+#split_params:
+#  test_percent_subjects: .1
+#  length_segment: 240
+#  random_state: 0
+
+# Model params
+max_length_input: 192
+length_pred: 12
+
+transformer:
+  batch_size: 32
+  d_model: 96
+  dim_feedforward: 448
+  dropout: 0.10161152207464333
+  in_len: 96
+  lr: 0.000840888489686657
+  lr_epochs: 16
+  max_grad_norm: 0.6740479322943925
+  max_samples_per_ts: 50
+  n_heads: 4
+  num_decoder_layers: 1
+  num_encoder_layers: 4
+
+transformer_covariates:
+  batch_size: 32
+  d_model: 128
+  dim_feedforward: 160
+  dropout: 0.044926981080245884
+  in_len: 108
+  lr: 0.00029632347559614453
+  lr_epochs: 20
+  max_grad_norm: 0.8890169619043728
+  max_samples_per_ts: 50
+  n_heads: 2
+  num_decoder_layers: 2
+  num_encoder_layers: 2
+

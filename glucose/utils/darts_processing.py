@@ -3,7 +3,7 @@ import os
 import yaml
 import random
 from typing import Any, BinaryIO, Callable, Dict, List, Optional, Sequence, Tuple, Union
-
+from pathlib import Path
 import numpy as np 
 from scipy import stats
 import pandas as pd
@@ -77,12 +77,11 @@ def make_series(data: Dict[str, pd.DataFrame],
                 scalers[name] = None
     return series, scalers
 
-def load_data(seed = 0, 
-              study_file: str = None, 
-              dataset: str = None, 
+def load_data(url: str,
+              config_path: Path,
               use_covs: bool = False,
               cov_type: str = 'past',
-              use_static_covs: bool = False,):
+              use_static_covs: bool = False, seed = 0):
     """
     Load data according to the specified config file and covert to Darts TimeSeries objects.
 
@@ -110,12 +109,61 @@ def load_data(seed = 0,
     scalers: Dict[str, Scaler]
        Dictionary of scalers with key indicating the type of series (target or covariate).
     """
-    # load data
-    with open(f'./config/{dataset}.yaml', 'r') as f:
+
+
+    """
+    config={
+        'data_csv_path':f'{url}',
+        'drop': None,
+        'ds_name': 'livia_mini',
+        'index_col': -1,
+        'observation_interval': '5min',
+        'column_definition': {
+            {'data_type': 'categorical',
+             'input_type':'id',
+             'name':'id'
+             },
+            {'date_type':'date',
+             'input_type':'time',
+             'name':'time'
+             },
+            {'date_type':'real_valued',
+             'input_type':'target',
+             'name':'gl'
+             }
+        },
+        'encoding_params':{'date':['day','month','year','hour','minute','second']
+                           },
+        'nan_vals':None,
+        'interpolation_params':{'gap_threshold': 45,
+                                'min_drop_length': 240
+                                },
+        'scaling_params':{'scaler':None
+                          },
+        'split_params':{'length_segment': 13,
+                        'random_state':seed,
+                        'test_percent_subjects': 0.1
+                        },
+        'max_length_input': 192,
+        'length_pred': 12,
+        'params':{
+            'gluformer':{'in_len': 96,
+                         'd_model': 512,
+                         'n_heads': 10,
+                         'd_fcn': 1024,
+                         'num_enc_layers': 2,
+                         'num_dec_layers': 2,
+                         'length_pred': 12
+                         }
+        }
+    }
+    """
+    with config_path.open("r") as f:
         config = yaml.safe_load(f)
-    config['split_params']['random_state'] = seed
-    formatter = DataFormatter(config, study_file = study_file)
-    assert dataset is not None, 'dataset must be specified in the load_data call'
+    config["data_csv_path"] = url
+
+    formatter = DataFormatter(config)
+    #assert dataset is not None, 'dataset must be specified in the load_data call'
     assert use_covs is not None, 'use_covs must be specified in the load_data call'
 
     # convert to series
