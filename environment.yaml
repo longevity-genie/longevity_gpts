@@ -26,3 +26,4 @@ dependencies:
     - darts==0.29.0
     - pmdarima==2.0.4
     - numpy==1.26.4
+    - peft

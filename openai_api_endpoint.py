@@ -1,6 +1,8 @@
 import os
 import time
 from pathlib import Path
+
+import uvicorn
 from fastapi import FastAPI, Request
 from just_agents.llm_session import LLMSession
 
@@ -91,6 +93,18 @@ async def chat_completions(request: dict):
     }
 
 if __name__ == "__main__":
-    import uvicorn
+    # Fetch and convert the port to an integer
     port = os.getenv("CHAT_PORT", 9099)
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    try:
+        port = int(port)  # Convert to integer
+    except ValueError:
+        raise ValueError(f"Invalid port value: {port}. It must be an integer.")
+
+    # Fetch the host
+    host = os.getenv("HOST", "0.0.0.0")
+
+    # Debug output to confirm types
+    print(f"HOST: {host} (type: {type(host)}) and PORT: {port} (type: {type(port)})")
+
+    # Start the Uvicorn server
+    uvicorn.run(app, host=host, port=port)

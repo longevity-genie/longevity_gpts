@@ -1,20 +1,14 @@
-"""
-Here there should be a tool (function)
-1)
-"""
 import hashlib
-import os
 from urllib.parse import urlparse
 
 import litellm
+import numpy as np
 import typer
 from dotenv import load_dotenv
 from just_agents.llm_session import LLMSession
 from litellm import completion
-from requests import session
 
-from plot_predictions import *
-import numpy as np
+from glucose.plot_predictions import *
 
 glucose = Path(os.path.abspath(__file__)).parent.resolve()
 file_directory = glucose / "files"
@@ -22,9 +16,9 @@ models_directory = glucose / "models"
 
 def filename_to_url(name: str):
     load_dotenv(override=True)
-    host = os.getenv("HOST","http://0.0.0.0")
+    host = "agingkills.eu" #os.getenv("HOST","0.0.0.0")
     port = os.getenv("CHAT_PORT",)
-    return f"{host}:{port}/view/{name}"
+    return f"http://{host}:{port}/view/{name}"
 
 
 def plot_forecast(forecasts: np.ndarray, scalers: Any, dataset_test_glufo: Any, filename: str):
@@ -203,11 +197,14 @@ def predict_glucose_tool(url: str= typer.Option("https://raw.githubusercontent.c
     figure_path = plot_forecast(forecasts, scalers, dataset_test_glufo,filename)
     figure_url = filename_to_url(filename)
     if not explain:
+        print("I AM EVIL FUNCTION THAT DOES NOT EXPLAIN!")
         return figure_url
     else:
+        url = figure_url
+        #url = "https://github.com/GlucoseDAO/GlucoBench/blob/eae92565b81998cd13eca9018e5cfa5efc8db6f6/output/plots/gluformer_prediction_gradient_anton_190.png?raw=true"
+        print(f"I WILL CALL EXPLANATIONS WITH URL = {url}")
         result = "Prediction URL is " + figure_url + " " + explain_image(
-            url = figure_url,
-            #url = "https://github.com/GlucoseDAO/GlucoBench/blob/eae92565b81998cd13eca9018e5cfa5efc8db6f6/output/plots/gluformer_prediction_gradient_anton_190.png?raw=true",
+            url=url,
             prompt=f"""
             Explain glucose predictions and possible health outcomes on the chat.Make those arguments based on values and figures in the chart. A personalized response. The person is {'diabetic' if diabetic else 'not diabetic'}
             """
