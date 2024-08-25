@@ -277,7 +277,7 @@ You can also render it as URL in markdown
 
     session.instruct(system)
     question = """
-    Here is my glucose values https://raw.githubusercontent.com/GlucoseDAO/GlucoBench/livia/raw_data/anton.csv please forecast glucose changes
+    Here is my glucose values https://raw.githubusercontent.com/GlucoseDAO/GlucoBench/livia/raw_data/anton.csv please forecast glucose changes I am not diabetic
     """
     results = session.query(question)
     pprint(results)
