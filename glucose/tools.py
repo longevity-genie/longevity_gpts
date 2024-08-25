@@ -5,6 +5,8 @@ Here there should be a tool (function)
 import hashlib
 import os
 from urllib.parse import urlparse
+
+import litellm
 import typer
 from dotenv import load_dotenv
 from just_agents.llm_session import LLMSession
@@ -26,7 +28,6 @@ def filename_to_url(name: str):
 
 
 def plot_forecast(forecasts: np.ndarray, scalers: Any, dataset_test_glufo: Any, filename: str):
-    print(forecasts.shape)
     filename=filename
     forecasts = (forecasts - scalers['target'].min_) / scalers['target'].scale_
 
@@ -115,17 +116,24 @@ def generate_filename_from_url(url: str, extension: str = "png") -> str:
     return filename
 
 def predict_glucose_tool(url: str= typer.Option("https://raw.githubusercontent.com/GlucoseDAO/GlucoBench/livia/raw_data/anton.csv", help="url of the csv donwloaded in CGM original format (DEXCOM)"),
-                        model: str= typer.Option('gluformer_1samples_10000epochs_10heads_32batch_geluactivation_anton_weights.pth', help="model with weights used for predicting."),
-                        explain: bool = False
+                        model: str = typer.Option('gluformer_1samples_10000epochs_10heads_32batch_geluactivation_anton_weights.pth', help="model with weights used for predicting."),
+                        explain: bool = True,
+                        diabetic: bool = False
                     ) -> str:
     """
     Function to predict future glucose of user. It receives URL with users csv. It will run an ML and will return URL with predictions that user can open on her own..
     :param url: of the csv file with glucose values
-    :param user_name: the name the cvs and file will be stored later
     :param model: model that is used to predict the glucose
-    :param predict_future: predicts future values if true, otherwise evaluates last values and plots on ground truth
+    :param explain if it should give both url and explanation
+    :param if the person is diabetic when doing prediction and explanation
     :return:
     """
+
+
+    if model == "default":
+        model = 'gluformer_1samples_10000epochs_10heads_32batch_geluactivation_anton_weights.pth'
+
+    print(f"<************> I WAS CALLED WITH URL {url} and model {model} and explain {explain}")
 
     #get the file and convert it to normal processing format. saves it to server
 
@@ -193,13 +201,21 @@ def predict_glucose_tool(url: str= typer.Option("https://raw.githubusercontent.c
     )
     figure_path = plot_forecast(forecasts, scalers, dataset_test_glufo,filename)
     figure_url = filename_to_url(filename)
-    print(figure_path, figure_url)
-    return figure_url
-
+    if not explain:
+        return figure_url
+    else:
+        result = "Prediction URL is " + figure_url + " " + explain_image(
+            url = figure_url,
+            #url = "https://github.com/GlucoseDAO/GlucoBench/blob/eae92565b81998cd13eca9018e5cfa5efc8db6f6/output/plots/gluformer_prediction_gradient_anton_190.png?raw=true",
+            prompt=f"""
+            Explain glucose predictions and possible health outcomes on the chat.Make those arguments based on values and figures in the chart. A personalized response. The person is {'diabetic' if diabetic else 'not diabetic'}
+            """
+        ) # explain_image(url = figure_url)
+        return result
 
 def explain_image(
-    prompt: str = "Explain glucose predictions and possible health outcomes on the chat",
-    url: str = "https://github.com/IrinaStatsLab/GlucoBench/blob/main/paper_results/plots/figure6.png?raw=true",
+    prompt: str ,
+    url: str = "https://github.com/GlucoseDAO/GlucoBench/blob/eae92565b81998cd13eca9018e5cfa5efc8db6f6/output/plots/gluformer_prediction_gradient_anton_190.png?raw=true",
     model: str = "gpt-4o"):
     """
     function that explains the image
@@ -211,7 +227,7 @@ def explain_image(
     load_dotenv(override=True)
     # openai call
     response = completion(
-        model = "gpt-4o",
+        model = model,
         messages=[
             {
                 "role": "user",
@@ -232,13 +248,6 @@ def explain_image(
     )
     return response.choices[0].message.content
 
-def get_session(options_llm: dict) -> LLMSession:
-    tools = [predict_glucose_tool]
-    session: LLMSession = LLMSession(
-        llm_options=options_llm,
-        tools=tools
-    )
-    return session
 
 
 if __name__ == "__main__":
@@ -247,8 +256,13 @@ if __name__ == "__main__":
         "model": "gpt-4o-mini",
         "temperature": 0
     }
+    litellm.set_verbose=True
 
-    session = get_session(gpt_4o_mini_glucose)
+    tools = [predict_glucose_tool]
+    session: LLMSession = LLMSession(
+        llm_options=gpt_4o_mini_glucose,
+        tools=tools
+    )
 
     system = """
     You are a medical doctor with deep expertise in diabetes, personalized medicine, longevity and biohacking, you love checking latest research.
@@ -256,10 +270,10 @@ Your task is to advice people using CGMs both diabetic and non-diabetic, those w
 You do your best to give the most comprehensive,  clear and easy to understand advice, you are open to new health optimization applications and you always search for the scientific studies that you can reference in your answers.
 In your answers you try not only explaining the general terms but also understand users health situation.
 You clarify if she is diabetic, pre-diabetic or healthy in case it is required for the answer and when it's not clear from the questions.
-You try to follow instructions closely.
-When you run glucose prediction tool it will return the url which you cannot open but you have to write it to the user as she will open it herself
+You try to follow instructions closely. You specify if a person is diabetic when calling predict_glucose_tool
+When you run predict_glucose_tool tool it will return the url and it can also provide explanation of the image at url You as AI assistant will not have access to image but you mush keep the output URL to let user click it herself. 
+You can also render it as URL in markdown
     """
-
 
     session.instruct(system)
     question = """

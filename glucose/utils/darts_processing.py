@@ -28,6 +28,7 @@ def make_series(data: Dict[str, pd.DataFrame],
                 group_col: str,
                 value_cols: Dict[str, List[str]],
                 include_sid: bool = False,
+                verbose: bool = False
                 ) -> Dict[str, darts.TimeSeries]:
     """
     Makes the TimeSeries from the data.
@@ -58,8 +59,9 @@ def make_series(data: Dict[str, pd.DataFrame],
         
         for name, cols in value_cols.items():
             # Adjust display settings
-            print(f"DATAFRAME for key {key} in NAME {name} and COLS {cols} and GROUP_COL {group_col}")
-            pprint(df.head(1))
+            if verbose:
+                print(f"DATAFRAME for key {key} in NAME {name} and COLS {cols} and GROUP_COL {group_col}")
+                pprint(df.head(1))
             series[key][name] = TimeSeries.from_group_dataframe(df = df,
                                                                 group_cols = group_col,
                                                                 time_col = time_col,

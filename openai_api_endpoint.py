@@ -45,7 +45,7 @@ def get_options(request: dict):
     key_getter = options_llm.pop("key_getter", None)
     if key_getter:
         options_llm["key_getter"] = RotateKeys(key_getter)
-    prompt_path = options_llm.pop("system_prompt", None)
+    prompt_path = options_llm.pop("system_prompt", None) #delete system_prompt from options to avoid error
     if prompt_path:
         prompt_path = Path("prompts", prompt_path)
         with open(prompt_path) as f:
@@ -56,22 +56,21 @@ def get_options(request: dict):
     return options_llm
 
 
-def get_session(options_llm: dict) -> LLMSession:
-    tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial, predict_glucose_tool]
-    session: LLMSession = LLMSession(
-        llm_options=options_llm,
-        tools=tools
-    )
-    return session
-
-
 @app.post("/v1/chat/completions")
 async def chat_completions(request: dict):
     try:
         loguru.logger.debug(request)
-        options = get_options(request)
-        session = get_session(options)
+        options_llm = get_options(request)
+        if "glucose" in request["model"]:
+            print("GLUCOSE, SUGAR! SUGAR!")
+            tools = [predict_glucose_tool]
+        else:
+            tools = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
+                     _process_sql, clinical_trails_full_trial, predict_glucose_tool]
+        session: LLMSession = LLMSession(
+            llm_options=options_llm,
+            tools=tools
+        )
         if request["messages"]:
             if request.get("stream") and str(request.get("stream")).lower() != "false":
                 return StreamingResponse(
@@ -87,10 +86,9 @@ async def chat_completions(request: dict):
         "id": "1",
         "object": "chat.completion",
         "created": time.time(),
-        "model": options["model"],
+        "model": options_llm["model"],
         "choices": [{"message": {"role": "assistant", "content": resp_content}}],
     }
-
 
 if __name__ == "__main__":
     import uvicorn
