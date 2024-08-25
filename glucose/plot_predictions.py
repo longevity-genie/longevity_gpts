@@ -112,11 +112,12 @@ def plotting(save_location_pdf: Path, model_path: Path, user_name: str):
     
 
     # Get predictions
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     forecasts, _ = glufo.predict(
         dataset_test_glufo,
         batch_size=16,####################################################
         num_samples=10,
-        device='cuda',
+        device=device,
         use_tqdm=True
     )
 

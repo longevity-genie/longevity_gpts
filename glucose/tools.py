@@ -181,7 +181,8 @@ def predict_glucose_tool(url: str= typer.Option("https://raw.githubusercontent.c
     )
     weights = models_directory / model
     assert f"weights for {model} should exist", weights.exists()
-    glufo.load_state_dict(torch.load(str(weights), map_location=torch.device('cuda'), weights_only=False))
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    glufo.load_state_dict(torch.load(str(weights), map_location=torch.device(device), weights_only=False))
 
     # Define dataset for inference
     dataset_test_glufo = SamplingDatasetInferenceDual(
