@@ -6,12 +6,15 @@ from literature.routes import _hybrid_search
 from genetics.main import rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info
 from open_genes.tools import lifespan_change_db_query
 from clinical_trials.clinical_trails_router import _process_sql, clinical_trails_full_trial
+from precious3GPT.p3gpt_tool import get_omics_data
 from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 from just_agents.utils import RotateKeys
 from fastapi.middleware.cors import CORSMiddleware
 import loguru
 import yaml
+import litellm
+
 log_path = Path(__file__)
 log_path = Path(log_path.parent, "logs", "openai_api_endpoint.log")
 loguru.logger.add(log_path.absolute(), rotation="10 MB")
@@ -30,7 +33,7 @@ app.add_middleware(
 )
 
 TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial, lifespan_change_db_query]
+             _process_sql, clinical_trails_full_trial, lifespan_change_db_query, get_omics_data]
 
 @app.get("/", description="Defalt message", response_model=str)
 async def default():

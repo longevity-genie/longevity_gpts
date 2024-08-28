@@ -43,3 +43,11 @@ open_genes_gpt-4o-mini:
   temperature: 0
   tools: ["lifespan_change_db_query"]
   system_prompt: 'open_genes.txt'
+
+precious3GPT_gpt-4o-mini:
+  model: 'gpt-4o-mini'
+  temperature: 0
+  tools: ["get_omics_data"]
+  system_prompt: 'precious3GPT_prompt.txt'
+
+
