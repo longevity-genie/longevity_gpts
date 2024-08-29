@@ -130,6 +130,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+clinicaltrials_genetics.env
 .env
 .venv
 env/
