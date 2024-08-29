@@ -1,21 +1,28 @@
+import os
 import requests
+from dotenv import load_dotenv
 
 API_URL = "https://cu2s6lgb4jew3tht.us-east-1.aws.endpoints.huggingface.cloud"
+
+load_dotenv()
+api_token = os.getenv("HF_PRECIOUS_API_TOKEN")
+API_URL = os.getenv("PRECIOUS_API_ENDPOINT", API_URL)
+
 headers = {
     "Accept" : "application/json",
-    "Authorization": "Bearer ***REMOVED***",
+    "Authorization": f"Bearer {api_token}",
     "Content-Type": "application/json"
 }
 
-# tissue_options = ['skin', 'muscle', 'whole blood', 'epithelium', 'artery', 'fat tissue', 'brain', 'liver']
+# tissue_options = ['whole body', ''skin', 'muscle', 'whole blood', 'epithelium', 'artery', 'fat tissue', 'brain', 'liver']
 # domain_options = ['methylation', 'proteomics', 'expression']
 
 def get_omics_data(age:float, tissue:str = 'whole body', drug:str = '', gender:str = '', domain:str = 'expression'):
     """ This function retrieves omics data for given parameters.
      age - age in years
-     tissue - is tissue name like: 'skin', 'muscle', 'whole blood', 'epithelium', 'artery', 'fat tissue', 'brain', 'liver', 'lung'
+     tissue - optional, is tissue name like: 'whole body', 'skin', 'muscle', 'whole blood', 'epithelium', 'artery', 'fat tissue', 'brain', 'liver', 'lung'
      drug - drug or biological active substance name
-     gender - 'm' for male and 'f' for female
+     gender - optional, 'm' for male and 'f' for female
      domain - must be one of these 'methylation', 'proteomics', 'expression' """
     config_data = {'instruction': ['age_group2diff2age_group'],
                    'tissue': tissue,
