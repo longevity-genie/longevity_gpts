@@ -2,6 +2,7 @@ import os
 import hashlib
 import requests
 import json
+import gseapy as gp
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -80,3 +81,18 @@ def get_omics_data(age:float, tissue:str = 'whole body', drug:str = '', gender:s
     except requests.exceptions.RequestException as e:
         return json.dumps({"error": str(e)})
 
+
+def get_enrichment(genes_list:str):
+    """
+    This function takes the list of genes and returns enrichment results.
+    """
+    genes = genes_list.split(",")
+    try:
+        enr = gp.enrichr(gene_list=genes,
+                 gene_sets=['MSigDB_Hallmark_2020','KEGG_2021_Human'],
+                 organism='human',
+                 outdir=None,
+                )
+        return str(enr.results)
+    except Exception as e:
+        return "Wasn't able to retrieve enrichment"

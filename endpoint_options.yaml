@@ -47,7 +47,7 @@ open_genes_gpt-4o-mini:
 precious3GPT_gpt-4o-mini:
   model: 'gpt-4o-mini'
   temperature: 0
-  tools: ["get_omics_data"]
+  tools: ["get_omics_data", "get_enrichment"]
   system_prompt: 'precious3GPT_prompt.txt'
 
 
