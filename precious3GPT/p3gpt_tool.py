@@ -1,12 +1,17 @@
 import os
+import hashlib
 import requests
+import json
 from dotenv import load_dotenv
+from pathlib import Path
 
 API_URL = "https://cu2s6lgb4jew3tht.us-east-1.aws.endpoints.huggingface.cloud"
 
 load_dotenv()
 api_token = os.getenv("HF_PRECIOUS_API_TOKEN")
 API_URL = os.getenv("PRECIOUS_API_ENDPOINT", API_URL)
+folder_path = Path(os.path.abspath(__file__)).parent.parent.resolve() / "omics"
+os.makedirs(folder_path, exist_ok=True)
 
 headers = {
     "Accept" : "application/json",
@@ -16,6 +21,12 @@ headers = {
 
 # tissue_options = ['whole body', ''skin', 'muscle', 'whole blood', 'epithelium', 'artery', 'fat tissue', 'brain', 'liver']
 # domain_options = ['methylation', 'proteomics', 'expression']
+
+def filename_to_url(name: str):
+    load_dotenv(override=True)
+    host = "agingkills.eu" #os.getenv("HOST","0.0.0.0")
+    port = os.getenv("CHAT_PORT","5174")
+    return f"http://{host}:{port}/omics/{name}"
 
 def get_omics_data(age:float, tissue:str = 'whole body', drug:str = '', gender:str = '', domain:str = 'expression'):
     """ This function retrieves omics data for given parameters.
@@ -49,5 +60,23 @@ def get_omics_data(age:float, tissue:str = 'whole body', drug:str = '', gender:s
         "random_seed": 137
     }}
 
-    response = requests.post(API_URL, headers=headers, json=request_config)
-    return str(response.json())
+    try:
+        response = requests.post(API_URL, headers=headers, json=request_config)
+        response.raise_for_status()
+        response_json = response.json()
+
+        response_str = json.dumps(response_json)
+        md5 = hashlib.md5(response_str.encode()).hexdigest()
+        file_name = f'{md5}.json'
+        file_path = os.path.join(folder_path, file_name)
+
+        with open(file_path, 'w') as file:
+            json.dump(response_json, file, indent=4)
+
+        response_json['output']['test_info'] = '514'
+        response_json['output']['full_info'] = filename_to_url(file_name)
+        return json.dumps(response_json, indent=4)
+
+    except requests.exceptions.RequestException as e:
+        return json.dumps({"error": str(e)})
+

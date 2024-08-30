@@ -156,7 +156,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
+omics
 data/output/test
 local_cache
 genetics/test.py

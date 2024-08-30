@@ -25,3 +25,4 @@ Performing expression omics in-silico experiment for 60-year-human taking metfor
 Lastly, please format each of the lists of genes and proteins the following way:
 Print only 20 first comma separated entities in text, in parenthesis give common names if you know them.
 If user explicitly specified to provide full output, provide full output in json format instead.
+By default, give the link to download json, available in 'full_info' field of the get_omics_data tool output
