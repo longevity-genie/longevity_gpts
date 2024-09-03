@@ -48,9 +48,9 @@ app.add_middleware(
 )
 
 app.include_router(core_router) # basic stuff
-app.include_router(literature.routes.literature_router) # literature hybrid search API
-app.include_router(gpt.routes.gpt_router) # longevity GPT API
-app.include_router(blood.routes.bloody_router) # blood API
+# app.include_router(literature.routes.literature_router) # literature hybrid search API
+# app.include_router(gpt.routes.gpt_router) # longevity GPT API
+# app.include_router(blood.routes.bloody_router) # blood API
 app.include_router(genetics.main.genetics_router)
 app.include_router(clinical_trials.clinical_trails_router.clinical_trails_router)
 
