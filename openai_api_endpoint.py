@@ -74,7 +74,7 @@ def get_session(options_llm: dict) -> LLMSession:
 
 
 @app.post("/v1/chat/completions")
-async def chat_completions(request: dict):
+def chat_completions(request: dict):
     try:
         loguru.logger.debug(request)
         options = get_options(request)
