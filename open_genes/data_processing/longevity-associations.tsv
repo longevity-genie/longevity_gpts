@@ -1,0 +1,678 @@
+HGNC	polymorphism type	polymorphism id	nucleotide substitution	amino acid substitution	polymorphism — other	ethnicity	study type	sex	doi	pmid
+ABCC4	SNP	rs4148544	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+ABO	SNP	rs2519093	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+ABO	SNP	rs514659	A/C	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs545971	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs612169	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs687289	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs687621	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs674302	A/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs529565	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs505922	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs643434	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs644234	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ABO	SNP	rs657152	A/C	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+ACE	In/Del	rs1799752	n/a	n/a	n/a	Greek	candidate genes study	all	10.1177/0003319712475075	n/a
+ADCY1	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+ADIPOQ	SNP	n/a	-11391G > A	n/a	n/a	Polish	candidate genes study	all	n/a	23339001.0
+ADRA1A	SNP	8:26614201	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+ADRB2	SNP	rs1042718	C/A	n/a	n/a	Chinese	candidate genes study	all	10.1111/acel.12011	n/a
+ADRB2	SNP	rs1042719	G/C	n/a	n/a	Chinese	candidate genes study	all	10.1111/acel.12011	n/a
+AGER	SNP	n/a	-374T/A	n/a	n/a	Caucasian	candidate genes study	male	10.3390/ijms141123203	n/a
+AGTR1	SNP	rs422858	A>C	n/a	n/a	Italian	candidate genes study	all	10.1007/s11357-012-9408-8	n/a
+AGTR1	SNP	rs275653	A>G	n/a	n/a	Italian	candidate genes study	all	10.1007/s11357-012-9408-8	n/a
+AGTR1	SNP	rs2307085	C>A	n/a	n/a	Italian	candidate genes study	all	10.1007/s11357-012-9408-8	n/a
+AGTR1	SNP	rs275653	A>G	n/a	n/a	Japanese	candidate genes study	all	10.1007/s11357-012-9408-8	n/a
+AIF1	SNP	rs2269475	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+AKR1C2	SNP	rs61856137	T>G	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+ANKRD20A9P	SNP	rs2440012	G>C	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+AOX1	haplotype	AOX1[rs2465661]+RAD23B[rs11573709	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+AOX1	haplotype	AOX1[rs2256977]+KL[rs2283368]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+APOB	SNP	rs12713450	n/a	T/M	n/a	Spanish	family study	all	10.1111/acel.12261	n/a
+APOB	SNP	rs1801703	n/a	V/M	n/a	Spanish	family study	all	10.1111/acel.12261	n/a
+APOB	SNP	rs12720854	n/a	S/G	n/a	Spanish	family study	all	10.1111/acel.12261	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+APOC1	n/a	rs439401, rs445925, rs4420638	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication of previous findings	all	10.1093/gerona/glu166	n/a
+APOC1	SNP	rs10414043	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	European	GWAS, discovery + replication	all	10.1093/hmg/ddu139	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	European	GWAS	all	10.1093/hmg/ddu139	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	European	GWAS, replication	all	10.1093/hmg/ddu139	n/a
+APOC1	SNP	rs4420638	n/a	n/a	n/a	Caucasian	GWAS	all	10.1111/acel.12039	n/a
+APOC1	SNP	rs4420638	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+APOC3	SNP	rs2542052	-641A>C	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1371/journal.pbio.0040113	n/a
+APOE	SNP	rs769449	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+APOE	SNP	rs769449	A/G	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+APOE	haplotype	rs405509+rs440446+rs769449	A+G+A	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+APOE	SNP	rs769449	n/a	n/a	n/a	German	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+APOE	VNTR	n/a	n/a	n/a	E2, E3, E4	Ashkenazi Jewish	candidate genes study	male	10.1016/j.mad.2004.08.025	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European	meta-analysis of GWAS, replication	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European	meta-analysis of GWAS, replication	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European	meta-analysis of GWAS, replication	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European	meta-analysis of GWAS, replication	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs429358	n/a	n/a	E4	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs7412	n/a	n/a	E2	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+APOE	SNP	rs405509	G>T	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+APOE	SNP	rs769449	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+APOE	n/a	rs769449, rs769452	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+APOE	SNP	rs769449	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+APOE	SNP	rs405509	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+APOE	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+APOE	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+APOE	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+APOE	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+APOE	SNP	rs405509	A/C	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+APOE	SNP	rs405509	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+APP	n/a	rs63750847	n/a	n/a	n/a	n/a	n/a	not specified	10.1038/nature11283	22801501
+ARHGAP45	n/a	rs1801284, rs2074442, rs36084354, rs142614852, rs150294461, rs139988914, rs61734935, rs139251906	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+ASB17	n/a	rs149522654, rs11161887, rs3795251	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+ASIC2	SNP	rs7213812	C>A	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+ATM	SNP	rs189037	n/a	n/a	n/a	Italian	candidate genes study	all	10.1007/s10072-012-1188-5	n/a
+ATM	SNP	rs189037	n/a	n/a	n/a	Chinese, Han	candidate genes study	all	10.1016/j.mad.2010.08.009	n/a
+ATM	haplotype	ATM[rs170548]+LONP1[rs2436514]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ATXN2	n/a	rs7137828	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+ATXN2	SNP	rs653178	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+B3GLCT	n/a	n/a	n/a	n/a	n/a	European	GWAS	female	10.18632/aging.101334	n/a
+BACE2	SNP	rs28656880	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+BCL3	SNP	rs4803750	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+BCL3	SNP	rs4803750	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+BCL3	SNP	rs1531517	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+BEND3	n/a	rs1627804	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+BEND4	SNP	rs1487614	T>C	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+BFSP1	n/a	rs145703098, rs140116733, rs6080719, rs147718368, rs143865632, rs142092768	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+BPIFB4	SNP	rs2070325	G>A	Ile229Val	n/a	Italian, Southern	GWAS	all	10.1161/CIRCRESAHA.117.305875	n/a
+BPIFB4	SNP	rs2070325	G>A	Ile229Val	n/a	German	GWAS, replication	all	10.1161/CIRCRESAHA.117.305875	n/a
+BPIFB4	SNP	rs2070325	G>A	Ile229Val	n/a	Caucasian, American	GWAS, replication	all	10.1161/CIRCRESAHA.117.305875	n/a
+BPIFB4	SNP	rs2070325	G>A	Ile229Val	n/a	German, American	meta-analysis of GWAS	all	10.1161/CIRCRESAHA.117.305875	n/a
+BRD1	SNP	rs138863	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+BTBD9	SNP	rs3800358	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+BTNL2	SNP	rs3763305	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+C2	SNP	rs1042663	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+C2	SNP	rs550605	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+C3	SNP	rs10411506	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+CACNA1C	SNP	rs2370413	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+CADM2	SNP	rs9841144	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+CAMK2B	SNP	rs148569268	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+CAMK2B	SNP	n/a	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+CARS1	SNP	rs739401	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+CCL5	SNP	n/a	-403G/A	n/a	n/a	Spanish	candidate genes study	male	10.1016/j.cyto.2011.12.021	n/a
+CCL5	SNP	n/a	Int1.1T/C	n/a	n/a	Spanish	candidate genes study	all	10.1016/j.cyto.2011.12.021	n/a
+CCL5	SNP	n/a	Int1.1T/C	n/a	n/a	Spanish	candidate genes study	female	10.1016/j.cyto.2011.12.021	n/a
+CDH4	SNP	rs2024714	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+CDKN1A	SNP	rs1801270	C>A	Ser31Arg	n/a	Italian	candidate genes study	all	10.18632/aging.100041	n/a
+CDKN1A	SNP	rs1059234	C>T	n/a	n/a	Italian	candidate genes study	all	10.18632/aging.100041	n/a
+CDKN2B	SNP	rs1063192	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B	SNP	rs3217992	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	n/a	rs1556516	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+CDKN2B-AS1	SNP	rs1556516	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+CDKN2B-AS1	SNP	rs4977756	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs1556516	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs4977756	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs1556516	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs7039467	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs7039467	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+CDKN2B-AS1	SNP	rs1063192	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+CDKN2B-AS1	SNP	rs4977756	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs2157719	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs10120688	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs2151280	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs2383207	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs1412832	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	SNP	rs10116277	A/C	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CDKN2B-AS1	n/a	rs1333045	n/a	n/a	n/a	European	iGWAS	all	10.1038/ncomms15842	n/a
+CELSR2	n/a	rs646776	n/a	n/a	n/a	European	iGWAS	all	10.1038/ncomms15842	n/a
+CEP89	SNP	rs62127362	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+CETP	SNP	rs5882	n/a	I405V	n/a	Ashkenazi Jewish	candidate genes study	all	10.1001/jama.290.15.2030	n/a
+CETP	SNP	rs289714	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs4784744	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs5883	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs9923854	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs9930761	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs9923854	C/A	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	haplotype	rs5882+rs9923854+rs1800777	G+C+G	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	haplotype	rs1800774+rs5882+rs9923854	G+G+C	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+CETP	SNP	rs5882	n/a	n/a	n/a	Chinese	candidate genes study	all	10.1371/journal.pone.0072537	n/a
+CETP	SNP	rs5882	n/a	n/a	n/a	East Asian, Europeans, Caucasian American	meta-analysis of candidate gene studies	all	10.1371/journal.pone.0072537	n/a
+CETP	SNP	rs708272	n/a	n/a	TaqIB	Greek	candidate genes study	all	10.2174/1874192401004010014	n/a
+CFB	SNP	rs541862	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+CHRNA3	n/a	rs1317286	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+CHRNA4	n/a	rs2273500	n/a	n/a	n/a	European	GWAS	male	10.18632/aging.101334	n/a
+CHRNA5	n/a	rs951266	n/a	n/a	n/a	European	iGWAS	all	10.1038/ncomms15842	n/a
+CLSTN2	SNP	rs1834497	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+CLU	SNP	rs9331893	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+CLU	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+CREB1	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+CSMD1	SNP	rs11136774	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+CTGF	SNP	rs9399005	n/a	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+CTGF	SNP	rs7768619	n/a	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+CYP19A1	SNP	rs4646	G>T	n/a	n/a	Italian	candidate genes study	all	10.1093/gerona/glq160	n/a
+CYP1B1	haplotype	GSS[rs2236270]+CYP1B1[rs162557]+GLRX[rs3756704]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+CYP1B1-AS1	SNP	rs13406646	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+DHFRP3	SNP	rs12472681	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+DRD2	SNP	rs6276	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1093/gerona/glv058	n/a
+DRD2	SNP	rs6278	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1093/gerona/glv058	n/a
+DRD4	VNTR	n/a	n/a	n/a	3'UTR VNTR	European	candidate genes study	all	10.1523/JNEUROSCI.3515-12.2013	n/a
+DRD4	VNTR	n/a	n/a	n/a	3'UTR VNTR	European	candidate genes study	female	10.1523/JNEUROSCI.3515-12.2013	n/a
+DRD4	VNTR	n/a	n/a	n/a	3'UTR VNTR	European	candidate genes study	male	10.1523/JNEUROSCI.3515-12.2013	n/a
+DSC2	SNP	rs1790706	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+EBF1	SNP	rs2149954	n/a	n/a	n/a	European	GWAS, discovery + replication	all	10.1093/hmg/ddu139	n/a
+ECE1	SNP	rs12143832	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+EGFR	SNP	rs2075101	A>G	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	27365368.0
+EGFR	SNP	rs1050171	G>A	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	27365368.0
+EGFR	SNP	rs7795728	G>C	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+EGFR	SNP	rs7795743	G>A	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+EGFR	SNP	rs13222385	A>G	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+EGFR	SNP	rs845561	C>T	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+EGFR	SNP	rs1554718	T>C	n/a	n/a	Japanese American	candidate genes study	male	10.1093/gerona/glw116	n/a
+EGFR	SNP	rs17336995	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+EGFR	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+EGFR	haplotype	rs2072454+rs2293347+rs3807362+rs884225	n/a	n/a	n/a	Korean	candidate genes study	female	10.3858/emm.2009.41.11.083	19641380.0
+EGFR	SNP	rs2293347	n/a	n/a	n/a	Korean	candidate genes study	female	10.3858/emm.2009.41.11.083	19641380.0
+EPHA6	SNP	rs10934524	T>C	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+EPHX2	n/a	rs7844965	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+ERCC1	haplotype	rs3212961+rs762562	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ERCC1	haplotype	rs3212961+rs3212964	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ERCC1	haplotype	WRN[rs11574218]+ERCC1[rs3212961]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ERCC2	SNP	rs1052559	n/a	Lys751Gln	n/a	Polish	candidate genes study	all	10.1007/s10522-009-9246-y	n/a
+ERCC2	haplotype	TP53[rs2078486]+ERCC2[rs50871]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ERCC2	haplotype	ERCC2[rs50871]+TP53[rs2078486]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+ERCC2	SNP	rs1799793	n/a	n/a	n/a	Belarusian	candidate genes study	not specified	10.2174/1874609810666170707101548	n/a
+ERCC2	SNP	rs13181	n/a	n/a	n/a	Belarusian	candidate genes study	not specified	10.2174/1874609810666170707101548	n/a
+ESR1	SNP	rs2234693	–401T>C	n/a	PvuII	Italian	candidate genes study	all	10.1093/gerona/glq160	20819792.0
+EXO1	haplotype	EXO1[rs1635518]+KL[rs9527026]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+EXOC3L2	n/a	rs74444983	n/a	n/a	n/a	European	GWAS	male	10.18632/aging.101334	n/a
+FADS1	SNP	rs174555	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FADS1	SNP	rs174548	C/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FADS1	SNP	rs174549	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FADS1	SNP	rs174556	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FADS1	SNP	rs174541	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FAM13A	SNP	rs2704588	C>T	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+FEN1	SNP	rs4246215	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+FLT1	SNP	rs3794396	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+FLT1	SNP	rs7987649	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+FLT1	SNP	rs9513099	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+FN3KRP	SNP	rs1046896	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+FN3KRP	n/a	rs138953335, rs61743692, rs144986629, rs142718764, rs1046896	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+FOXO1	SNP	rs1334241	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs2153960	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication	all	10.1093/gerona/glu166	n/a
+FOXO3	SNP	rs2802292	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+FOXO3	SNP	rs10457180	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+FOXO3	SNP	rs2802292	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+FOXO3	SNP	rs10457180	n/a	n/a	n/a	European	meta-analysis of GWAS, replication of previous findings	all	10.1038/s41467-019-11558-2	n/a
+FOXO3	SNP	rs2764264	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1073/pnas.0801030105	n/a
+FOXO3	SNP	rs13217795	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1073/pnas.0801030105	n/a
+FOXO3	SNP	rs2802292	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1073/pnas.0801030105	n/a
+FOXO3	SNP	rs2802292	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication of previous findings	all	10.1093/gerona/glu166	n/a
+FOXO3	SNP	rs10457180	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication	all	10.1093/gerona/glu166	n/a
+FOXO3	SNP	rs4946936	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1093/gerona/glv058	n/a
+FOXO3	SNP	rs2802292	n/a	n/a	n/a	mixed	meta-analysis of candidate gene studies	male	10.4103/1008-682X.123673	n/a
+FOXO3	SNP	rs2764264	n/a	n/a	n/a	mixed	meta-analysis of candidate gene studies	male	10.4103/1008-682X.123673	n/a
+FOXO3	SNP	rs13217795	n/a	n/a	n/a	mixed	meta-analysis of candidate gene studies	all	10.4103/1008-682X.123673	n/a
+FOXO3	SNP	rs2802288	n/a	n/a	n/a	mixed	meta-analysis of candidate gene studies	all	10.4103/1008-682X.123673	n/a
+FOXO3	haplotype	PARP1[rs1136410]+FOXO3[rs479744]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+FOXO3	SNP	rs1935949	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs4946935	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs9486902	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs1044891	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs9486913	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs2153960	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs3778588	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs1935949	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs4946935	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs1935949	n/a	n/a	n/a	Caucasian, Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs4946935	n/a	n/a	n/a	Caucasian, Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+FOXO3	SNP	rs13217795	n/a	n/a	n/a	Chinese	candidate genes study	all	10.18632/aging.100703	n/a
+FPGT-TNNI3K	n/a	rs146254978	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+FRK	SNP	rs118113034	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+FSHR	SNP	n/a	n/a	Asn/Ser	680	Italian, Southern	candidate genes study	female	10.1089/rej.2012.1365	n/a
+FSTL5	SNP	rs12711357	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+FTH1P5	n/a	rs6904450	n/a	n/a	n/a	European	iGWAS	all	10.1038/ncomms15842	n/a
+FURIN	n/a	rs17514846	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+FURIN	SNP	rs6224	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+GDF1	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+GDF1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+GDF1	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+GDF1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+GDF1	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+GDF1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+GDF1	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+GDF1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+GH1	SNP	rs2665802	A>G, A>T	n/a	n/a	Dutch	candidate genes study	female	10.1111/j.1474-9728.2005.00148.x	n/a
+GHR	SNP	rs4130113	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+GHR	SNP	rs4130113	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+GHR	SNP	rs2940923	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs2940935	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs3764451	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs2940923	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs12153009	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs6883523	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs4866941	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs4292454	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs6887528	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs2940935	n/a	n/a	n/a	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs12153009	n/a	n/a	n/a	Caucasian, Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs2940923	n/a	n/a	n/a	Caucasian, Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	SNP	rs2940935	n/a	n/a	n/a	Caucasian, Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+GHR	In/Del	n/a	n/a	n/a	d3-GHR	Amish	candidate genes study	male	10.1126/sciadv.1602025	n/a
+GHR	In/Del	n/a	n/a	n/a	d3-GHR	Ashkenazi Jewish	candidate genes study	male	10.1126/sciadv.1602025	n/a
+GHR	In/Del	n/a	n/a	n/a	d3-GHR	French	candidate genes study	male	10.1126/sciadv.1602025	n/a
+GHR	In/Del	n/a	n/a	n/a	d3-GHR	Ashkenazi Jewish, Amish, Caucasian	meta-analysis of candidate gene studies	male	10.1126/sciadv.1602025	n/a
+GHRHR	SNP	rs2267723	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+GHRHR	haplotype	rs2267723+rs4988505	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GHRHR	SNP	rs2228078	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+GHRL	SNP	rs696217	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+GHSR	SNP	rs572169	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+GHSR	haplotype	rs572169+rs512692	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GHSR	haplotype	GHSR[rs572169]/PTPN1[rs6067484]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GHSR	haplotype	GHSR/[rs572169]+GHSR[rs512692]+/PAPPA[rs4837525]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GHSR	haplotype	GHSR[rs572169]+MRE11A[rs533984]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GHSR	haplotype	GHSR[rs572169]+MRE11A[rs533984]+PARK7[rs225119]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GLRX	haplotype	GSS[rs2236270]+CYP1B1[rs162557]+GLRX[rs3756704]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GPX1	SNP	rs1050450	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.mad.2009.01.005	n/a
+GRIK2	SNP	rs1416280	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+GRN	SNP	rs63750412	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+GRN	n/a	rs63750723, rs63750043, rs63750541, rs63750412	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+GSR	SNP	rs1002149	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+GSS	haplotype	GSS[rs2236270]+CYP1B1[rs162557]+GLRX[rs3756704]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+GSTZ1	SNP	rs2111699	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s11357-012-9416-8	n/a
+HDAC4	SNP	rs10174562	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+HLA-DQA1	SNP	rs34967069	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+HLA-DQB1	SNP	rs3830058	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+HLA-DRA	SNP	rs2239804	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	Chinese	candidate genes study	all	10.1080/03610730600875791	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	Chinese	candidate genes study	all	10.1080/03610730600875791	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	French	candidate genes study	male	10.1093/hmg/7.2.187	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	French	candidate genes study	all	10.1093/hmg/7.2.187	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	Japanese, Okinawan	candidate genes study	all	10.1111/j.1399-0039.1997.tb02904.x	n/a
+HLA-DRB1	PCR-RFLP	n/a	n/a	n/a	HLA-DR	n/a	candidate genes study	all	n/a	10432438.0
+HNF4A	SNP	rs2071200	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+HNF4G	n/a	rs2943549, rs201625743, rs138897994, rs148532560	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+HP	SNP	rs12924886	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+HPCAL1	SNP	rs1974676	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+HRAS	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+HRAS	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+HRAS	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+HRAS	haplotype	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	n/a	n/a	APOE[rs449647+rs769446+rs405509+rs429358+rs7412]+HRAS[rs8176330+rs8176331+rs8176332+rs8176333+rs8176334+rs8176335+rs12628]+LASS1[rs60774903+rs3746263+Exon1-234	Caucasian	candidate genes study	all	10.1111/j.1474-9726.2010.00600.x	n/a
+HSPA14	SNP	rs17268499	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+HSPA14	SNP	rs7905174	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+HSPA14	SNP	rs9787671	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+HTR3B	SNP	rs45597437	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+HTT	SNP	rs61348208	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+HYKK	SNP	rs8042849	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+ICAM1	SNP	rs5030390	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+IDE	haplotype	INSR[rs2252673]+IDE[rs7078413]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+IGF1R	haplotype	n/a	n/a	n/a	IGF1R[G/A]+IRS2[Gly/Asp],+UCP2[Ala/Val]	Italian	candidate genes study	all	10.1007/s11357-011-9210-z	n/a
+IGF1R	haplotype	IGF1R[rs12437963]+PTPN1[rs6067484]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+IGF1R	SNP	rs2272037	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+IGF1R	SNP	rs2272037	n/a	n/a	n/a	Caucasian	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2009.00493.x	n/a
+IGF1R	SNP	rs2229765	n/a	n/a	n/a	North-eastern Italian	candidate genes study	male	10.1186/1471-2318-9-19	n/a
+IGF2	SNP	n/a	A>G	n/a	ApaI	Ashkenazi Jewish	candidate genes study	female	10.1016/j.mad.2004.08.025	n/a
+IGF2	haplotype	n/a	n/a	n/a	TH[STR]+IGF2[AvaII]	Italian	candidate genes study	male	10.1016/S0531-5565(01)00146-2	n/a
+IGF2R	SNP	rs111333005	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+IGF2R	SNP	rs9456497	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+IGFBP3	SNP	rs6670	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+IGFBP3	SNP	rs11977526	n/a	n/a	n/a	Chinese	candidate genes study	all	10.18632/aging.100703	n/a
+IGFBP4	SNP	rs7214466	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+IGFBP5	SNP	rs11575134	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+IGFBP5	SNP	rs3770472	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/j.1474-9726.2009.00493.x	n/a
+IL1B	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+IL1RN	SNP	rs315949	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+IL6	SNP	rs1800795	-174C>G	n/a	n/a	Italian	meta-analysis of candidate gene studies	male	10.1016/j.arr.2008.09.001	n/a
+IL6	SNP	rs2069837	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+IL6	SNP	rs2069837	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+IL6	SNP	rs2069837	G>A	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+IMPG1	SNP	rs6453914	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+INS	SNP	rs3842755	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+INS	haplotype	n/a	n/a	n/a	TH[STR]+INS[FokI]	Italian	candidate genes study	female	10.1016/S0531-5565(01)00146-2	n/a
+INSR	haplotype	INSR[rs2252673]+IDE[rs7078413]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+IRS2	haplotype	n/a	n/a	n/a	IGF1R[G/A]+IRS2[Gly/Asp],+UCP2[Ala/Val]	Italian	candidate genes study	all	10.1007/s11357-011-9210-z	n/a
+JAK2	SNP	rs3824432	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+KALRN	In/Del	rs3830412	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+KALRN	In/Del	rs3830412	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+KCNA5	SNP	rs1157755	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+KCNK3	SNP	rs1275922	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+KCNT2	SNP	rs10737670	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10754187	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10801530	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10801531	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10801532	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10922075	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10922083	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs12069983	A/C	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs12069990	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs12729649	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs1538687	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs1769996	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs2027368	A/C	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs2878557	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs3855964	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs3927686	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs3928857	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs7531611	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs7535696	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10801537	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10922071	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10922082	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs10922084	A/C	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KCNT2	SNP	rs11807331	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+KIF13B	SNP	rs62502826	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+KIR3DX1	SNP	rs73070152	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+KL	SNP	rs1207362	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+KL	SNP	rs9536314	1062T>G	Phe352Val	n/a	mixed	meta-analysis of candidate gene studies	all	10.1016/j.mad.2018.12.003	n/a
+KL	haplotype	AOX1[rs2256977]+KL[rs2283368]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+KL	haplotype	EXO1[rs1635518]+KL[rs9527026]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+LAMA2	In/Del	n/a	n/a	n/a	Alu element insertion/deletion	Tatars	candidate genes study	female	10.1134/S1022795416100033	n/a
+LAMA5	SNP	rs4925386	n/a	n/a	n/a	Italian, Southern	candidate genes study	all	10.1016/j.mad.2016.03.003	n/a
+LDLR	SNP	rs142158911	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+LIMCH1	SNP	rs10007810	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+LMNA	haplotype	rs915179+rs2485662+rs4641+rs1468772	n/a	n/a	n/a	American, Caucasians; Italian, Southern; French; Ashkenazi Jewish	meta-analysis of candidate gene studies	all	10.1111/j.1474-9726.2012.00808.x	n/a
+LNPK	SNP	rs4972778	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+LOC105369165	SNP	rs116362179	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+LOC105377989	SNP	rs7754015	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+LOC105377992	SNP	rs1262476	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+LOC107985852	SNP	rs2008465	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+LONP1	haplotype	ATM[rs170548]+LONP1[rs2436514]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+LPA	n/a	rs55730499	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+LPA	SNP	rs10455872	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+LPA	n/a	rs10455872	n/a	n/a	n/a	European	iGWAS	all	10.1038/ncomms15842	n/a
+LPA	SNP	rs10455872	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+LRRFIP1	SNP	rs6740706	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+LY6G5C	SNP	rs2280800	A/C	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+LY6G6F	SNP	rs2242653	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+MAGI3	SNP	rs1230666	n/a	n/a	n/a	European	GWAS	all	10.7554/eLife.39856.001	n/a
+MAP3K5	SNP	rs2076260	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+MAP3K5	SNP	rs6904753	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+MAP3K5	SNP	rs2076260	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+MAP3K7	SNP	rs282070	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s11357-012-9416-8	n/a
+MAP3K9	SNP	rs7713083	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+MAPK4	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+MAPK9	SNP	rs7713083	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+MAPK9	SNP	rs1363513	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+MAPK9	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+MBOAT1	SNP	rs11753077	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+MC2R	n/a	rs28926173	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+MIR3156-3	SNP	rs145672791	A>G	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+MLH1	SNP	1172T/A	1172T>A	n/a	n/a	Korean	candidate genes study	all	10.1007/s00439-006-0148-7	n/a
+MRE11	haplotype	rs512150+rs592068	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+MRE11	haplotype	rs10831227+rs604845	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+MRE11	haplotype	GHSR[rs572169]+MRE11[rs533984]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+MRE11	haplotype	GHSR[rs572169]+MRE11[rs533984]+PARK7[rs225119]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+MSH5	SNP	rs3115672	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+MSTN	SNP	n/a	n/a	K153R	n/a	Spanish	candidate genes study	all	10.1007/s11357-013-9513-3	n/a
+MSTN	SNP	n/a	n/a	K153R	n/a	Italian	candidate genes study	all	10.1007/s11357-013-9513-3	n/a
+MT-ATP6	SNP	n/a	8860A>G	Thr/Ala	n/a	Chinese, Bama Yao, Guangxi Province	candidate genes study	all	10.1007/s11033-012-1784-8	n/a
+MT-CYB	SNP	n/a	14766C>T	Thr/Ile	n/a	Chinese, Bama Yao, Guangxi Province	candidate genes study	all	10.1007/s11033-012-1784-8	n/a
+MT-CYB	SNP	n/a	15326A>G	Thr/Ala	n/a	Chinese, Bama Yao, Guangxi Province	candidate genes study	all	10.1007/s11033-012-1784-8	n/a
+MT-ND4	SNP	n/a	11719G>A	Gly/Gly	n/a	Chinese, Bama Yao, Guangxi Province	candidate genes study	all	10.1007/s11033-012-1784-8	n/a
+MT-RNR2	SNP	n/a	2076A>G	n/a	n/a	Chinese, Bama Yao, Guangxi Province	candidate genes study	all	10.1007/s11033-012-1784-8	n/a
+MTHFD1	SNP	rs1950902	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	30294719.0
+MTHFR	SNP	rs1801133	677C>T	n/a	n/a	Ashkenazi Jewish	candidate genes study	female	10.1016/j.mad.2004.08.025	15621215.0
+MTHFR	SNP	rs1801133	677C>T	n/a	n/a	Swiss	candidate genes study	all	10.1046/j.1365-2362.1999.00578.x	n/a
+MTTP	SNP	rs2866164	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1093/gerona/gls103	n/a
+MTTP	SNP	rs2866164	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1093/gerona/gls103	n/a
+NBN	haplotype	rs12680687+rs2735385	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+NCAM2	SNP	rs2826891	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+NECTIN2	SNP	rs6857	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs34342646	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs12972970	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs12972156	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs283815	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs283811	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs283812	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+NECTIN2	SNP	rs6857	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+NECTIN2	SNP	rs6859	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+NECTIN2	SNP	rs3852861	G/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+NFATC2	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+NFATC3	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+NFKB1	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+NFKB1	SNP	rs4648110	n/a	n/a	n/a	n/a	candidate genes study	all	n/a	22184967.0
+NFKBIA	In/Del	14:35875417	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+NFKBIA	SNP	rs2233407	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+NFKBIA	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+NLRC5	SNP	rs41383	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+NOS1	SNP	rs1879417	T/C	n/a	n/a	Italian, Southern	candidate genes study	all	10.1007/s10522-013-9421-z	n/a
+NOS1AP	SNP	rs347278	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+NOTCH3	SNP	rs55882518	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+NOTCH4	SNP	rs416352	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+NR3C1	SNP	rs2963155	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+NR3C1	SNP	rs9324921	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+NUDT12	SNP	rs79072042	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+OLFM4	SNP	rs9568833	T>C	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+OTOL1	n/a	rs199791179, rs149127996, rs199985412, rs3921595, rs202021352	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+PAPPA	haplotype	PRDX3 [rs1553850]+PAPPA[rs449807]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PAPPA	haplotype	GHSR[rs572169]+GHSR[rs512692]+PAPPA[rs4837525]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PARK7	haplotype	GHSR[rs572169]+MRE11A[rs533984]+PARK7[rs225119]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PARP1	SNP	rs1805415	T>A,C,G	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+PARP1	SNP	rs1805415	T>A,C,G	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+PARP1	haplotype	PARP1[rs1136410]+FOXO3[rs479744]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PARVG	SNP	rs139170	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+PDE4B	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PFKM	SNP	rs10875746	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+PGGT1B	SNP	rs3805586	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+PGP	n/a	rs200526199, rs116977380, rs200615324	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+PIK3R1	SNP	rs7709243	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+PIK3R1	SNP	rs7709243	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+PIK3R1	SNP	rs7713645	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+PIK3R1	SNP	rs6881033	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+PKHD1	SNP	rs12199884	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+PKN2	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PLCB1	SNP	rs117816042	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PLCB1	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PLCB4	In/Del	rs11360322	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PLCG2	SNP	rs72824905	n/a	n/a	n/a	Caucasian	meta-analysis of candidate gene studies	all	10.1007/s00401-019-02026-8	n/a
+PLCG2	SNP	rs72824905	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PLCG2	SNP	rs140070662	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PLCG2	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PLCH1	SNP	n/a	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PMF1	SNP	rs2758603	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+POLB	SNP	rs2953983	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+POM121C	SNP	rs113160991	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+PON1	SNP	rs662	A>G	Q192R	n/a	Italian	candidate genes study	all	10.1016/j.exger.2003.11.019	n/a
+PON1	SNP	rs662	A>G	Q192R	n/a	Chinese	candidate genes study	all	10.12659/msm.898231	n/a
+PON1	SNP	rs662	A>G	Q192R	n/a	Tatars	candidate genes study	all	n/a	17936978.0
+PPARG	SNP	rs1801282	G>C	Pro12Ala	n/a	European	candidate genes study	male	10.1016/j.exger.2004.03.034	n/a
+PPARG	SNP	rs1175542	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+PPARG	SNP	rs1801282	n/a	Pro12Ala	n/a	Italian, Southern	candidate genes study	male	10.1089/rej.2012.1365	n/a
+PPP1R26	SNP	rs2590504	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+PPP2R1A	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PPP2R2C	SNP	rs10937739	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+PRDX3	haplotype	PRDX3 [rs1553850]+PAPPA[rs449807]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PRKAR2A	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PRKCB	SNP	rs78946887	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCD	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs2463117	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs17098729	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs1088680	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs1088679	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs1092331	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs1088680	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	SNP	rs12878845	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCH	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PRKCI	In/Del	n/a	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKCQ	SNP	rs73619607	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+PRKD3	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+PROX2	n/a	rs61978928	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+PSG7	n/a	rs199532805, rs112354282	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+PSORS1C3	n/a	rs3130507	n/a	n/a	n/a	European	GWAS	female	10.18632/aging.101334	n/a
+PSRC1	SNP	rs4970836	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+PTEN	SNP	rs1022427	n/a	n/a	n/a	Caucasian	candidate genes study	female	10.1111/j.1474-9726.2009.00493.x	n/a
+PTK2	SNP	rs7460	n/a	n/a	n/a	Spanish	candidate genes study	all	10.1089/rej.2014.1570	24930376.0
+PTK2	SNP	rs7843014	n/a	n/a	n/a	Spanish	candidate genes study	all	10.1089/rej.2014.1570	24930376.0
+PTPN1	haplotype	rs2038526+rs6067484	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PTPN1	haplotype	rs2426164+rs6067484	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PTPN1	haplotype	rs6063534+rs6067484	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PTPN1	haplotype	IGF1R[rs12437963]+PTPN1[rs6067484]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+PTPN1	haplotype	GHSR[rs572169]/PTPN1[rs6067484]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+RAC2	SNP	rs13053175	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+RAD23B	SNP	rs1805329	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+RAD23B	haplotype	AOX1[rs2465661]+RAD23B[rs11573709	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+RAD50	SNP	rs2706372	n/a	n/a	n/a	German, Danes, French	immunochip, discovery + replication	all	0.1111/acel.12471	n/a
+RAD52	SNP	rs11571461	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+RDH5	SNP	rs3138136	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+RELA	n/a	multiple	n/a	n/a	n/a	Ashkenazi Jewish	gene-based association approach	all	10.1111/acel.13362	n/a
+RELN	SNP	rs115734214	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+RGS7	SNP	rs4611001	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+RGS7	SNP	rs7536260	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication	all	10.1093/gerona/glu166	n/a
+RP1	In/Del	rs35262860	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+RP1	In/Del	rs35262860	n/a	n/a	n/a	European, East Asian, African American	meta-analysis of GWAS	all	10.1038/s41467-019-11558-2	n/a
+RPA1	haplotype	rs11656253+rs17292175	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+RPS6KB1	n/a	rs201316437, rs1051424	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+RPTOR	SNP	rs9908495	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+RPTOR	SNP	rs9908495	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+RUNX3	SNP	rs4648884	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+SDC4	SNP	rs1981429	n/a	n/a	n/a	Italian, Southern	candidate genes study	all	10.1016/j.mad.2015.08.003	n/a
+SDC4	SNP	rs2251252	n/a	n/a	n/a	Italian, Southern	candidate genes study	all	10.1016/j.mad.2015.08.003	n/a
+SDC4	SNP	rs6130811	n/a	n/a	n/a	Italian, Southern	candidate genes study	all	10.1016/j.mad.2015.08.003	n/a
+SEMA6D	n/a	rs74011415	n/a	n/a	n/a	European	GWAS	male	10.18632/aging.101334	n/a
+SERPINE1	In/Del	rs1194865614	n/a	n/a	n/a	Amish	candidate genes study	all	10.1126/sciadv.aao1617	n/a
+SETD9	n/a	rs2257505, rs149334074, rs40497, rs141692637, rs150526244, rs146260337	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+SH2B3	SNP	rs3184504	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+SIAH1	SNP	rs7185374	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+SIAH1	SNP	rs113311037	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+SIRT1	SNP	rs12778366	n/a	n/a	n/a	Dutch	candidate genes study	all	10.1371/journal.pone.0058636	n/a
+SIRT1	SNP	rs7896005	n/a	n/a	n/a	American, Caucasian	candidate genes study	all	10.1007/s10522-011-9360-5	n/a
+SIRT1	SNP	rs4746720	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT1	SNP	rs4746720	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT2	SNP	rs45592833	n/a	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1093/gerona/glv058	n/a
+SIRT2	SNP	rs10405150	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT3	SNP	rs11555236	n/a	n/a	n/a	Italian	candidate genes study	female	10.1007/s11357-013-9559-2	n/a
+SIRT3	SNP	rs511744	n/a	n/a	n/a	Caucasian, American	candidate genes study	all	10.1371/journal.pone.0115616	n/a
+SIRT3	SNP	rs4758633	n/a	n/a	n/a	Caucasian, American	candidate genes study	female	10.1371/journal.pone.0115616	n/a
+SIRT3	SNP	rs4980329	n/a	n/a	n/a	Italian	candidate genes study	female	10.1007/s11357-013-9559-2	n/a
+SIRT3	SNP	rs11246009	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT4	SNP	rs2522134	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT5	SNP	rs2841505	n/a	n/a	n/a	Caucasian, American	candidate genes study	all	10.1371/journal.pone.0115616	n/a
+SIRT5	SNP	rs2253217	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT5	SNP	rs2253217	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT6	SNP	rs107251	n/a	n/a	n/a	Caucasian, American	candidate genes study	all	10.1371/journal.pone.0115616	n/a
+SIRT6	SNP	rs107251	n/a	n/a	n/a	Danish	candidate genes study	all	10.1007/s11357-011-9373-7	n/a
+SIRT7	SNP	rs34829162	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SIRT7	SNP	rs34829162	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+SKIC2	SNP	rs438999	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+SKIC2	SNP	rs429608	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+SKIC2	SNP	rs200956599	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+SKIC2	n/a	rs200956599, rs143419968	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+SLC25A27	SNP	rs9472817	n/a	n/a	n/a	Italian	candidate genes study	all	10.1371/journal.pone.0029650	n/a
+SLC39A11	SNP	rs9894443	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+SLC41A1	SNP	rs56052552	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+SOD2	SNP	n/a	9C>T	Ala/Val	n/a	Ashkenazi Jewish	candidate genes study	male	10.1016/j.mad.2004.08.025	n/a
+SOD2	SNP	rs4880	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.mad.2009.01.005	n/a
+SOD3	SNP	rs2536512	n/a	n/a	n/a	Caucasian, American	candidate genes study	all	10.1371/journal.pone.0115616	n/a
+SOD3	SNP	rs4946935	n/a	n/a	n/a	Caucasian, American	candidate genes study	all	10.1371/journal.pone.0115616	n/a
+SOX6	SNP	rs11023737	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS	all	10.1093/gerona/glu166	n/a
+SPZ1	SNP	rs184214819	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+SPZ1	n/a	rs1862136, rs139471643, rs184214819, rs200249535, rs35337118	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+STAT3	SNP	rs4796791	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+STAT5A	SNP	rs9889323	1985T>C	n/a	n/a	Tatars	candidate genes study	female	10.1134/S1022795419050077	n/a
+STK10	SNP	rs73329622	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+STK24	SNP	rs9517320	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+SVEP1	SNP	rs1327533	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+SYDE2	SNP	rs200536623	n/a	n/a	n/a	Chinese, Han	GWAS	male	10.1001/jamanetworkopen.2018.1670	n/a
+TAFA5	SNP	rs1027238	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+TAFA5	SNP	rs5771675	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+TAFA5	SNP	rs1027238	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+TAS2R16	SNP	rs978739	n/a	n/a	n/a	Italian, Southern	candidate genes study	all	10.1371/journal.pone.0045232	n/a
+TBX3	SNP	rs2161877	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+TCF3	SNP	rs2074888	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1016/j.redox.2020.101448	n/a
+TCF3	SNP	rs2240590	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1016/j.redox.2020.101448	n/a
+TCF3	SNP	rs145777664	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1016/j.redox.2020.101448	n/a
+TERC	SNP	rs3772190	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/j.1474-9726.2011.00775.x	n/a
+TERC	SNP	rs3772190	n/a	n/a	n/a	n/a	candidate genes study	all	n/a	22549493.0
+TERC	SNP	rs12696304	C>G	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TERF1	SNP	rs12335203	T>C	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TERT	SNP	rs4975605	C>A	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TERT	SNP	rs2736100	C>A	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TERT	SNP	rs2853690	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+TERT	VNTR	MNS16A	n/a	n/a	MNS16A	Italian, Central	candidate genes study	all	10.1016/j.exger.2013.03.009	n/a
+TERT	SNP	rs2853676	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+TERT	SNP	rs2853677	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+TFDP1	SNP	rs11839469	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+TFDP1	SNP	rs11839469	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+TGFA	SNP	rs432203	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1089/rej.2011.1257	n/a
+TH	haplotype	n/a	n/a	n/a	TH[STR]+IGF2[AvaII]	Italian	candidate genes study	male	10.1016/S0531-5565(01)00146-2	n/a
+TH	haplotype	n/a	n/a	n/a	TH[STR]+INS[FokI]	Italian	candidate genes study	female	10.1016/S0531-5565(01)00146-2	n/a
+TIRAP	SNP	rs8177352	n/a	n/a	n/a	Caucasian, African-American	candidate genes study	all	10.1016/j.exger.2009.02.004	n/a
+TMEM131L	SNP	rs13119846	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+TMEM18	SNP	rs6744653	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+TMTC2	SNP	rs7976168	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs1036345	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7309892	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10862576	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs11115558	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10778938	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs11115563	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10778939	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs11531136	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10778936	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs453843	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs2020085	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7308896	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7961389	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs11115564	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10778937	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7975671	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7314554	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs11115556	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs6539700	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs8181713	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs10862575	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TMTC2	SNP	rs7304484	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TNF	SNP	rs1800629	-308G>A	n/a	n/a	Italian	candidate genes study	male	10.1136/jmg.40.4.296	n/a
+TNKS2	SNP	rs2066276	T>C	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TNKS2	SNP	rs10509637	A>G	n/a	n/a	Italian, Calabrian	candidate genes study	all	10.1007/s10522-015-9551-6	n/a
+TNNI3K	n/a	rs146254978	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+TOMM40	SNP	rs2075650	n/a	n/a	n/a	German	immunochip	all	0.1111/acel.12471	n/a
+TOMM40	SNP	rs2075650	n/a	n/a	n/a	German	single-variant association approach	all	10.1093/gerona/glab023	n/a
+TOMM40	n/a	rs157580, rs2075650, rs142412517	n/a	n/a	n/a	German	gene-based association approach	all	10.1093/gerona/glab023	n/a
+TOMM40	SNP	rs2075650	n/a	n/a	n/a	Caucasian	meta-analysis of GWAS, replication of previous findings	all	10.1093/gerona/glu166	n/a
+TOMM40	SNP	rs34404554	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs71352238	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs11556505	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs2075650	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs34095326	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs157582	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs157581	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs184017	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs59007384	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+TOMM40	SNP	rs2075650	n/a	n/a	n/a	Caucasian, American	GWAS	all	10.1371/journal.pone.0029848	n/a
+TOMM40	SNP	rs2075650	A/G	n/a	n/a	Caucasian	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+TOMM40	SNP	rs2075650	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+TOMM40	SNP	rs157582	C/T	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+TOMM40	SNP	rs10119	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+TOMM40	SNP	rs157580	A/G	n/a	n/a	European	iGWAS	all	10.1371/journal.pgen.1005728	n/a
+TOX	n/a	rs13262617	n/a	n/a	n/a	European	GWAS	male	10.18632/aging.101334	n/a
+TP53	SNP	rs1042522	C>G	Arg72Pro	n/a	Danish	candidate genes study	all	10.4161/cc.7.2.5249	n/a
+TP53	SNP	rs1042522	C>G	Arg72Pro	n/a	Italian	candidate genes study	female	10.1093/gerona/gls223	n/a
+TP53	haplotype	TP53[rs2078486]+ERCC2[rs50871]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+TP53	haplotype	TXNRD1rs17202060]+TP53[rs2078486]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+TP53	haplotype	ERCC2[rs50871]+TP53[rs2078486]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+TTR	SNP	rs28933981	C/T	T119M	n/a	Danish	candidate genes study	all	10.1161/ATVBAHA.113.301273	n/a
+TXN	SNP	rs3808888	n/a	n/a	n/a	Japanese	candidate genes study	male	10.1093/gerona/glx247	n/a
+TXNRD1	haplotype	TXNRD1rs17202060]+TP53[rs2078486]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+UCP1	haplotype	n/a	-3826A>G+-3740C>A	n/a	rs1800592+C-3740A	Italian	candidate genes study	all	10.1016/j.exger.2011.07.011	n/a
+UCP2	haplotype	n/a	n/a	n/a	IGF1R[G/A]+IRS2[Gly/Asp],+UCP2[Ala/Val]	Italian	candidate genes study	all	10.1007/s11357-011-9210-z	n/a
+UCP2	SNP	rs660339	n/a	n/a	n/a	Italian	candidate genes study	not specified	10.1371/journal.pone.0029650	n/a
+UCP2	haplotype	UCP2[rs660339]+UCP2[rs659366]+UCP3[rs15763]	n/a	n/a	n/a	Italian	candidate genes study	all	10.1371/journal.pone.0029650	n/a
+UCP3	SNP	rs3781907	n/a	n/a	n/a	Danish	candidate genes study	not specified	10.1016/j.mad.2012.06.004	n/a
+UCP3	SNP	rs11235972	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.mad.2012.06.004	n/a
+UCP3	SNP	rs1800849	n/a	n/a	n/a	Italian	candidate genes study	all	10.1371/journal.pone.0029650	n/a
+UCP3	SNP	rs15763	n/a	n/a	n/a	Italian	candidate genes study	all	10.1371/journal.pone.0029650	n/a
+UCP3	haplotype	UCP2[rs660339]+UCP2[rs659366]+UCP3[rs15763]	n/a	n/a	n/a	Italian	candidate genes study	all	10.1371/journal.pone.0029650	n/a
+USP2-AS1	n/a	rs139137459	n/a	n/a	n/a	European	GWAS	all	10.18632/aging.101334	n/a
+USP42	SNP	rs3764814	n/a	n/a	n/a	European	meta-analysis of GWAS	all	10.1093/gerona/glx027	n/a
+VEGFA	haplotype	rs699947+rs13207351+rs1570360+rs2010963	-2578C>A+-1190G>A+-1154G>A+-634G>C	n/a	n/a	Italian	candidate genes study	all	10.1016/j.neurobiolaging.2007.05.003	n/a
+VEGFA	SNP	rs699947	-2578C>A	n/a	n/a	Italian	candidate genes study	all	10.1016/j.neurobiolaging.2007.05.003	n/a
+VEGFA	SNP	rs13207351	-1190G>A	n/a	n/a	Italian	candidate genes study	all	10.1016/j.neurobiolaging.2007.05.003	n/a
+VEGFA	SNP	rs699947	-2578C>A	n/a	n/a	Italian	candidate genes study	all	10.1016/j.neurobiolaging.2007.05.003	n/a
+VEGFA	SNP	rs13207351	-1190G>A	n/a	n/a	Italian	candidate genes study	all	10.1016/j.neurobiolaging.2007.05.003	n/a
+WRN	SNP	rs1801195	n/a	Leu1074Phe	n/a	Finnish	candidate genes study	all	10.1002/1096-8628(20001211)95:4<374::AID-AJMG14>3.0.CO;2-4	n/a
+WRN	SNP	rs13251813	n/a	n/a	n/a	Danish	candidate genes study	all	10.1016/j.exger.2012.02.010	n/a
+WRN	haplotype	WRN[rs11574218]+ERCC1[rs3212961]	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+XRCC1	haplotype	rs1799782+rs3213403	n/a	n/a	n/a	Danish	candidate genes study	all	10.1111/acel.12755	n/a
+YWHAZ	SNP	n/a	n/a	n/a	n/a	Ashkenazi Jewish	candidate genes study	all	10.1111/acel.13362	n/a
+ZC3HC1	SNP	rs56179563	n/a	n/a	n/a	European	iGWAS	all	10.7554/eLife.39856.001	n/a
+ZFP69B	SNP	rs12568089	n/a	n/a	n/a	Chinese, Han	GWAS	female	10.1001/jamanetworkopen.2018.1670	n/a
+ZFYVE28	SNP	rs57681851	G>T	n/a	n/a	Chinese	GWAS	all	10.1038/srep21243	n/a
+ZW10	n/a	rs61905747	n/a	n/a	n/a	European	GWAS	male	10.18632/aging.101334	n/a
