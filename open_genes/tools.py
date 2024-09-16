@@ -1,8 +1,9 @@
 import sqlite3
 from pathlib import Path
 
-def lifespan_change_db_query(sql:str):
-    """ This function exeute query on lifespan_change sqlite table. It returns query results. """
+
+def db_query(sql:str):
+    """ This function execute query on open-genes sqlite table. It returns query results. """
     dbpath = Path(Path(__file__).parent, "data", "open_genes.sqlite")
     conn = sqlite3.connect(dbpath, isolation_level='DEFERRED')
     cursor = conn.cursor()
