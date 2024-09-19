@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from just_agents.llm_session import LLMSession
 from just_agents.utils import rotate_env_keys
 from pathlib import Path
+from datetime import datetime
 
 app = typer.Typer()
 
@@ -34,6 +35,7 @@ def run_query(model: str, prompt_file: str, query: str):
     result = session.query(query)
     typer.echo("RESULT:================================")
     typer.echo(result)
+    return result
 
 @app.command()
 def custom_query(
@@ -47,7 +49,32 @@ def custom_query(
 def test_best_interventions():
     model = "gpt-4o-mini"
     prompt_file = "prompts/open_genes.txt"
-    query = "Give me which genes extended lifespan most of all on model organisms"
+    
+    # Read the query from an external file
+    query_file = "queries/best_interventions.txt"
+    with open(query_file, "r") as f:
+        query = f.read().strip()
+    
+    # Run the query
+    result = run_query(model, prompt_file, query)
+    
+    # Prepare the output
+    timestamp = datetime.now().isoformat()
+    output_file = "results/best_interventions_result.txt"
+    
+    # Check if the file exists, if not create it, otherwise append to it
+    mode = "a" if os.path.exists(output_file) else "w"
+    with open(output_file, mode) as f:
+        f.write(f"Question: {query}\n")
+        f.write(f"Result: {result}\n")
+        f.write(f"Timestamp: {timestamp}\n")
+        f.write("\n---\n\n")  # Add a separator between entries
+
+@app.command()
+def test_life_extending_variants():
+    model = "gpt-4o-mini"
+    prompt_file = "prompts/open_genes.txt"
+    query = "Which gene variants are most associated with living longer in multiple populations?"
     run_query(model, prompt_file, query)
 
 if __name__ == "__main__":
