@@ -1,27 +1,27 @@
-import polars as pl
+import pandas as pd
 import sqlite3
 import typer
 import os
 
-def polars_dtype_to_sqlite(dtype: pl.DataType) -> str:
+def pandas_dtype_to_sqlite(dtype: str) -> str:
     """
-    Map Polars data types to SQLite data types.
+    Map Pandas data types to SQLite data types.
     
     Parameters:
-        dtype (pl.DataType): Polars data type.
+        dtype (str): Pandas data type.
     
     Returns:
         str: Corresponding SQLite data type.
     """
-    if dtype in [pl.Int8, pl.Int16, pl.Int32, pl.Int64, pl.UInt8, pl.UInt16, pl.UInt32, pl.UInt64]:
+    if dtype.startswith('int') or dtype.startswith('uint'):
         return 'INTEGER'
-    elif dtype in [pl.Float32, pl.Float64]:
+    elif dtype.startswith('float'):
         return 'REAL'
-    elif dtype == pl.Boolean:
+    elif dtype == 'bool':
         return 'INTEGER'
-    elif dtype == pl.Utf8:
+    elif dtype == 'object':
         return 'TEXT'
-    elif dtype in [pl.Date, pl.Datetime, pl.Time]:
+    elif dtype.startswith('datetime'):
         return 'TEXT'
     else:
         return 'BLOB'
@@ -40,16 +40,16 @@ def main(
         sqlite_db_file (str): Path to the SQLite database file.
         table_name (str): Name of the new table to create.
     """
-    # Read TSV file into a Polars DataFrame
-    df = pl.read_csv(tsv_file, separator='\t')
+    # Read TSV file into a Pandas DataFrame
+    df = pd.read_csv(tsv_file, sep='\t')
     
     # Get the schema of the DataFrame
-    schema = df.schema
+    schema = df.dtypes
     
-    # Map Polars data types to SQLite data types and construct column definitions
+    # Map Pandas data types to SQLite data types and construct column definitions
     columns = []
     for col_name, dtype in schema.items():
-        sqlite_type = polars_dtype_to_sqlite(dtype)
+        sqlite_type = pandas_dtype_to_sqlite(str(dtype))
         columns.append(f'"{col_name}" {sqlite_type}')
     
     # Create SQL statement for creating a new table
@@ -78,7 +78,7 @@ def main(
     insert_sql = f'INSERT INTO "{table_name}" ({columns_sql}) VALUES ({placeholders})'
     
     # Convert DataFrame to list of tuples for insertion
-    data = df.to_numpy().tolist()
+    data = df.values.tolist()
     
     # Insert the data into the table
     cursor.executemany(insert_sql, data)

@@ -7,6 +7,10 @@ def db_query(sql:str):
     dbpath = Path(Path(__file__).parent, "data", "open_genes.sqlite")
     conn = sqlite3.connect(dbpath, isolation_level='DEFERRED')
     cursor = conn.cursor()
+    
+    # Print the SQL query
+    print(f"Executing SQL query: {sql}")
+    
     cursor.execute(sql)
     try:
         rows = cursor.fetchall()
