@@ -1,8 +1,9 @@
 import sqlite3
 from pathlib import Path
+from eliot import log_call
 
-
-def db_query(sql:str):
+@log_call(include_args=["sql"], include_result=True)
+def db_query(sql: str):
     """ This function execute query on open-genes sqlite table. It returns query results. """
     dbpath = Path(Path(__file__).parent, "data", "open_genes.sqlite")
     conn = sqlite3.connect(dbpath, isolation_level='DEFERRED')

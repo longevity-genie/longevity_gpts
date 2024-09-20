@@ -17,3 +17,5 @@ dependencies:
     - just-agents>=0.1.0
     - litellm>=1.42.5
     - FlagEmbedding
+    - eliottree
+    - eliot
