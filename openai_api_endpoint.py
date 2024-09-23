@@ -14,7 +14,6 @@ from just_agents.utils import RotateKeys
 from fastapi.middleware.cors import CORSMiddleware
 import loguru
 import yaml
-import litellm
 
 log_path = Path(__file__)
 log_path = Path(log_path.parent, "logs", "openai_api_endpoint.log")
@@ -72,6 +71,16 @@ def get_session(options_llm: dict) -> LLMSession:
     )
     return session
 
+def message_cleaner(request: dict):
+    for message in request["messages"]:
+        if message["role"] == "user":
+            content = message["content"]
+            if type(content) is list:
+                if len(content) > 0:
+                    if type(content[0]) is dict:
+                        if content[0].get("type", "") == "text":
+                            if type(content[0].get("text", None)) is str:
+                                message["content"] = content[0]["text"]
 
 @app.post("/v1/chat/completions")
 def chat_completions(request: dict):
@@ -79,6 +88,7 @@ def chat_completions(request: dict):
         loguru.logger.debug(request)
         options = get_options(request)
         session = get_session(options)
+        message_cleaner(request)
         if request["messages"]:
             if request.get("stream") and str(request.get("stream")).lower() != "false":
                 return StreamingResponse(

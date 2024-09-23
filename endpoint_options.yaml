@@ -50,4 +50,9 @@ precious3GPT_gpt-4o-mini:
   tools: ["get_omics_data", "get_enrichment"]
   system_prompt: 'precious3GPT_prompt.txt'
 
-
+chain_of_thought:
+  model: 'gpt-4o-mini'
+  just_streaming_method: 'chain_of_thought'
+  temperature: 0
+  tools: []
+  system_prompt: 'chain_of_thought.txt'
