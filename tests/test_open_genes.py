@@ -1,9 +1,15 @@
+import sys
+import os
+
+# Add the parent directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import typer
 from open_genes.tools import db_query
 import asyncio
 import json
 import pprint
-import os
+
 from dotenv import load_dotenv
 from just_agents.llm_session import LLMSession
 from just_agents.utils import rotate_env_keys
@@ -11,7 +17,9 @@ from pathlib import Path
 from datetime import datetime
 from eliot import start_action, to_file, log_call, log_message
 from eliottree import tasks_from_iterable, render_tasks
-import sys
+
+
+
 
 app = typer.Typer()
 

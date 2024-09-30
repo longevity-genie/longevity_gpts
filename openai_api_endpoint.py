@@ -12,6 +12,7 @@ from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 from just_agents.utils import RotateKeys
 from fastapi.middleware.cors import CORSMiddleware
+from open_genes.tools import db_query
 import loguru
 import yaml
 import litellm
