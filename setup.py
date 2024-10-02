@@ -13,7 +13,7 @@ LONG_DESCRIPTION = 'Restful-genie, package to deliver REST API for LongevityGPT'
 
 # Setting up
 setup(
-    name="longevity-gpts",
+    name="longevity_gpts",
     version=VERSION,
     author="karmazinalex (Karmazin Alex)",
     author_email="<karmazinalex@gmail.com>",

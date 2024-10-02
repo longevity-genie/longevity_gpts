@@ -12,6 +12,7 @@ from starlette.responses import StreamingResponse
 from dotenv import load_dotenv
 from just_agents.utils import RotateKeys
 from fastapi.middleware.cors import CORSMiddleware
+from open_genes.tools import db_query
 import loguru
 import yaml
 
@@ -36,7 +37,7 @@ app.add_middleware(
 app.include_router(omics_router)
 
 TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial, lifespan_change_db_query, get_omics_data, get_enrichment]
+             _process_sql, clinical_trails_full_trial, db_query, get_omics_data, get_enrichment]
 
 @app.get("/", description="Defalt message", response_model=str)
 async def default():
