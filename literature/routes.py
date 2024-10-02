@@ -151,16 +151,16 @@ async def hybrid_search(query: QueryPaper):
     return [document_to_string(d) for d in results]
 
 
-def _hybrid_search(text: str) -> str:
+def _hybrid_search(search_query: str) -> str:
     """does hybrid search in the literature, provides sources together with answers"""
     query:QueryPaper = QueryPaper()
     collections: list[str] = query.collections
     k = query.limit
-    url = query.db if query.db is not None else os.getenv("OPENSEARCH_URL", "https://localhost:9200")
+    url = os.getenv("OPENSEARCH_URL", "https://localhost:9200")
     loguru.logger.info(
-        f"HYBRID SEARCH ON: '{query.text}' \n in collections {query.collections} with limit = {k} and url = {url}")
+        f"HYBRID SEARCH ON: '{search_query}' \n in collections {query.collections} with limit = {k} and url = {url}")
     results = seq(
-        [search_collection(collection_name, text, k, url) for collection_name in collections]).flatten().order_by(
+        [search_collection(collection_name, search_query, k, url) for collection_name in collections]).flatten().order_by(
         lambda d: d.metadata["search_score"]).reverse()
     loguru.logger.info(f"RESULTS RECEIVED:\n {results}")
 

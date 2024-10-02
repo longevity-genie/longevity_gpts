@@ -36,10 +36,11 @@ app.add_middleware(
 app.include_router(omics_router)
 
 TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial, lifespan_change_db_query, get_omics_data, get_enrichment]
+        _process_sql, clinical_trails_full_trial, lifespan_change_db_query, get_omics_data,
+        get_enrichment, _hybrid_search]
 
 @app.get("/", description="Defalt message", response_model=str)
-async def default():
+def default():
     return "This is default page for Genetics Genie API endpoint."
 
 def get_options(request: dict):
@@ -61,7 +62,7 @@ def get_options(request: dict):
 
 def get_session(options_llm: dict) -> LLMSession:
     tools_dict = {func.__name__: func for func in TOOLS}
-    tool_names = options_llm.pop("tools")
+    tool_names = options_llm.pop("tools", None)
     model_tools = None
     if tool_names:
         model_tools = [tools_dict[tool] for tool in tool_names]

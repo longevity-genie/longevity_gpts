@@ -56,3 +56,7 @@ chain_of_thought:
   temperature: 0
   tools: []
   system_prompt: 'chain_of_thought.txt'
+
+simple_gpt-4o-mini:
+  model: 'gpt-4o-mini'
+  temperature: 0
