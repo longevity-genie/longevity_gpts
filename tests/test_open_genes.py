@@ -31,7 +31,7 @@ log_file_path = logs /  "test_opengenes.log"  # Correct path
 log_file_mode = 'w'
 
 try:
-    to_file(log_file_path.open(log_file_mode))
+    to_file(log_file_path.open(log_file_mode, encoding="utf-8"))
 except FileNotFoundError as e:
     print(f"Error: {e}")
     # Handle the error or exit
@@ -48,7 +48,7 @@ def run_query(model: str, prompt_file: str, query: str):
 
     system_prompt_path = Path(prompt_file)
 
-    with system_prompt_path.open("r") as f:
+    with system_prompt_path.open("r", encoding="utf-8") as f:
         system_prompt = f.read().strip()
 
     session: LLMSession = LLMSession(
@@ -86,22 +86,22 @@ def test_opengenes():
     prompt_file = Path("prompts/open_genes.txt")
     
     # Read the queries from an external file
-    query_file = Path("queries/test_opengenes_mini.txt")
-    with query_file.open("r") as f:
+    query_file = Path("queries/test_opengenes.txt")
+    with query_file.open("r", encoding="utf-8") as f:
         queries = f.readlines()
     
     for query in queries:
         query = query.strip()
         if not query:
             continue
-        result = run_query(model, prompt_file, query)
+        result = run_query(model, str(prompt_file), query)
     
     
     # Render the log to a human-readable file
     human_log_file_path = log_file_path.with_stem(log_file_path.stem + "_human")
-    with human_log_file_path.open("w") as human_log_file:
+    with human_log_file_path.open("w", encoding="utf-8") as human_log_file:
         if log_file_path.exists():
-            with log_file_path.open("r") as log_file:
+            with log_file_path.open("r", encoding="utf-8") as log_file:
                 log_entries = [json.loads(line) for line in log_file]
                 tasks = tasks_from_iterable(log_entries)
                 render_tasks(human_log_file.write, tasks, human_readable=True)
@@ -114,7 +114,7 @@ def render_log():
     Render the Eliot log file in a human-readable tree format.
     """
     if os.path.exists(log_file_path):
-        with open(log_file_path, "r") as log_file:
+        with open(log_file_path, "r", encoding="utf-8") as log_file:
             log_entries = [json.loads(line) for line in log_file]
             tasks = tasks_from_iterable(log_entries)
             render_tasks(sys.stdout.write, tasks, colorize=True, human_readable=True)

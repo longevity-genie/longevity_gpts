@@ -15,3 +15,5 @@ What types of studies have been conducted on the IGF1R gene?
 What evidence of the link between PTEN and aging do you know? 
 What genes are associated with both longevity and altered expression in aged humans?
 Is the expression of the ACE2 gene altered with aging in humans?
+Interventions on which genes extended mice lifespan most of all?
+Which knockdowns were most lifespan extending on model animals?
