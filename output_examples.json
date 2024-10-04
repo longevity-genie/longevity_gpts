@@ -1,0 +1,416 @@
+{
+  "lifespan_change": {
+    "HGNC": [
+      "GHR",
+      "GHR",
+      "GHR",
+      "GHR",
+      "GHR"
+    ],
+    "model_organism": [
+      "mouse",
+      "mouse",
+      "mouse",
+      "mouse",
+      "mouse"
+    ],
+    "sex": [
+      "male",
+      "female",
+      "male",
+      "female",
+      "female"
+    ],
+    "line": [
+      "C57BL/6J",
+      "C57BL/6",
+      "Ola-BALB/cJ",
+      "Ola-BALB/cJ",
+      "129/OlaHsd x BALB/c"
+    ],
+    "effect_on_lifespan": [
+      "increases lifespan",
+      "increases lifespan",
+      "increases lifespan",
+      "increases lifespan",
+      "increases lifespan"
+    ],
+    "control_cohort_size": [
+      22.0,
+      35.0,
+      15.0,
+      24.0,
+      13.0
+    ],
+    "experiment_cohort_size": [
+      14.0,
+      35.0,
+      11.0,
+      30.0,
+      11.0
+    ],
+    "quantity_of_animals_in_cage_or_container": [
+      2.0,
+      null,
+      2.0,
+      2.0,
+      4.0
+    ],
+    "containment_t_celsius_from": [
+      22.0,
+      22.0,
+      22.0,
+      22.0,
+      null
+    ],
+    "containment_t_celsius_to": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "diet": [
+      "standard chow",
+      "standard chow",
+      "standard chow",
+      "standard chow",
+      "standard chow"
+    ],
+    "target_gene_expression_change": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "control_lifespan_min": [
+      175.0,
+      98.6,
+      128.0,
+      516.0,
+      null
+    ],
+    "control_lifespan_mean": [
+      756.0,
+      122.0,
+      656.0,
+      759.0,
+      749.0
+    ],
+    "control_lifespan_median": [
+      866.0,
+      125.5,
+      698.0,
+      765.0,
+      null
+    ],
+    "control_lifespan_max": [
+      955.0,
+      137.8,
+      885.0,
+      1004.0,
+      null
+    ],
+    "experiment_lifespan_min": [
+      686.0,
+      94.0,
+      648.0,
+      525.0,
+      null
+    ],
+    "experiment_lifespan_mean": [
+      951.0,
+      128.0,
+      917.0,
+      921.0,
+      1031.0
+    ],
+    "experiment_lifespan_median": [
+      941.0,
+      124.0,
+      888.0,
+      981.0,
+      null
+    ],
+    "experiment_lifespan_max": [
+      1095.0,
+      163.6,
+      1165.0,
+      1163.0,
+      null
+    ],
+    "lifespan_time_unit": [
+      "days",
+      "weeks",
+      "days",
+      "days",
+      "days"
+    ],
+    "lifespan_percent_change_min": [
+      292.0,
+      -4.7,
+      406.2,
+      1.7,
+      null
+    ],
+    "significance_min": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "lifespan_percent_change_mean": [
+      26.0,
+      5.0,
+      40.0,
+      21.0,
+      38.0
+    ],
+    "significance_mean": [
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "lifespan_percent_change_median": [
+      9.0,
+      -1.1,
+      27.0,
+      28.0,
+      null
+    ],
+    "significance_median": [
+      null,
+      0,
+      null,
+      null,
+      null
+    ],
+    "lifespan_percent_change_max": [
+      14.7,
+      18.7,
+      31.6,
+      15.8,
+      null
+    ],
+    "significance_max": [
+      null,
+      1,
+      null,
+      null,
+      null
+    ],
+    "intervention_deteriorates": [
+      null,
+      "glucose metabolism,body composition",
+      null,
+      null,
+      null
+    ],
+    "intervention_improves": [
+      "insulin sensitivity,glucose metabolism,INS/IGFR pathway",
+      "insulin sensitivity",
+      "insulin sensitivity,glucose metabolism,INS/IGFR pathway",
+      "insulin sensitivity,glucose metabolism,INS/IGFR pathway",
+      "INS/IGFR pathway"
+    ],
+    "main_effect_on_lifespan": [
+      "loss of function",
+      "loss of function",
+      "loss of function",
+      "loss of function",
+      "loss of function"
+    ],
+    "intervention_way": [
+      "changes in genome level",
+      "combined (inducible mutation)",
+      "changes in genome level",
+      "changes in genome level",
+      "changes in genome level"
+    ],
+    "intervention_method": [
+      "gene knockout",
+      "gene knockout",
+      "gene knockout",
+      "gene knockout",
+      "gene knockout"
+    ],
+    "genotype": [
+      "-/-",
+      "-/-",
+      "-/-",
+      "-/-",
+      "-/-"
+    ],
+    "tissue": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "tissue_specific_promoter": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "induction_by_drug_withdrawal": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "drug": [
+      null,
+      "tamoxifen",
+      null,
+      null,
+      null
+    ],
+    "treatment_start": [
+      null,
+      "6weeks",
+      null,
+      "0days",
+      null
+    ],
+    "treatment_end": [
+      null,
+      "6.7weeks",
+      null,
+      null,
+      null
+    ],
+    "doi": [
+      "10.1210/en.2003-0374",
+      "10.1210/en.2016-1649",
+      "10.1210/en.2003-0374",
+      "10.1210/en.2003-0374",
+      "10.1210/endo.141.7.7586"
+    ],
+    "pmid": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "gene_criteria": {
+    "HGNC": [
+      "A2M",
+      "AARS1",
+      "AASS",
+      "ABCA5",
+      "ABCA8"
+    ],
+    "criteria": [
+      "'Age-related changes in gene expression, methylation or protein activity'",
+      "'Age-related changes in gene expression, methylation or protein activity in humans'",
+      "'Age-related changes in gene expression, methylation or protein activity in humans'",
+      "'Age-related changes in gene expression, methylation or protein activity in humans'",
+      "'Age-related changes in gene expression, methylation or protein activity in humans'"
+    ]
+  },
+  "gene_hallmarks": {
+    "HGNC": [
+      "A2M",
+      "AARS1",
+      "AASS",
+      "ABCA5",
+      "ABCA8"
+    ],
+    "hallmarks of aging": [
+      "'stem cell exhaustion','sterile inflammation'",
+      null,
+      "'transcriptional alterations','accumulation of reactive oxygen species'",
+      null,
+      null
+    ]
+  },
+  "longevity_associations": {
+    "HGNC": [
+      "ABCC4",
+      "ABO",
+      "ABO",
+      "ABO",
+      "ABO"
+    ],
+    "polymorphism type": [
+      "SNP",
+      "SNP",
+      "SNP",
+      "SNP",
+      "SNP"
+    ],
+    "polymorphism id": [
+      "rs4148544",
+      "rs2519093",
+      "rs514659",
+      "rs545971",
+      "rs612169"
+    ],
+    "nucleotide substitution": [
+      "n/a",
+      "n/a",
+      "A/C",
+      "C/T",
+      "A/G"
+    ],
+    "amino acid substitution": [
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a"
+    ],
+    "polymorphism \u2014 other": [
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a"
+    ],
+    "ethnicity": [
+      "Caucasian, American",
+      "European",
+      "European",
+      "European",
+      "European"
+    ],
+    "study type": [
+      "GWAS",
+      "iGWAS",
+      "iGWAS",
+      "iGWAS",
+      "iGWAS"
+    ],
+    "sex": [
+      "all",
+      "all",
+      "all",
+      "all",
+      "all"
+    ],
+    "doi": [
+      "10.1089/rej.2011.1257",
+      "10.7554/eLife.39856.001",
+      "10.1371/journal.pgen.1005728",
+      "10.1371/journal.pgen.1005728",
+      "10.1371/journal.pgen.1005728"
+    ],
+    "pmid": [
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a",
+      "n/a"
+    ]
+  }
+}
