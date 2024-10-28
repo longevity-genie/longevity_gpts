@@ -42,34 +42,6 @@ TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_looku
 def default():
     return "This is default page for Genetics Genie API endpoint."
 
-# def get_options(request: dict):
-#     with open("endpoint_options.yaml") as f:
-#         options_llm = yaml.full_load(f).get(request["model"])
-#     key_getter = options_llm.pop("key_getter", None)
-#     if key_getter:
-#         options_llm["key_getter"] = RotateKeys(key_getter)
-#     prompt_path = options_llm.pop("system_prompt", None)
-#     if prompt_path:
-#         prompt_path = Path("prompts", prompt_path)
-#         with open(prompt_path) as f:
-#             if (len(request["messages"]) > 0) and (request["messages"][0]["role"] == "system"):
-#                 request["messages"][0]["content"] = f.read()
-#             else:
-#                 request["messages"].insert(0, {"role": "system", "content": f.read()})
-#     return options_llm
-
-
-# def get_session(options_llm: dict) -> LLMSession:
-#     tools_dict = {func.__name__: func for func in TOOLS}
-#     tool_names = options_llm.pop("tools", None)
-#     model_tools = None
-#     if tool_names:
-#         model_tools = [tools_dict[tool] for tool in tool_names]
-#     session: LLMSession = LLMSession(
-#         llm_options=options_llm,
-#         tools=model_tools
-#     )
-#     return session
 
 def clean_messages(request: dict):
     for message in request["messages"]:
@@ -82,9 +54,11 @@ def clean_messages(request: dict):
                             if type(content[0].get("text", None)) is str:
                                 message["content"] = content[0]["text"]
 
+
 def remove_system_prompt(request: dict):
     if request["messages"][0]["role"] == "system":
         request["messages"] = request["messages"][1:]
+
 
 def get_agent(request):
     with open("endpoint_options.yaml") as f:
