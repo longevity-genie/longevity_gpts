@@ -1,11 +1,9 @@
 simple_gpt-4o-mini:
-  class: "LLMSession"
   options:
     model: 'gpt-4o-mini'
     temperature: 0
 
 gpt-4o-mini:
-  class: "LLMSession"
   options:
     model: 'gpt-4o-mini'
     temperature: 0
@@ -36,7 +34,6 @@ chain_of_thought:
   system_prompt_path: "prompts/chain_of_thought.txt"
 
 groq/llama-3.1-70b-versatile:
-  class: "LLMSession"
   options:
     model: 'groq/llama-3.1-70b-versatile'
     temperature: 0
@@ -61,7 +58,6 @@ groq/llama-3.1-70b-versatile:
   system_prompt_path: 'prompts/groq_lama3_prompt.txt'
 
 open_genes_gpt-4o-mini:
-  class: "LLMSession"
   options:
     model: 'gpt-4o-mini'
     temperature: 0

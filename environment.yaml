@@ -20,3 +20,4 @@ dependencies:
     - eliot-tree
     - eliot
     - typer
+    - gseapy

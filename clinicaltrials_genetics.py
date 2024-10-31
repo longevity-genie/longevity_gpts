@@ -1,11 +1,9 @@
 import loguru
-import torch
 import uvicorn
 from fastapi import FastAPI
 from fastapi.openapi.models import ExternalDocumentation
 from fastapi.openapi.utils import get_openapi
 from hybrid_search.opensearch_hybrid_search import *
-from pycomfort.config import load_environment_keys
 from starlette.middleware.cors import CORSMiddleware
 
 import genetics.main
