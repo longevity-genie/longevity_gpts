@@ -35,9 +35,6 @@ app.add_middleware(
 
 app.include_router(omics_router)
 
-TOOLS = [_hybrid_search, rsid_lookup, gene_lookup, pathway_lookup, disease_lookup, sequencing_info,
-             _process_sql, clinical_trails_full_trial, db_query, get_omics_data, get_enrichment, _hybrid_search]
-
 @app.get("/", description="Defalt message", response_model=str)
 def default():
     return "This is default page for Genetics Genie API endpoint."
@@ -98,5 +95,5 @@ def chat_completions(request: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("openai_api_endpoint:app", host="0.0.0.0", port=8088)
+    uvicorn.run("openai_api_endpoint:app", host="0.0.0.0", port=8088, workers=10)
 
