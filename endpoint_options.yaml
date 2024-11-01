@@ -24,6 +24,8 @@ gpt-4o-mini:
       function: "_process_sql"
     - package: "clinical_trials.clinical_trails_router"
       function: "clinical_trails_full_trial"
+    - package: "project_info_answerer.main"
+      function: "project_info"
   system_prompt_path: "prompts/gpt4o_mini_prompt.txt"
 
 chain_of_thought:
