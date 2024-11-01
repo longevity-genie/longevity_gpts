@@ -57,6 +57,30 @@ groq/llama-3.1-70b-versatile:
   key_list_path: 'groq_keys.txt'
   system_prompt_path: 'prompts/groq_lama3_prompt.txt'
 
+mistral-large-latest:
+  options:
+    model: 'mistral-large-latest'
+    api_base: 'https://api.mistral.ai/v1'
+    temperature: 0
+  tools:
+    - package: "literature.routes"
+      function: "_hybrid_search"
+    - package: "genetics.main"
+      function: "rsid_lookup"
+    - package: "genetics.main"
+      function: "gene_lookup"
+    - package: "genetics.main"
+      function: "pathway_lookup"
+    - package: "genetics.main"
+      function: "disease_lookup"
+    - package: "genetics.main"
+      function: "sequencing_info"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "_process_sql"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "clinical_trails_full_trial"
+  system_prompt_path: "prompts/mistral_large_prompt.txt"
+
 open_genes_gpt-4o-mini:
   options:
     model: 'gpt-4o-mini'
