@@ -1,62 +1,105 @@
-mistral-large-latest:
-  model: 'mistral-large-latest'
-  api_base: 'https://api.mistral.ai/v1'
-  temperature: 0
-  tools: ["_hybrid_search", "rsid_lookup", "gene_lookup", "pathway_lookup", "disease_lookup",
-          "sequencing_info", "_process_sql", "clinical_trails_full_trial"]
-  system_prompt: 'mistral_large_prompt.txt'
-
-Llama-3.1-70B-Instruct:
-  model: 'ollama/Llama-3.1-70B-Instruct'
-  temperature: 0
-  tools: [ "_hybrid_search", "rsid_lookup", "gene_lookup", "pathway_lookup", "disease_lookup",
-           "sequencing_info", "_process_sql", "clinical_trails_full_trial" ]
-  api_base: 'http://agingkills.eu:11434'
-  api_key: 'No_key'
-  keep_alive: -1
-  system_prompt: 'groq_lama3_prompt.txt'
-
-groq/llama-3.1-70b-versatile:
-  model: 'groq/llama-3.1-70b-versatile'
-  temperature: 0
-  tools: [ "_hybrid_search", "rsid_lookup", "gene_lookup", "pathway_lookup", "disease_lookup",
-           "sequencing_info", "_process_sql", "clinical_trails_full_trial" ]
-  key_getter: 'groq_keys.txt'
-  system_prompt: 'groq_lama3_prompt.txt'
-
-gpt-4o:
-  model: 'gpt-4o'
-  temperature: 0
-  tools: [ "_hybrid_search", "rsid_lookup", "gene_lookup", "pathway_lookup", "disease_lookup",
-           "sequencing_info", "_process_sql", "clinical_trails_full_trial" ]
-  system_prompt: 'gpt4o_prompt.txt'
+simple_gpt-4o-mini:
+  options:
+    model: 'gpt-4o-mini'
+    temperature: 0
 
 gpt-4o-mini:
-  model: 'gpt-4o-mini'
-  temperature: 0
-  tools: [ "_hybrid_search", "rsid_lookup", "gene_lookup", "pathway_lookup", "disease_lookup",
-           "sequencing_info", "_process_sql", "clinical_trails_full_trial" ]
-  system_prompt: 'gpt4o_mini_prompt.txt'
-
-open_genes_gpt-4o-mini:
-  model: 'gpt-4o-mini'
-  temperature: 0
-  tools: ["db_query"]
-  system_prompt: 'open_genes.txt'
-
-precious3GPT_gpt-4o-mini:
-  model: 'gpt-4o-mini'
-  temperature: 0
-  tools: ["get_omics_data", "get_enrichment"]
-  system_prompt: 'precious3GPT_prompt.txt'
+  options:
+    model: 'gpt-4o-mini'
+    temperature: 0
+  tools:
+    - package: "literature.routes"
+      function: "_hybrid_search"
+    - package: "genetics.main"
+      function: "rsid_lookup"
+    - package: "genetics.main"
+      function: "gene_lookup"
+    - package: "genetics.main"
+      function: "pathway_lookup"
+    - package: "genetics.main"
+      function: "disease_lookup"
+    - package: "genetics.main"
+      function: "sequencing_info"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "_process_sql"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "clinical_trails_full_trial"
+    - package: "project_info_answerer.main"
+      function: "project_info"
+  system_prompt_path: "prompts/gpt4o_mini_prompt.txt"
 
 chain_of_thought:
-  model: 'gpt-4o-mini'
-  just_streaming_method: 'chain_of_thought'
-  temperature: 0
-  tools: []
-  system_prompt: 'chain_of_thought.txt'
+  class: "ChainOfThoughtAgent"
+  options:
+    model: 'gpt-4o-mini'
+    temperature: 0
+  system_prompt_path: "prompts/chain_of_thought.txt"
 
-simple_gpt-4o-mini:
-  model: 'gpt-4o-mini'
-  temperature: 0
+groq/llama-3.1-70b-versatile:
+  options:
+    model: 'groq/llama-3.1-70b-versatile'
+    temperature: 0
+  tools:
+    - package: "literature.routes"
+      function: "_hybrid_search"
+    - package: "genetics.main"
+      function: "rsid_lookup"
+    - package: "genetics.main"
+      function: "gene_lookup"
+    - package: "genetics.main"
+      function: "pathway_lookup"
+    - package: "genetics.main"
+      function: "disease_lookup"
+    - package: "genetics.main"
+      function: "sequencing_info"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "_process_sql"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "clinical_trails_full_trial"
+  key_list_path: 'groq_keys.txt'
+  system_prompt_path: 'prompts/groq_lama3_prompt.txt'
+
+mistral-large-latest:
+  options:
+    model: 'mistral-large-latest'
+    api_base: 'https://api.mistral.ai/v1'
+    temperature: 0
+  tools:
+    - package: "literature.routes"
+      function: "_hybrid_search"
+    - package: "genetics.main"
+      function: "rsid_lookup"
+    - package: "genetics.main"
+      function: "gene_lookup"
+    - package: "genetics.main"
+      function: "pathway_lookup"
+    - package: "genetics.main"
+      function: "disease_lookup"
+    - package: "genetics.main"
+      function: "sequencing_info"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "_process_sql"
+    - package: "clinical_trials.clinical_trails_router"
+      function: "clinical_trails_full_trial"
+  system_prompt_path: "prompts/mistral_large_prompt.txt"
+
+open_genes_gpt-4o-mini:
+  options:
+    model: 'gpt-4o-mini'
+    temperature: 0
+  tools:
+    - package: "open_genes.tools"
+      function: "db_query"
+  system_prompt_path: 'prompts/open_genes.txt'
+
+precious3GPT_gpt-4o-mini:
+  class: "LLMSession"
+  options:
+    model: 'gpt-4o-mini'
+    temperature: 0
+  tools:
+    - package: "precious3GPT.p3gpt_tool"
+      function: "get_omics_data"
+    - package: "precious3GPT.p3gpt_tool"
+      function: "get_enrichment"
+  system_prompt_path: 'prompts/precious3GPT_prompt.txt'
