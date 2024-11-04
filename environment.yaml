@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.11
+  - pip
   - pip:
     - fastapi
     - uvicorn
@@ -14,8 +15,8 @@ dependencies:
     - psutil #compartibilit
     - loguru
     - httpx
-    - just-agents>=0.1.0
-    - litellm>=1.42.5
+    - just-agents>=0.2.5
+    - litellm>=1.51.3
     - FlagEmbedding
     - eliot-tree
     - eliot
