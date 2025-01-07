@@ -14,7 +14,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from open_genes.tools import db_query
 import loguru
 import yaml
-
+import mimetypes
+import base64
 log_path = Path(__file__)
 log_path = Path(log_path.parent, "logs", "openai_api_endpoint.log")
 loguru.logger.add(log_path.absolute(), rotation="10 MB")
@@ -56,13 +57,34 @@ def remove_system_prompt(request: dict):
     if request["messages"][0]["role"] == "system":
         request["messages"] = request["messages"][1:]
 
-
 def get_agent(request):
     with open("endpoint_options.yaml") as f:
         agent_schema = yaml.full_load(f).get(request["model"])
 
     return build_agent(agent_schema)
 
+def sha256sum(content_str):
+    hash = hashlib.sha256()
+    hash.update(content_str.encode('utf-8'))
+    return hash.hexdigest()
+
+def save_files(request: dict):
+    for file in request.get("file_params", []):
+        file_name = file.get("name")
+        file_content_base64 = file.get("content")
+        file_checksum = file.get("checksum")
+        file_mime = file.get("mime")
+
+        if sha256sum(file_content_base64) != file_checksum:
+            raise Exception("File checksum does not match")
+
+        extension = mimetypes.guess_extension(file_mime)
+        file_content = base64.urlsafe_b64decode(file_content_base64.encode('utf-8'))
+        full_file_name = file_name + extension
+
+        file_path = Path('/tmp', full_file_name)
+        with open(file_path, "wb") as f:
+            f.write(file_content)
 
 @app.post("/v1/chat/completions")
 def chat_completions(request: dict):
@@ -81,6 +103,8 @@ def chat_completions(request: dict):
             resp_content = agent.query(request["messages"])
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
+        if request.get("file_params", []):
+            save_files(request)
     except Exception as e:
         loguru.logger.error(str(e))
         resp_content = str(e)
