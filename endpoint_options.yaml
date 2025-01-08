@@ -1,6 +1,7 @@
 simple_gpt-4o-mini:
   options:
     model: 'gpt-4o-mini'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
 
 gpt-4o-mini:
@@ -32,12 +33,14 @@ chain_of_thought:
   class: "ChainOfThoughtAgent"
   options:
     model: 'gpt-4o-mini'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
   system_prompt_path: "prompts/chain_of_thought.txt"
 
 groq/llama-3.1-70b-versatile:
   options:
     model: 'groq/llama-3.1-70b-versatile'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
   tools:
     - package: "literature.routes"
@@ -62,7 +65,7 @@ groq/llama-3.1-70b-versatile:
 mistral-large-latest:
   options:
     model: 'mistral-large-latest'
-    api_base: 'https://api.mistral.ai/v1'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
   tools:
     - package: "literature.routes"
@@ -86,6 +89,7 @@ mistral-large-latest:
 open_genes_gpt-4o-mini:
   options:
     model: 'gpt-4o-mini'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
   tools:
     - package: "open_genes.tools"
@@ -96,6 +100,7 @@ precious3GPT_gpt-4o-mini:
   class: "LLMSession"
   options:
     model: 'gpt-4o-mini'
+    api_base: 'http://127.0.0.1:14441/v1'
     temperature: 0
   tools:
     - package: "precious3GPT.p3gpt_tool"
