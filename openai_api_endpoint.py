@@ -16,6 +16,9 @@ import loguru
 import yaml
 import mimetypes
 import base64
+import hashlib
+import json
+
 log_path = Path(__file__)
 log_path = Path(log_path.parent, "logs", "openai_api_endpoint.log")
 loguru.logger.add(log_path.absolute(), rotation="10 MB")
@@ -68,8 +71,11 @@ def sha256sum(content_str):
     hash.update(content_str.encode('utf-8'))
     return hash.hexdigest()
 
-def save_files(request: dict):
-    for file in request.get("file_params", []):
+def save_files(file_params: list):
+    if not file_params:
+        return
+
+    for file in file_params:
         file_name = file.get("name")
         file_content_base64 = file.get("content")
         file_checksum = file.get("checksum")
@@ -103,8 +109,8 @@ def chat_completions(request: dict):
             resp_content = agent.query(request["messages"])
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
-        if request.get("file_params", []):
-            save_files(request)
+        file_params = request.get("metadata", {}).get("file_params", [])
+        save_files(file_params)
     except Exception as e:
         loguru.logger.error(str(e))
         resp_content = str(e)
@@ -116,6 +122,11 @@ def chat_completions(request: dict):
         "choices": [{"message": {"role": "assistant", "content": resp_content}}],
     }
 
+
+@app.get("/v1/get_prompt_examples")
+def get_prompt_examples():
+    with open("prompt_examples.json") as f:
+        return json.load(f)
 
 if __name__ == "__main__":
     import uvicorn

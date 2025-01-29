@@ -1,0 +1,58 @@
+{
+    "gpt-4o-mini": [
+        {
+          "title": "How does the MTOR gene influence longevity?",
+          "prompt": "How does the MTOR gene influence longevity?"
+        },
+        {
+          "title": "What is the impact of different alleles of rs10937739?",
+          "prompt": "What is the impact of different alleles of rs10937739?"
+        },
+        {
+          "title": "What genes and genetic variants are involved in Chronic Granulomatous Disease? Which clinical trials are related to this disease?",
+          "prompt": "What genes and genetic variants are involved in Chronic Granulomatous Disease? Which clinical trials are related to this disease?"
+        },
+        {
+          "title": "Which genetic variants are involved in the lipid metabolism pathway and how do they influence longevity?",
+          "prompt": "Which genetic variants are involved in the lipid metabolism pathway and how do they influence longevity?"
+        }
+      ],
+      "mistral-large-latest": [
+        {
+          "title": "How does the MTOR gene influence longevity?",
+          "prompt": "How does the MTOR gene influence longevity?"
+        },
+        {
+          "title": "What is the impact of different alleles of rs10937739?",
+          "prompt": "What is the impact of different alleles of rs10937739?"
+        },
+        {
+          "title": "What genes and genetic variants are involved in Chronic Granulomatous Disease? Which clinical trials are related to this disease?",
+          "prompt": "What genes and genetic variants are involved in Chronic Granulomatous Disease? Which clinical trials are related to this disease?"
+        },
+        {
+          "title": "Which genetic variants are involved in the lipid metabolism pathway and how do they influence longevity?",
+          "prompt": "Which genetic variants are involved in the lipid metabolism pathway and how do they influence longevity?"
+        }
+      ],
+      "open_genes_gpt-4o-mini": [
+        {
+          "title": "Intervnetions on which genes extended mice lifespan most of all?",
+          "prompt": "Intervnetions on which genes extended mice lifespan most of all?"
+        },
+        {
+          "title": "Which knockdowns were most lifespan extending on model animals?",
+          "prompt": "Which knockdowns were most lifespan extending on model animals?"
+        }
+      ],
+      "precious3GPT_gpt-4o-mini": [
+        {
+          "title": "Could you please provide me with the expression profile for a 70-year-old man?",
+          "prompt": "Could you please provide me with the expression profile for a 70-year-old man?"
+        },
+        {
+          "title": "Can you provide me with skin proteomics data for a 30-year-old woman taking metformin?",
+          "prompt": "Can you provide me with skin proteomics data for a 30-year-old woman taking metformin?"
+        }
+      ]
+}   
