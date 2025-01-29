@@ -90,6 +90,7 @@ def save_files(file_params: list):
 
         file_path = Path('/tmp', full_file_name)
         with open(file_path, "wb") as f:
+            loguru.logger.debug(f"Saving file {file_path}")
             f.write(file_content)
 
 @app.post("/v1/chat/completions")
@@ -102,6 +103,8 @@ def chat_completions(request: dict):
         clean_messages(request)
         remove_system_prompt(request)
         if request["messages"]:
+            file_params = request.get("metadata", {}).get("file_params", [])
+            save_files(file_params)
             if request.get("stream") and str(request.get("stream")).lower() != "false":
                 return StreamingResponse(
                     agent.stream(request["messages"]), media_type="application/x-ndjson"
@@ -109,8 +112,6 @@ def chat_completions(request: dict):
             resp_content = agent.query(request["messages"])
         else:
             resp_content = "Something goes wrong, request did not contain messages!!!"
-        file_params = request.get("metadata", {}).get("file_params", [])
-        save_files(file_params)
     except Exception as e:
         loguru.logger.error(str(e))
         resp_content = str(e)
